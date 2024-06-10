@@ -105,18 +105,14 @@
 		<!-- Appbar -->
 		<div class="fixed-top">
 			<div class="appbar-area sticky-black">
-				<div class="container  overflow-hidden">
-					<div class="video-sik">
-						<video autoplay muted loop>
-							<source
-								src="assets/images/sys-soocien/soocien-video.mp4"
-								type="video/mp4"
-							/>
-							Seu navegador não suporta a tag de vídeo.
-						</video>
-					</div>
-					<div class="appbar-container navbar-pg">
-						<div class="appbar-item appbar-actions zindex-1">
+				<div class="container">
+					<div class="appbar-container">
+						<div class="appbar-item appbar-actions">
+							<div class="appbar-action-item">
+								<a href="#" class="back-page"
+									><i class="flaticon-left-arrow"></i
+								></a>
+							</div>
 							<div class="appbar-action-item">
 								<a
 									href="#"
@@ -127,27 +123,15 @@
 								></a>
 							</div>
 						</div>
-						<div class="appbar-item appbar-brand me-auto">
-							<a href="index.html">
-								<img
-									style="width: 180px"
-									src="assets/images/sys-soocien/soocien-logo2.svg"
-									alt="logo"
-									class="main-logo"
-								/>
-								<img
-									src="assets/images/sys-soocien/soocien-logo.svg"
-									alt="logo"
-									class="hover-logo"
-								/>
-							</a>
+						<div class="appbar-item appbar-page-title mt-5">
+							<h3>Financeiro</h3>
 						</div>
 						<div class="appbar-item appbar-options">
 							<div class="appbar-option-item appbar-option-notification">
 								<a href="notifications.html"><i class="flaticon-bell"></i></a>
 								<span class="option-badge">5</span>
 							</div>
-							<div class="appbar-option-item appbar-option-profile zindex-1">
+							<div class="appbar-option-item appbar-option-profile">
 								<a href="dados.html"
 									><img src="assets/images/profile.jpg" alt="profile"
 								/></a>
@@ -162,279 +146,33 @@
 		<!-- Body-content -->
 		<div class="body-content body-content-lg">
 			<!-- "body-content-lg" add this class if any cards inside this div has "section-to-header" class -->
-			<div class="container mt-5">
+			<div class="container">
 				<!-- Add-card -->
-				<div class="add-card section-to-header mb-30">
-					<div class="add-card-inner">
-						<div class="add-card-item add-card-info">
-							<p>Saldo Total</p>
-							<h3>R$1,450.50</h3>
-						</div>
-						<div
-							class="add-card-item add-balance"
-							data-bs-toggle="modal"
-							data-bs-target="#addBalance"
-						>
-							<a href="#"><i class="flaticon-plus"></i></a>
-							<p>Depositar Saldo</p>
-						</div>
-					</div>
-				</div>
-				<!-- Add-card -->
-				<!-- Option-section -->
-				<div class="option-section mb-15">
-					<div class="row gx-3">
-						<div class="col pb-15">
-							<div class="option-card option-card-violet">
-								<a href="#" data-bs-toggle="modal" data-bs-target="#P2P">
-									<div class="option-card-icon">
-										<i class="flaticon-down-arrow"></i>
-									</div>
-									<p>P2P</p>
-								</a>
-							</div>
-						</div>
-						<div class="col pb-15">
-							<div class="option-card option-card-yellow">
-								<a href="#" data-bs-toggle="modal" data-bs-target="#sendMoney">
-									<div class="option-card-icon">
-										<i class="flaticon-right-arrow"></i>
-									</div>
-									<p>Área PIX</p>
-								</a>
-							</div>
-						</div>
-						<div class="col pb-15">
-							<div class="option-card option-card-blue">
-								<a href="#">
-									<div class="option-card-icon">
-										<i class="flaticon-credit-card"></i>
-									</div>
-									<p>Criar Link</p>
-								</a>
-							</div>
-						</div>
-						<div class="col pb-15">
-							<div class="option-card option-card-red">
-								<a href="#" data-bs-toggle="modal" data-bs-target="#exchange">
-									<div class="option-card-icon">
-										<i class="flaticon-exchange-arrows"></i>
-									</div>
-									<p>Coverter</p>
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- Option-section -->
-				<div>
-					<h5 style="color: black">Minhas Carteiras</h5>
+				<div class="displey-flex">
+					<h5 style="color: black">Financeiro</h5>
+					<h5 style="color: green">Minhas Transações</h5>
 				</div>
 				<!-- Feature-section -->
-				<div class="feature-section mb-15">
-					<div class="row gx-3 ">
-						<div class="col col-sm-6 pb-15">
-							<div class="feature-card feature-card-red">
-								<div class="feature-card-thumb">
-									<svg
-										width="64px"
-										height="64px"
-										viewBox="-4.8 -4.8 57.60 57.60"
-										xmlns="http://www.w3.org/2000/svg"
-										fill="#000000"
-									>
-										<g id="SVGRepo_bgCarrier" stroke-width="0">
-											<rect
-												x="-4.8"
-												y="-4.8"
-												width="57.60"
-												height="57.60"
-												rx="0"
-												fill="#c2f5d5"
-												strokewidth="0"
-											/>
-										</g>
-
-										<g
-											id="SVGRepo_tracerCarrier"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-										/>
-
-										<g id="SVGRepo_iconCarrier">
-											<title>input</title>
-											<g id="Layer_2" data-name="Layer 2">
-												<g id="invisible_box" data-name="invisible box">
-													<rect width="48" height="48" fill="none" />
-												</g>
-												<g id="icons_Q2" data-name="icons Q2">
-													<path
-														d="M8,9.7a2,2,0,0,1,.6-1.4A21.6,21.6,0,0,1,24,2a22,22,0,0,1,0,44A21.6,21.6,0,0,1,8.6,39.7a2,2,0,1,1,2.8-2.8,18,18,0,1,0,0-25.8,1.9,1.9,0,0,1-2.8,0A2,2,0,0,1,8,9.7Z"
-													/>
-													<path
-														d="M33.4,22.6l-7.9-8a2.1,2.1,0,0,0-2.7-.2,1.9,1.9,0,0,0-.2,3L27.2,22H4a2,2,0,0,0-2,2H2a2,2,0,0,0,2,2H27.2l-4.6,4.6a1.9,1.9,0,0,0,.2,3,2.1,2.1,0,0,0,2.7-.2l7.9-8A1.9,1.9,0,0,0,33.4,22.6Z"
-													/>
-												</g>
-											</g>
-										</g>
-									</svg>
-								</div>
-								<div class="feature-card-details">
-									<p>Saldo Total BRL</p>
-									<h3>R$1.485,50</h3>
-								</div>
-							</div>
-						</div>
-						<div class="col col-sm-6 pb-15 ">
-							<div class="feature-card feature-card-blue">
-								<div class="feature-card-thumb ">
-									<svg
-										fill="#000000"
-										version="1.1"
-										id="Capa_1"
-										xmlns="http://www.w3.org/2000/svg"
-										xmlns:xlink="http://www.w3.org/1999/xlink"
-										width="64px"
-										height="64px"
-										viewBox="-18.2 -18.2 218.43 218.43"
-										xml:space="preserve"
-									>
-										<g id="SVGRepo_bgCarrier1" stroke-width="0">
-											<rect
-												x="-18.2"
-												y="-18.2"
-												width="218.43"
-												height="218.43"
-												rx="0"
-												fill="#c2f5d5"
-												strokewidth="0"
-											/>
-										</g>
-
-										<g
-											id="SVGRepo_tracerCarrier"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-										/>
-
-										<g id="SVGRepo_iconCarrier0">
-											<g>
-												<g>
-													<path
-														d="M31.859,91.005c0-29.508,21.753-53.977,50.061-58.382v12.881l36.396-22.755L81.913,0v14.222 c-38.388,4.545-68.266,37.218-68.266,76.784c0,27.809,14.789,52.153,36.849,65.778l17.853-11.141 C46.939,136.717,31.859,115.602,31.859,91.005z"
-													/>
-													<path
-														d="M131.525,25.237l-17.851,11.157c21.418,8.892,36.499,30.012,36.499,54.611c0,29.532-21.749,53.985-50.058,58.396v-12.887 l-36.402,22.764l36.402,22.747v-14.244c38.386-4.53,68.263-37.199,68.263-76.776C168.379,63.207,153.59,38.865,131.525,25.237z"
-													/>
-													<path
-														d="M95.401,130.802v-9.942c11.204-1.953,17.362-9.362,17.362-18.041c0-8.777-4.679-14.134-16.275-18.241 c-8.298-3.121-11.716-5.166-11.716-8.383c0-2.733,2.045-5.464,8.395-5.464c7.015,0,11.496,2.235,14.041,3.319l2.819-11.023 c-3.203-1.557-7.602-2.919-14.131-3.208v-8.586h-9.562v9.261c-10.42,2.041-16.473,8.777-16.473,17.355 c0,9.458,7.123,14.344,17.568,17.846c7.204,2.441,10.323,4.782,10.323,8.493c0,3.896-3.796,6.041-9.354,6.041 c-6.336,0-12.093-2.048-16.183-4.29l-2.925,11.411c3.693,2.148,10.041,3.899,16.569,4.189v9.264H95.401z"
-													/>
-												</g>
-											</g>
-										</g>
-									</svg>
-								</div>
-								<div class="feature-card-details">
-									<p>Saldo Total USDT</p>
-									<h3>R$1.395,50</h3>
-								</div>
-							</div>
-						</div>
-						<div class="col col-sm-6 pb-15">
-							<div class="feature-card feature-card-violet">
-								<div class="feature-card-thumb">
-									<svg
-										fill="#000000"
-										width="64px"
-										height="64px"
-										viewBox="-2.4 -2.4 28.80 28.80"
-										xmlns="http://www.w3.org/2000/svg"
-									>
-										<g id="SVGRepo_bgCarrier4" stroke-width="0">
-											<rect
-												x="-2.4"
-												y="-2.4"
-												width="28.80"
-												height="28.80"
-												rx="0"
-												fill="#c2f5d5"
-												strokewidth="0"
-											/>
-										</g>
-
-										<g
-											id="SVGRepo_tracerCarrier"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-											stroke="#CCCCCC"
-											stroke-width="0.144"
-										/>
-
-										<g id="SVGRepo_iconCarrier3">
-											<path
-												d="M20,3H4A3,3,0,0,0,1,6V18a3,3,0,0,0,3,3H20a3,3,0,0,0,3-3V6A3,3,0,0,0,20,3Zm1,15a1,1,0,0,1-1,1H4a1,1,0,0,1-1-1V6A1,1,0,0,1,4,5H20a1,1,0,0,1,1,1Zm-4.293-6.707a1,1,0,1,1-1.414,1.414L13,10.414V16a1,1,0,0,1-2,0V10.414L8.707,12.707a1,1,0,1,1-1.414-1.414l4-4a1,1,0,0,1,1.414,0Z"
-											/>
-										</g>
-									</svg>
-								</div>
-								<div class="feature-card-details">
-									<p>Total Enviado Mês</p>
-									<h3>R$2.475,00</h3>
-								</div>
-							</div>
-						</div>
-						<div class="col col-sm-6 pb-15">
-							<div class="feature-card feature-card-green">
-								<div class="feature-card-thumb barda-fiz">
-									<svg
-										width="64px"
-										height="64px"
-										viewBox="-2.4 -2.4 28.80 28.80"
-										fill="none"
-										xmlns="http://www.w3.org/2000/svg"
-									>
-										<g id="SVGRepo_bgCarrier2" stroke-width="0">
-											<rect
-												x="-2.4"
-												y="-2.4"
-												width="28.80"
-												height="28.80"
-												rx="0"
-												fill="#c2f5d5"
-												strokewidth="0"
-											/>
-										</g>
-
-										<g
-											id="SVGRepo_tracerCarrier"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-										/>
-
-										<g id="SVGRepo_iconCarrier1">
-											<path
-												d="M16.19 2H7.81C4.17 2 2 4.17 2 7.81V16.18C2 19.83 4.17 22 7.81 22H16.18C19.82 22 21.99 19.83 21.99 16.19V7.81C22 4.17 19.83 2 16.19 2ZM8.64 7.15C8.93 6.86 9.41 6.86 9.7 7.15L14.08 11.53V9.1C14.08 8.69 14.42 8.35 14.83 8.35C15.24 8.35 15.58 8.69 15.58 9.1V13.34C15.58 13.44 15.56 13.53 15.52 13.63C15.44 13.81 15.3 13.96 15.11 14.04C15.02 14.08 14.92 14.1 14.82 14.1H10.58C10.17 14.1 9.83 13.76 9.83 13.35C9.83 12.94 10.17 12.6 10.58 12.6H13.01L8.64 8.21C8.35 7.92 8.35 7.45 8.64 7.15ZM18.24 17.22C16.23 17.89 14.12 18.23 12 18.23C9.88 18.23 7.77 17.89 5.76 17.22C5.37 17.09 5.16 16.66 5.29 16.27C5.42 15.88 5.84 15.66 6.24 15.8C9.96 17.04 14.05 17.04 17.77 15.8C18.16 15.67 18.59 15.88 18.72 16.27C18.84 16.67 18.63 17.09 18.24 17.22Z"
-												fill="#292D32"
-											/>
-										</g>
-									</svg>
-								</div>
-								<div class="feature-card-details">
-									<p>Total Recebido Mês</p>
-									<h3>R$5.285,00</h3>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
 				<!-- Feature-section -->
 				<!-- Transaction-section -->
+				<div class="mt-4">
+					<h6>Hoje</h6>
+				</div>
 				<div class="transaction-section pb-15">
-					<div class="section-header">
-						<h2>Transações</h2>
-						<div class="view-all">
-							<a href="transactions.html">Ver tudo</a>
-						</div>
+					<div class="section-header"></div>
+					<div class="transaction-card mb-15">
+						<a href="transaction-details.html">
+							<div class="transaction-card-info">
+								<div class="transaction-info-thumb">
+									<img src="assets/images/user-2.jpg" alt="user" />
+								</div>
+								<div class="transaction-info-text">
+									<h3>Master</h3>
+									<p>Transferencia Cancelada</p>
+								</div>
+							</div>
+							<div class="transaction-card-det negative-number">-R$185.00</div>
+						</a>
 					</div>
 					<div class="transaction-card mb-15">
 						<a href="transaction-details.html">
@@ -449,6 +187,23 @@
 							</div>
 							<div class="transaction-card-det negative-number">-R$185.00</div>
 						</a>
+					</div>
+					<div class="transaction-card mb-15">
+						<a href="transaction-details.html">
+							<div class="transaction-card-info">
+								<div class="transaction-info-thumb">
+									<img src="assets/images/user-cm-logo-1.png" alt="user" />
+								</div>
+								<div class="transaction-info-text">
+									<h3>Appstore Purchase</h3>
+									<p>Tranferancia Enviada</p>
+								</div>
+							</div>
+							<div class="transaction-card-det">-R$159.99</div>
+						</a>
+					</div>
+					<div class="mt-5">
+						<h6>Nos ultimas 7 dias</h6>
 					</div>
 					<div class="transaction-card mb-15">
 						<a href="transaction-details.html">
@@ -482,6 +237,20 @@
 						<a href="transaction-details.html">
 							<div class="transaction-card-info">
 								<div class="transaction-info-thumb">
+									<img src="assets/images/user-1.jpg" alt="user" />
+								</div>
+								<div class="transaction-info-text">
+									<h3>Martin Neely</h3>
+									<p>Transferencia Recebida</p>
+								</div>
+							</div>
+							<div class="transaction-card-det">+R$170.00</div>
+						</a>
+					</div>
+					<div class="transaction-card mb-15">
+						<a href="transaction-details.html">
+							<div class="transaction-card-info">
+								<div class="transaction-info-thumb">
 									<img src="assets/images/user-3.jpg" alt="user" />
 								</div>
 								<div class="transaction-info-text">
@@ -495,9 +264,9 @@
 				</div>
 				<!-- Transaction-section -->
 				<!-- Send-money-section -->
-				<div class="send-money-section pb-15">
+				<!-- <div class="send-money-section pb-15">
 					<div class="section-header">
-						<h2>Transferir Para</h2>
+						<h2>Enviar link</h2>
 						<div class="view-all">
 							<a href="#">Ver Todos</a>
 						</div>
@@ -544,7 +313,7 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> -->
 				<!-- Send-money-section -->
 				<!-- Monthly-bill-section -->
 				<!-- <div class="monthly-bill-section pb-15">
@@ -618,19 +387,44 @@
 					</div>
 				</div> -->
 				<!-- Monthly-bill-section -->
+				<!-- Card-section -->
+				<!-- <div class="card-section pb-15">
+					<div class="section-header">
+						<h2>My Cards</h2>
+						<div class="view-all">
+							<a href="adicionar-cartao.html">View All</a>
+						</div>
+					</div>
+					<div class="payment-image-card pb-15">
+						<img src="assets/images/card-1.png" alt="card" />
+						<ul class="payment-uploaded-action">
+							<li>
+								<a href="#" data-bs-toggle="modal" data-bs-target="#viewCard">
+									<i class="icofont-ui-edit"></i>
+								</a>
+							</li>
+							<li>
+								<a href="#" data-bs-toggle="modal" data-bs-target="#deleteCard">
+									<i class="flaticon-trash"></i>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div> -->
+				<!-- Card-section -->
 				<!-- Send-money-section -->
 				<!-- Send-money-section -->
 				<!-- Saving-goals-section -->
 				<div class="saving-goals-section pb-15">
 					<div class="section-header">
-						<h2>Minhas API's</h2>
+						<h2>Saida e Entrada Mês</h2>
 						<div class="view-all">
-							<a href="api.html">Ver Todos</a>
+							<a href="my-savings.html">Ver Todos</a>
 						</div>
 					</div>
 					<div class="progress-card progress-card-red mb-15">
 						<div class="progress-card-info">
-							<div class="circular-progress" data-note="10.85">
+							<div class="circular-progress" data-note="30.85">
 								<svg width="55" height="55" class="circle-svg">
 									<circle
 										cx="28"
@@ -648,17 +442,15 @@
 								<div class="percent"><span class="percent-int">0</span>%</div>
 							</div>
 							<div class="progress-info-text">
-								<h3>Borgata</h3>
-								<h6 class="mt-3">24/02/2004</h6>
-								<p>API ID: 3382918298364k3s9</p>
-								<p>API CWB: 182738748d874758fw8gb</p>
+								<h3>Saida Mês</h3>
+								<p></p>
 							</div>
 						</div>
-						<div class="progress-card-amount">Cancelado</div>
+						<div class="progress-card-amount">$2.450,00</div>
 					</div>
 					<div class="progress-card progress-card-blue mb-15">
 						<div class="progress-card-info">
-							<div class="circular-progress" data-note="50.74">
+							<div class="circular-progress" data-note="65.74">
 								<svg width="55" height="55" class="circle-svg">
 									<circle
 										cx="28"
@@ -676,17 +468,15 @@
 								<div class="percent"><span class="percent-int">0</span>%</div>
 							</div>
 							<div class="progress-info-text">
-								<h3>finest</h3>
-								<h6 class="mt-3">24/02/2004</h6>
-								<p>API ID: 3382918298364k3s9</p>
-								<p>API CWB: 182738748d874758fw8gb</p>
+								<h3>Entrada Mês</h3>
+								<p></p>
 							</div>
 						</div>
-						<div class="progress-card-amount">Pendente</div>
+						<div class="progress-card-amount">$10.300,00</div>
 					</div>
 					<div class="progress-card progress-card-green mb-15">
 						<div class="progress-card-info">
-							<div class="circular-progress" data-note="100">
+							<div class="circular-progress" data-note="75">
 								<svg width="55" height="55" class="circle-svg">
 									<circle
 										cx="28"
@@ -704,18 +494,16 @@
 								<div class="percent"><span class="percent-int">0</span>%</div>
 							</div>
 							<div class="progress-info-text">
-								<h3>Should</h3>
-								<h6 class="mt-3">24/02/2004</h6>
-								<p>API ID: 3382918298364k3s9</p>
-								<p>API CWB: 182738748d874758fw8gb</p>
+								<h3>Total Mês</h3>
+								<p></p>
 							</div>
 						</div>
-						<div class="progress-card-amount">Ativa</div>
+						<div class="progress-card-amount">$10.250.00</div>
 					</div>
 				</div>
 				<!-- Saving-goals-section -->
 				<!-- Latest-news-section -->
-				<div class="latest-news-section pb-15">
+				<!-- <div class="latest-news-section pb-15">
 					<div class="section-header">
 						<h2>Seja Parceiro SOOCIEN</h2>
 						<div class="view-all">
@@ -733,11 +521,11 @@
 								<div class="blog-card-details">
 									<ul class="blog-entry">
 										<li>Smith Rob</li>
-										<li>15 Maio, 2024</li>
+										<li>15 Jan, 2024</li>
 									</ul>
 									<h3>
 										<a href="#"
-											>Junte-se a SOOCIEN e Seja Nosso Parceiro de Sucesso!</a
+											>Financing Loans Available To Small Businesses</a
 										>
 									</h3>
 								</div>
@@ -753,33 +541,32 @@
 								<div class="blog-card-details">
 									<ul class="blog-entry">
 										<li>John Doe</li>
-										<li>10 Maio, 2024</li>
+										<li>13 Jan, 2024</li>
 									</ul>
 									<h3>
 										<a href="#"
-											>Torne-se um Parceiro SOOCIEN e Expanda Suas
-											Oportunidades!</a
+											>Need Financial Help To Open Your New Business</a
 										>
 									</h3>
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> -->
 				<!-- Latest-news-section -->
 			</div>
 		</div>
 		<!-- Body-content -->
 
 		<!-- Footer -->
-		<footer class="footer-bg">
+		<!-- <footer class="footer-bg mt-5">
 			<div class="container">
 				<p>
-					Todos os seus direitos reservados
+					Copyright Projetado e desenvolvido por
 					<a href="#" target="_blank">SOOCIEN</a>
 				</p>
 			</div>
-		</footer>
+		</footer> -->
 		<!-- Footer -->
 
 		<!-- Navbar -->
@@ -896,7 +683,7 @@
 						<div class="modal-header">
 							<div class="modal-header-title">
 								<i class="flaticon-plus color-blue"></i>
-								<h5 class="modal-title">Depositar</h5>
+								<h5 class="modal-title">Add Balance</h5>
 							</div>
 							<button
 								type="button"
@@ -905,18 +692,34 @@
 								aria-label="Close"
 							></button>
 						</div>
-						<div class="form-group mb-15">
-							<label for="input2" class="form-label">Total Depositar</label>
-							<input
-								type="email"
-								class="form-control"
-								id="input2"
-								placeholder="R$ 458.00"
-							/>
+						<div class="modal-body">
+							<form>
+								<div class="form-group mb-15">
+									<label for="input1" class="form-label">From</label>
+									<input
+										type="email"
+										class="form-control"
+										id="input1"
+										placeholder="Payoneer Account"
+									/>
+								</div>
+								<div class="form-group mb-15">
+									<label for="input2" class="form-label">Enter Amount</label>
+									<input
+										type="email"
+										class="form-control"
+										id="input2"
+										placeholder="$ 458.00"
+									/>
+								</div>
+								<button
+									type="submit"
+									class="btn main-btn main-btn-lg full-width"
+								>
+									Deposit
+								</button>
+							</form>
 						</div>
-						<button type="submit" class="btn main-btn main-btn-lg full-width">
-							Deposit
-						</button>
 					</div>
 				</div>
 			</div>
@@ -937,74 +740,7 @@
 						<div class="modal-header">
 							<div class="modal-header-title">
 								<i class="flaticon-down-arrow color-blue"></i>
-								<h5 class="modal-title">Transferir</h5>
-							</div>
-							<button
-								type="button"
-								class="btn-close"
-								data-bs-dismiss="modal"
-								aria-label="Close"
-							></button>
-						</div>
-						<div class="modal-body">
-							<form>
-								<div class="form-group mb-15">
-									<label for="input3" class="form-label">Chave Pix</label>
-									<input
-										type="email"
-										class="form-control"
-										id="input3"
-										placeholder="Digite sua chave PIX"
-									/>
-								</div>
-								<div class="form-group mb-15">
-									<label for="input4" class="form-label"
-										>Valor a Transferir</label
-									>
-									<input
-										type="email"
-										class="form-control"
-										id="input4"
-										placeholder="Digite o valor a ser transferido"
-									/>
-								</div>
-								<div class="form-group mb-15">
-									<label for="input5" class="form-label"
-										>Codigo do E-mail</label
-									>
-									<input
-										type="email"
-										class="form-control"
-										id="input5"
-										placeholder="Digite o codigo enviado ao seu e-mail"
-									/>
-								</div>
-								<button
-									type="submit"
-									class="btn main-btn main-btn-lg full-width"
-								>
-									Transferir
-								</button>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div
-			class="modal fade"
-			id="P2P"
-			tabindex="-1"
-			aria-labelledby="withdraw"
-			aria-hidden="true"
-		>
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="container">
-						<div class="modal-header">
-							<div class="modal-header-title">
-								<i class="flaticon-down-arrow color-blue"></i>
-								<h5 class="modal-title">P2P</h5>
+								<h5 class="modal-title">Fazer transferência</h5>
 							</div>
 							<button
 								type="button"
@@ -1017,35 +753,35 @@
 							<form>
 								<div class="form-group mb-15">
 									<label for="input3" class="form-label"
-										>E-mail ou Codigo de Usuário</label
+										>Transferir dinheiro para</label
 									>
 									<input
 										type="email"
 										class="form-control"
 										id="input3"
-										placeholder="Digite o E-mail ou Codigo do Usuário"
+										placeholder="Saving(***1580)"
 									/>
 								</div>
 								<div class="form-group mb-15">
 									<label for="input4" class="form-label"
-										>Valor a Transferir</label
+										>Transferir Agora</label
 									>
 									<input
 										type="email"
 										class="form-control"
 										id="input4"
-										placeholder="Digite o valor a ser enviado"
+										placeholder="Alicia Williams"
 									/>
 								</div>
 								<div class="form-group mb-15">
 									<label for="input5" class="form-label"
-										>Codigo do E-mail</label
+										>Total a Transferir</label
 									>
 									<input
 										type="email"
 										class="form-control"
 										id="input5"
-										placeholder="Digite o codigo enviado ao seu e-mail"
+										placeholder="$ 458.00"
 									/>
 								</div>
 								<button
@@ -1086,7 +822,7 @@
 										<div class="option-card-icon">
 											<i class="flaticon-right-arrow"></i>
 										</div>
-										<p>Transferir</p>
+										<p>Depositar</p>
 									</a>
 								</div>
 							</div>
@@ -1096,7 +832,7 @@
 										<div class="option-card-icon">
 											<i class="flaticon-right-arrow"></i>
 										</div>
-										<p>Depositar</p>
+										<p>Pix</p>
 									</a>
 								</div>
 							</div>
@@ -1106,7 +842,7 @@
 										<div class="option-card-icon">
 											<i class="flaticon-credit-card"></i>
 										</div>
-										<p>Pix Copia e Cola</p>
+										<p>Transações</p>
 									</a>
 								</div>
 							</div>
@@ -1116,7 +852,7 @@
 										<div class="option-card-icon">
 											<i class="flaticon-exchange-arrows"></i>
 										</div>
-										<p>Cobrar</p>
+										<p>Tranferencias</p>
 									</a>
 								</div>
 							</div>
@@ -1138,7 +874,7 @@
 						<div class="modal-header">
 							<div class="modal-header-title">
 								<i class="flaticon-right-arrow color-yellow"></i>
-								<h5 class="modal-title">Depositar</h5>
+								<h5 class="modal-title">Transferencia Pix</h5>
 							</div>
 							<button
 								type="button"
@@ -1151,13 +887,16 @@
 							<form>
 								<div class="form-group mb-15">
 									<label for="input6" class="form-label"
-										>Qual valor voce quer depositar
-									</label>
+										>Qual é o valor da transferência? </label
+									><br />
+									<label for="input6" class="form-label"
+										>Saldo disponivel de R$ 3.457,00</label
+									>
 									<input
 										type="email"
 										class="form-control"
 										id="input6"
-										placeholder="Digite o valor a ser depositado"
+										placeholder="R$:"
 									/>
 								</div>
 								<!-- <div class="form-group mb-15">
@@ -1171,7 +910,7 @@
 								</div> -->
 								<div class="form-group mb-15">
 									<label for="input8" class="form-label"
-										>Digite a chave para voce depositar</label
+										>Para quem voce quer transferir R$ 230,00</label
 									>
 									<input
 										type="email"
@@ -1208,7 +947,7 @@
 						<div class="modal-header">
 							<div class="modal-header-title">
 								<i class="flaticon-exchange-arrows color-red"></i>
-								<h5 class="modal-title">Converter</h5>
+								<h5 class="modal-title">Exchange</h5>
 							</div>
 							<button
 								type="button"
@@ -1220,39 +959,37 @@
 						<div class="modal-body">
 							<form>
 								<div class="form-group mb-15">
-									<label for="input9" class="form-label">Valor em Reais</label>
+									<label for="input9" class="form-label">From</label>
 									<input
 										type="email"
 										class="form-control"
 										id="input9"
-										placeholder="BRL"
+										placeholder="EUR"
 									/>
 								</div>
 								<div class="form-group mb-15">
-									<label for="input10" class="form-label">Valor em USDT</label>
+									<label for="input10" class="form-label">To</label>
 									<input
 										type="email"
 										class="form-control"
 										id="input10"
-										placeholder="USDT"
+										placeholder="USD"
 									/>
 								</div>
 								<div class="form-group mb-15">
-									<label for="input11" class="form-label"
-										>Codigo do E-mail</label
-									>
+									<label for="input11" class="form-label">Enter Amount</label>
 									<input
 										type="email"
 										class="form-control"
 										id="input11"
-										placeholder="Digite o codigo enviado ao seu email"
+										placeholder="$ 458.00"
 									/>
 								</div>
 								<button
 									type="submit"
 									class="btn main-btn main-btn-lg full-width"
 								>
-									Enviar
+									Send
 								</button>
 							</form>
 						</div>

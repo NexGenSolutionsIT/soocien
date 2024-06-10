@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zxx">
-	<!-- Mirrored from templates.envytheme.com/oban/default/pages.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 08 Jun 2024 21:05:52 GMT -->
+	<!-- Mirrored from templates.envytheme.com/oban/default/dados.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 08 Jun 2024 21:05:34 GMT -->
 	<head>
 		<meta charset="utf-8" />
 		<meta name="description" content="Oban" />
@@ -76,7 +76,7 @@
 		/>
 	</head>
 
-	<body>
+	<body class="back-cor">
 		<!-- Preloader -->
 		<!-- <div class="preloader bg-main">
             <div class="preloader-wrapper">
@@ -117,7 +117,7 @@
 							</div>
 						</div>
 						<div class="appbar-item appbar-page-title">
-							<h3>Pages</h3>
+							<h3 style="color: black">Meu Perfil</h3>
 						</div>
 						<div class="appbar-item appbar-options">
 							<div class="appbar-option-item appbar-option-notification">
@@ -139,165 +139,75 @@
 		<!-- Body-content -->
 		<div class="body-content">
 			<div class="container">
-				<!-- Page-nav-link -->
-				<div class="page-nav-link">
-					<div class="page-nav-link-item">
-						<h3>App Pages</h3>
-						<ul>
-							<li>
-								<a href="adicionar-cartao.html">
-									<i class="flaticon-document"></i>
-									Cards
-								</a>
-							</li>
-							<li>
-								<a href="my-savings.html">
-									<i class="flaticon-document"></i>
-									My Savings
-								</a>
-							</li>
-							<li>
-								<a href="transactions.html">
-									<i class="flaticon-document"></i>
-									Transactions
-								</a>
-							</li>
-							<li>
-								<a href="transaction-details.html">
-									<i class="flaticon-document"></i>
-									Transaction Details
-								</a>
-							</li>
-							<li>
-								<a href="transaction-receive.html">
-									<i class="flaticon-document"></i>
-									Transaction Payment Receive
-								</a>
-							</li>
-							<li>
-								<a href="transaction-verification.html">
-									<i class="flaticon-document"></i>
-									Transaction Verification
-								</a>
-							</li>
-							<li>
-								<a href="monthly-bills.html">
-									<i class="flaticon-document"></i>
-									Monthly Bills
-								</a>
-							</li>
-							<li>
-								<a href="message.html">
-									<i class="flaticon-document"></i>
-									Messages
-								</a>
-							</li>
-							<li>
-								<a href="notifications.html">
-									<i class="flaticon-document"></i>
-									Notifications
-								</a>
-							</li>
-							<li>
-								<a href="dados.html">
-									<i class="flaticon-document"></i>
-									Settings
-								</a>
-							</li>
-						</ul>
+				<!-- Setting -->
+				<div class="setting-section pb-15">
+					<div class="user-setting-thumb">
+						<div class="user-setting-thumb-up">
+							<img src="assets/images/profile.jpg" alt="profile" />
+						</div>
+						<label for="upThumb">
+							<i class="flaticon-camera"></i>
+						</label>
+						<input type="file" id="upThumb" class="d-none" />
 					</div>
-					<div class="page-nav-link-item">
-						<h3>Authentication</h3>
+
+					<!-- Setting-list -->
+					<div class="setting-list">
 						<ul>
+							<!-- <li>
+								<a href="#" data-bs-toggle="modal" data-bs-target="#userName"
+									>Change Username</a
+								>
+							</li> -->
 							<li>
-								<a href="sign-in.html">
-									<i class="flaticon-document"></i>
-									Sign In
-								</a>
-							</li>
-							<li>
-								<a href="sign-up.html">
-									<i class="flaticon-document"></i>
-									Sign Up
-								</a>
+								<a href="#" data-bs-toggle="modal" data-bs-target="#emailModal"
+									>Alterar Email</a
+								>
 							</li>
 							<li>
 								<a
 									href="#"
 									data-bs-toggle="modal"
-									data-bs-target="#resetPassword"
+									data-bs-target="#addressModal"
+									>Endereço</a
 								>
-									<i class="flaticon-document"></i>
-									Forget Password
-								</a>
 							</li>
 							<li>
 								<a
 									href="#"
 									data-bs-toggle="modal"
-									data-bs-target="#verificationModal"
+									data-bs-target="#birthdayModal"
+									>Nascimento</a
 								>
-									<i class="flaticon-document"></i>
-									SMS Verification
-								</a>
+							</li>
+							<li>
+								<a
+									href="#"
+									data-bs-toggle="modal"
+									data-bs-target="#languageModal"
+									>Linguagem</a
+								>
+							</li>
+							<li>
+								<a
+									href="#"
+									data-bs-toggle="modal"
+									data-bs-target="#passwordModal"
+									>Senha</a
+								>
+							</li>
+							<!-- <li class="setting-toggle-btn">
+								<a href="#"> Notifications Sound </a>
+								<button></button>
+							</li> -->
+							<li>
+								<a href="#">Sair</a>
 							</li>
 						</ul>
 					</div>
-					<div class="page-nav-link-item">
-						<h3>Other Pages</h3>
-						<ul>
-							<li>
-								<a href="about-us.html">
-									<i class="flaticon-document"></i>
-									About
-								</a>
-							</li>
-							<li>
-								<a href="contato.html">
-									<i class="flaticon-document"></i>
-									Contact
-								</a>
-							</li>
-							<li>
-								<a href="blogs.html">
-									<i class="flaticon-document"></i>
-									Blogs
-								</a>
-							</li>
-							<li>
-								<a href="single-blog.html">
-									<i class="flaticon-document"></i>
-									Single Blog
-								</a>
-							</li>
-							<li>
-								<a href="faq%27s.html">
-									<i class="flaticon-document"></i>
-									FAQ's
-								</a>
-							</li>
-							<li>
-								<a href="terms-of-service.html">
-									<i class="flaticon-document"></i>
-									Terms Of Service
-								</a>
-							</li>
-							<li>
-								<a href="privacy-policy.html">
-									<i class="flaticon-document"></i>
-									Privacy Policy
-								</a>
-							</li>
-							<li>
-								<a href="404.html">
-									<i class="flaticon-document"></i>
-									404
-								</a>
-							</li>
-						</ul>
-					</div>
+					<!-- Setting-list -->
 				</div>
-				<!-- Page-nav-link -->
+				<!-- Setting -->
 			</div>
 		</div>
 		<!-- Body-content -->
@@ -402,20 +312,20 @@
 		</div>
 		<!-- Navbar -->
 
-		<!-- VerificationModal -->
+		<!-- Username-modal -->
 		<div
 			class="modal fade"
-			id="verificationModal"
+			id="userName"
 			tabindex="-1"
-			aria-labelledby="verificationModal"
+			aria-labelledby="userName"
 			aria-hidden="true"
 		>
-			<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="container">
 						<div class="modal-header">
 							<div class="modal-header-title">
-								<h5 class="modal-title">SMS Verification</h5>
+								<h5 class="modal-title">Change Username</h5>
 							</div>
 							<button
 								type="button"
@@ -424,73 +334,45 @@
 								aria-label="Close"
 							></button>
 						</div>
-						<div class="modal-body modal-body-center">
-							<h3>Enter 4 Digit Sms Verification Code</h3>
-							<div class="verification-form">
-								<form>
-									<div class="input-group">
-										<input
-											type="text"
-											maxlength="1"
-											size="1"
-											pattern="[0-9]{1}"
-											placeholder="*"
-											class="verification-input"
-										/>
-										<input
-											type="text"
-											maxlength="1"
-											size="1"
-											pattern="[0-9]{1}"
-											placeholder="*"
-											class="verification-input"
-										/>
-										<input
-											type="text"
-											maxlength="1"
-											size="1"
-											pattern="[0-9]{1}"
-											placeholder="*"
-											class="verification-input"
-										/>
-										<input
-											type="text"
-											maxlength="1"
-											size="1"
-											pattern="[0-9]{1}"
-											placeholder="*"
-											class="verification-input"
-										/>
-									</div>
-									<button
-										type="submit"
-										class="btn main-btn main-btn-lg full-width"
-									>
-										Reset Password
-									</button>
-								</form>
-							</div>
+						<div class="modal-body">
+							<form>
+								<div class="form-group mb-15">
+									<label class="form-label">Username</label>
+									<input
+										type="text"
+										class="form-control"
+										placeholder="John Doe"
+										value="John Doe"
+									/>
+								</div>
+								<button
+									type="submit"
+									class="btn main-btn main-btn-lg full-width"
+								>
+									Change Username
+								</button>
+							</form>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<!-- VerificationModal -->
+		<!-- Username-modal -->
 
-		<!-- ResetPassword -->
+		<!-- Email-modal -->
 		<div
 			class="modal fade"
-			id="resetPassword"
+			id="emailModal"
 			tabindex="-1"
-			aria-labelledby="resetPassword"
+			aria-labelledby="emailModal"
 			aria-hidden="true"
 		>
-			<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="container">
 						<div class="modal-header">
 							<div class="modal-header-title">
-								<h5 class="modal-title">Forget Password</h5>
+								<h5 class="modal-title">Alterar Email</h5>
 							</div>
 							<button
 								type="button"
@@ -499,27 +381,278 @@
 								aria-label="Close"
 							></button>
 						</div>
-						<div class="modal-body modal-body-center">
-							<h3>Type Your Email To Reset Your Password</h3>
-							<div class="reset-form">
-								<form>
-									<div class="input-group">
-										<input type="text" placeholder="Your Email Address" />
-									</div>
-									<button
-										type="submit"
-										class="btn main-btn main-btn-lg full-width"
-									>
-										Reset Password
-									</button>
-								</form>
-							</div>
+						<div class="modal-body">
+							<form>
+								<div class="form-group mb-15">
+									<label class="form-label">Email</label>
+									<input
+										type="text"
+										class="form-control"
+										placeholder="doe@example.com"
+										value="doe@example.com"
+									/>
+								</div>
+								<button
+									type="submit"
+									class="btn main-btn main-btn-lg full-width"
+								>
+									Salvar
+								</button>
+							</form>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<!-- ResetPassword -->
+		<!-- Email-modal -->
+
+		<!-- Address-modal -->
+		<div
+			class="modal fade"
+			id="addressModal"
+			tabindex="-1"
+			aria-labelledby="addressModal"
+			aria-hidden="true"
+		>
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="container">
+						<div class="modal-header">
+							<div class="modal-header-title">
+								<h5 class="modal-title">Endereço</h5>
+							</div>
+							<button
+								type="button"
+								class="btn-close"
+								data-bs-dismiss="modal"
+								aria-label="Close"
+							></button>
+						</div>
+						<div class="modal-body">
+							<form>
+								<div class="form-group mb-15">
+									<label class="form-label">Endereço</label>
+									<input
+										type="text"
+										class="form-control"
+										placeholder="Rua exemplo, bairo exemplo, cidade exemplo"
+									/>
+								</div>
+								<button
+									type="submit"
+									class="btn main-btn main-btn-lg full-width"
+								>
+									Salvar
+								</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Address-modal -->
+
+		<!-- Birthday-modal -->
+		<div
+			class="modal fade"
+			id="birthdayModal"
+			tabindex="-1"
+			aria-labelledby="birthdayModal"
+			aria-hidden="true"
+		>
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="container">
+						<div class="modal-header">
+							<div class="modal-header-title">
+								<h5 class="modal-title">Data de nascimento</h5>
+							</div>
+							<button
+								type="button"
+								class="btn-close"
+								data-bs-dismiss="modal"
+								aria-label="Close"
+							></button>
+						</div>
+						<div class="modal-body">
+							<form>
+								<div class="form-group mb-15">
+									<label class="form-label">Data de nascimento</label>
+									<input type="date" class="form-control" />
+								</div>
+								<button
+									type="00/00/0000"
+									class="btn main-btn main-btn-lg full-width"
+								>
+									Salvar
+								</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Birthday-modal -->
+
+		<!-- Language-modal -->
+		<div
+			class="modal fade"
+			id="languageModal"
+			tabindex="-1"
+			aria-labelledby="languageModal"
+			aria-hidden="true"
+		>
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="container">
+						<div class="modal-header">
+							<div class="modal-header-title">
+								<h5 class="modal-title">Alterar Linguagem</h5>
+							</div>
+							<button
+								type="button"
+								class="btn-close"
+								data-bs-dismiss="modal"
+								aria-label="Close"
+							></button>
+						</div>
+						<div class="modal-body">
+							<form>
+								<div class="form-group mb-15">
+									<div class="input-checkbox language-input">
+										<input type="radio" id="usa" name="language" checked />
+										<label for="usa">
+											<img src="assets/images/usa.png" alt="flag" />
+											English
+										</label>
+									</div>
+								</div>
+								<div class="form-group mb-15">
+									<div class="input-checkbox language-input">
+										<input type="radio" id="germany" name="language" />
+										<label for="germany">
+											<img src="assets/images/germany.png" alt="flag" />
+											Alemão
+										</label>
+									</div>
+								</div>
+								<div class="form-group mb-15">
+									<div class="input-checkbox language-input">
+										<input type="radio" id="china" name="language" />
+										<label for="china">
+											<img src="assets/images/china.png" alt="flag" />
+											Chinês
+										</label>
+									</div>
+								</div>
+								<div class="form-group mb-15">
+									<div class="input-checkbox language-input">
+										<input type="radio" id="uae" name="language" />
+										<label for="uae">
+											<img src="assets/images/uae.png" alt="flag" />
+											árabe
+										</label>
+									</div>
+								</div>
+								<button
+									type="submit"
+									class="btn main-btn main-btn-lg full-width"
+								>
+									Alterar Linguagem
+								</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Language-modal -->
+
+		<!-- Password-modal -->
+		<div
+			class="modal fade"
+			id="passwordModal"
+			tabindex="-1"
+			aria-labelledby="passwordModal"
+			aria-hidden="true"
+		>
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="container">
+						<div class="modal-header">
+							<div class="modal-header-title">
+								<h5 class="modal-title">Alterar Senha</h5>
+							</div>
+							<button
+								type="button"
+								class="btn-close"
+								data-bs-dismiss="modal"
+								aria-label="Close"
+							></button>
+						</div>
+						<div class="modal-body">
+							<form>
+								<div class="form-group pb-15">
+									<label>Atual Senha </label>
+									<div class="input-group">
+										<input
+											type="password"
+											name="password"
+											class="form-control password"
+											required
+											placeholder="**********"
+										/>
+										<span class="input-group-text reveal">
+											<i class="flaticon-invisible pass-close"></i>
+											<i class="flaticon-visibility pass-view"></i>
+										</span>
+									</div>
+								</div>
+								<div class="form-group pb-15">
+									<label>Nova Senha</label>
+									<div class="input-group">
+										<input
+											type="password"
+											name="password"
+											class="form-control password"
+											required
+											placeholder="**********"
+										/>
+										<span class="input-group-text reveal">
+											<i class="flaticon-invisible pass-close"></i>
+											<i class="flaticon-visibility pass-view"></i>
+										</span>
+									</div>
+								</div>
+								<div class="form-group pb-15">
+									<label>Confirmar Senha</label>
+									<div class="input-group">
+										<input
+											type="password"
+											name="password"
+											class="form-control password"
+											required
+											placeholder="**********"
+										/>
+										<span class="input-group-text reveal">
+											<i class="flaticon-invisible pass-close"></i>
+											<i class="flaticon-visibility pass-view"></i>
+										</span>
+									</div>
+								</div>
+								<button
+									type="submit"
+									class="btn main-btn main-btn-lg full-width"
+								>
+									Salvar
+								</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Password-modal -->
 
 		<!-- Menu-modal -->
 		<div
@@ -550,8 +683,8 @@
 					</div>
 					<div class="sidebar-profile-wallet">
 						<div class="add-card-info">
-							<p>Your Wallet</p>
-							<h3>$1,450.50</h3>
+							<p>Saldo Total</p>
+							<h3>R$1,450.50</h3>
 						</div>
 					</div>
 					<div class="modal-body">
@@ -560,35 +693,42 @@
 								<h3>Menu</h3>
 								<ul class="sidebar-nav-list">
 									<li>
-										<a href="index.html"><i class="flaticon-house"></i> Home</a>
-									</li>
-									<li>
-										<a href="pages.html" class="active"
-											><i class="flaticon-invoice"></i> Pages</a
+										<a href="index.html" class="active"
+											><i class="flaticon-house"></i> Home</a
 										>
 									</li>
 									<li>
-										<a href="components.html"
-											><i class="flaticon-menu-1"></i> Components</a
+										<a href="transactions.html"
+											><i class="flaticon-invoice"></i>Financeiro</a
+										>
+									</li>
+									<li>
+										<a href="#"
+											><i class="flaticon-menu-1"></i>Tranferir</a
+										>
+									</li>
+									<li>
+										<a href="#"
+											><i class="flaticon-credit-card"></i>Criar Link</a
 										>
 									</li>
 									<li>
 										<a href="adicionar-cartao.html"
-											><i class="flaticon-credit-card"></i> My Cards</a
+											><i class="flaticon-credit-card"></i>Pagamento Cartão</a
 										>
 									</li>
 									<li>
 										<a href="dados.html"
-											><i class="flaticon-settings"></i> Settings</a
+											><i class="flaticon-settings"></i>Meus Dados</a
 										>
 									</li>
 									<li>
 										<a href="contato.html"
-											><i class="flaticon-call-center-agent"></i> Contact Us</a
+											><i class="flaticon-call-center-agent"></i>Suporte</a
 										>
 									</li>
 									<li>
-										<a href="#"><i class="flaticon-logout"></i> Logout</a>
+										<a href="#"><i class="flaticon-logout"></i> Sair</a>
 									</li>
 								</ul>
 							</div>
@@ -622,5 +762,5 @@
 		<script src="assets/js/script.js"></script>
 	</body>
 
-	<!-- Mirrored from templates.envytheme.com/oban/default/pages.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 08 Jun 2024 21:06:02 GMT -->
+	<!-- Mirrored from templates.envytheme.com/oban/default/dados.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 08 Jun 2024 21:05:38 GMT -->
 </html>

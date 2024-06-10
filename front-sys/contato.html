@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zxx">
-	<!-- Mirrored from templates.envytheme.com/oban/default/notifications.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 08 Jun 2024 21:05:34 GMT -->
+	<!-- Mirrored from templates.envytheme.com/oban/default/contato.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 08 Jun 2024 21:06:12 GMT -->
 	<head>
 		<meta charset="utf-8" />
 		<meta name="description" content="Oban" />
@@ -114,7 +114,7 @@
 							</div>
 						</div>
 						<div class="appbar-item appbar-page-title">
-							<h3>Notifications</h3>
+							<h3>Contate-nos</h3>
 						</div>
 						<div class="appbar-item appbar-options">
 							<div class="appbar-option-item appbar-option-notification">
@@ -136,96 +136,86 @@
 		<!-- Body-content -->
 		<div class="body-content">
 			<div class="container">
-				<!-- Notification-section -->
-				<div class="notification-section pb-15">
-					<div class="notification-item">
-						<div class="notification-card">
-							<a
-								href="#"
-								data-bs-toggle="modal"
-								data-bs-target="#notificationModal"
-							>
-								<div class="notification-card-thumb">
-									<i class="flaticon-bell"></i>
-								</div>
-								<div class="notification-card-details">
-									<h3>Payment Received</h3>
-									<p>15/01/2024 05:05 AM</p>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="notification-item">
-						<div class="notification-card">
-							<a
-								href="#"
-								data-bs-toggle="modal"
-								data-bs-target="#notificationModal"
-							>
-								<div class="notification-card-thumb">
-									<i class="flaticon-bell"></i>
-									<span class="option-badge">5</span>
-								</div>
-								<div class="notification-card-details">
-									<h3>New Message</h3>
-									<p>14/01/2024 01:50 PM</p>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="notification-item">
-						<div class="notification-card">
-							<a
-								href="#"
-								data-bs-toggle="modal"
-								data-bs-target="#notificationModal"
-							>
-								<div class="notification-card-thumb">
-									<i class="flaticon-bell"></i>
-								</div>
-								<div class="notification-card-details">
-									<h3>Password Changed</h3>
-									<p>12/01/2024 10:010 AM</p>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="notification-item">
-						<div class="notification-card">
-							<a
-								href="#"
-								data-bs-toggle="modal"
-								data-bs-target="#notificationModal"
-							>
-								<div class="notification-card-thumb">
-									<i class="flaticon-bell"></i>
-								</div>
-								<div class="notification-card-details">
-									<h3>Updates To Our Privacy Policy</h3>
-									<p>12/01/2024 12:59 AM</p>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="notification-item">
-						<div class="notification-card">
-							<a
-								href="#"
-								data-bs-toggle="modal"
-								data-bs-target="#notificationModal"
-							>
-								<div class="notification-card-thumb">
-									<i class="flaticon-bell"></i>
-								</div>
-								<div class="notification-card-details">
-									<h3>Money Has Been Sent</h3>
-									<p>01/01/2024 01:00 PM</p>
-								</div>
-							</a>
-						</div>
+				<!-- Page-header -->
+				<div class="page-header">
+					<div class="page-header-title page-header-item">
+						<h3>Entrar em contato</h3>
 					</div>
 				</div>
-				<!-- Notification-section -->
+				<!-- Page-header -->
+
+				<!-- Contact-us-section -->
+				<div class="contact-us-section pb-15">
+					<form class="contact-form pb-15" id="contactForm">
+						<div class="form-group mb-15">
+							<label class="form-label">Nome</label>
+							<input
+								type="text"
+								name="name"
+								id="name"
+								class="form-control"
+								required
+								data-error="Please enter your name"
+							/>
+							<div class="help-block with-errors"></div>
+						</div>
+						<div class="form-group mb-15">
+							<label class="form-label">E-mail</label>
+							<input
+								type="email"
+								name="email"
+								id="email"
+								class="form-control"
+								required
+								data-error="Please enter your email"
+							/>
+							<div class="help-block with-errors"></div>
+						</div>
+						<div class="form-group mb-15">
+							<label class="form-label">Telefone</label>
+							<input
+								type="text"
+								name="phone"
+								id="phone"
+								class="form-control"
+								required
+								data-error="Please enter your contact number"
+							/>
+							<div class="help-block with-errors"></div>
+						</div>
+						<div class="form-group mb-15">
+							<label class="form-label">Assunto</label>
+							<input
+								type="text"
+								name="subject"
+								id="subject"
+								class="form-control"
+								required
+								data-error="Please enter your subject"
+							/>
+							<div class="help-block with-errors"></div>
+						</div>
+						<div class="form-group mb-15">
+							<label class="form-label">Mensagem</label>
+							<textarea
+								name="message"
+								class="form-control"
+								id="message"
+								rows="2"
+							></textarea>
+						</div>
+						<button class="btn main-btn main-btn-lg full-width" type="submit">
+							Enviar
+						</button>
+						<div id="msgSubmit"></div>
+						<div class="clearfix"></div>
+					</form>
+					<div class="contact-info">
+						<p>6890 Blvd, The Bronx, NY 1058 New York, USA</p>
+						<p>+1 (514) 312-5678 or +1 (514) 312-6677</p>
+					</div>
+				</div>
+				<!-- Contact-us-section -->
 			</div>
 		</div>
 		<!-- Body-content -->
@@ -330,65 +320,6 @@
 		</div>
 		<!-- Navbar -->
 
-		<!-- Notification-modal -->
-		<div
-			class="modal fade"
-			id="notificationModal"
-			tabindex="-1"
-			aria-labelledby="notificationModal"
-			aria-hidden="true"
-		>
-			<div class="modal-dialog modal-dialog-centered notification-modal-dialog">
-				<div class="modal-content">
-					<div class="container">
-						<div class="modal-header">
-							<div class="modal-header-title">
-								<h5 class="modal-title">Notification Details</h5>
-							</div>
-							<button
-								type="button"
-								class="btn-close"
-								data-bs-dismiss="modal"
-								aria-label="Close"
-							></button>
-						</div>
-						<div class="modal-body">
-							<div class="notification-modal">
-								<div class="notification-modal-header">
-									<h3>Updates To Our Privacy Policy</h3>
-									<p>02/01/2024 12:59 AM</p>
-								</div>
-								<div class="notification-modal-details">
-									<h3>Dear <span>Mary McMillian</span>,</h3>
-									<p>
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-										do eiusmod tempor incididunt ut labore et dolore magna
-										aliqua. Quis ipsum uspen disse ultrices gravida. Risus
-										commodo viverra maecenas accumsan lacus vel facilisis.
-										Vestibulum ac diam sit amet quam vehicula elementum sed sit
-										amet dui.
-									</p>
-									<p>
-										Cras ultricies ligula sed magna dictum porta. Vestibulum ac
-										diam sit amet quam vehicula elementum sed sit amet dui. Quis
-										ipsum uspen disse ultrices gravida. Proin eget tortor risus.
-										Vestibulum ante ipsum primis in faucibus orci luctus et
-										ultrices posuere cubilia Curae; Donec velit neque.
-									</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="notification-delete">
-						<a href="#" data-bs-dismiss="modal" aria-label="Close">
-							<i class="flaticon-trash"></i>
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- Notification-modal -->
-
 		<!-- Menu-modal -->
 		<div
 			class="modal fade"
@@ -418,8 +349,8 @@
 					</div>
 					<div class="sidebar-profile-wallet">
 						<div class="add-card-info">
-							<p>Your Wallet</p>
-							<h3>$1,450.50</h3>
+							<p>Saldo Total</p>
+							<h3>R$1,450.50</h3>
 						</div>
 					</div>
 					<div class="modal-body">
@@ -428,35 +359,42 @@
 								<h3>Menu</h3>
 								<ul class="sidebar-nav-list">
 									<li>
-										<a href="index.html"><i class="flaticon-house"></i> Home</a>
-									</li>
-									<li>
-										<a href="pages.html" class="active"
-											><i class="flaticon-invoice"></i> Pages</a
+										<a href="index.html" class="active"
+											><i class="flaticon-house"></i> Home</a
 										>
 									</li>
 									<li>
-										<a href="components.html"
-											><i class="flaticon-menu-1"></i> Components</a
+										<a href="transactions.html"
+											><i class="flaticon-invoice"></i>Financeiro</a
+										>
+									</li>
+									<li>
+										<a href="#"
+											><i class="flaticon-menu-1"></i>Tranferir</a
+										>
+									</li>
+									<li>
+										<a href="#"
+											><i class="flaticon-credit-card"></i>Criar Link</a
 										>
 									</li>
 									<li>
 										<a href="adicionar-cartao.html"
-											><i class="flaticon-credit-card"></i> My Cards</a
+											><i class="flaticon-credit-card"></i>Pagamento Cartão</a
 										>
 									</li>
 									<li>
 										<a href="dados.html"
-											><i class="flaticon-settings"></i> Settings</a
+											><i class="flaticon-settings"></i>Meus Dados</a
 										>
 									</li>
 									<li>
 										<a href="contato.html"
-											><i class="flaticon-call-center-agent"></i> Contact Us</a
+											><i class="flaticon-call-center-agent"></i>Suporte</a
 										>
 									</li>
 									<li>
-										<a href="#"><i class="flaticon-logout"></i> Logout</a>
+										<a href="#"><i class="flaticon-logout"></i> Sair</a>
 									</li>
 								</ul>
 							</div>
@@ -490,5 +428,5 @@
 		<script src="assets/js/script.js"></script>
 	</body>
 
-	<!-- Mirrored from templates.envytheme.com/oban/default/notifications.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 08 Jun 2024 21:05:34 GMT -->
+	<!-- Mirrored from templates.envytheme.com/oban/default/contato.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 08 Jun 2024 21:06:12 GMT -->
 </html>

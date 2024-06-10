@@ -53,7 +53,7 @@
 /*************** Default CSS ***************/
 body {
 	font-family: "Roboto", sans-serif;
-	background-color: #f2f6ff;
+	background-color: #228b22;
 	padding-bottom: 67px;
 }
 
@@ -92,7 +92,7 @@ p {
 }
 
 a {
-	color: #49ed85;
+	color: #228b22;
 	text-decoration: none;
 	transition: all 0.3s linear;
 }
@@ -189,7 +189,7 @@ button:active {
 	position: relative;
 	border-radius: 3px;
 	z-index: 0 !important;
-	background-color: #3646cd;
+	background-color: #228b22;
 	white-space: nowrap;
 }
 .main-btn i {
@@ -203,13 +203,13 @@ button:active {
 }
 .main-btn:hover {
 	color: #fff;
-	background-color: #49ed85;
+	background-color: #46c001;
 }
 .main-btn.main-btn-lg {
 	padding: 10px 35px;
 }
 .main-btn.main-btn-red {
-	background-color: #ee3232;
+	background-color: #808080;
 	color: #fff;
 }
 .main-btn.main-btn-black {
@@ -537,10 +537,10 @@ select.form-control:valid {
 	font-size: 14px;
 }
 .input-checkbox label a {
-	color: #3646cd;
+	color: #228b22;
 }
 .input-checkbox label a:hover {
-	color: #3646cd;
+	color: #46c001;
 }
 .input-checkbox label:before {
 	content: "";
@@ -619,7 +619,7 @@ select.form-control:valid {
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center bottom;
-	background-image: url(../images/header-bg.jpg);
+	background-image: url(../images/sys-soocien/front-soocien.jpg);
 }
 .preloader:before {
 	content: "";
@@ -628,7 +628,7 @@ select.form-control:valid {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background-color: rgba(54, 70, 205, 0.9);
+	background-color: rgba(54, 205, 70, 0.7);
 }
 .preloader .preloader-wrapper {
 	width: 100%;
@@ -727,6 +727,11 @@ height: 100%;
 
 .navbar-pg {
   padding: 40px 0px !important;
+}
+
+.displey-flex {
+  display: flex;
+  justify-content: space-between;
 }
 
 .zindex-1 {
@@ -981,16 +986,23 @@ height: 100%;
 	margin-bottom: 5px;
 }
 
+.barda-fiz {
+ border-radius: 10rem !important;
+}
 .option-card-violet {
-	background-color: #c2f5d5;
+	background-color: #e9e9e978;
 	box-shadow: 0 2px 0 0 #49ed85;
 }
 .option-card-violet a i {
 	color: #6e5fff;
 }
 
+.back-cor {
+	background-color: #f6f6fe;
+}
+
 .option-card-yellow {
-	background-color: #c2f5d5;
+	background-color: #e9e9e978;
 	box-shadow: 0 2px 0 0 #49ed85;
 }
 .option-card-yellow a i {
@@ -998,7 +1010,7 @@ height: 100%;
 }
 
 .option-card-blue {
-	background-color: #c2f5d5;
+	background-color: #e9e9e978;
 	box-shadow: 0 2px 0 0 #49ed85;
 }
 .option-card-blue a i {
@@ -1006,7 +1018,7 @@ height: 100%;
 }
 
 .option-card-red {
-	background-color: #c2f5d5;
+	background-color: #e9e9e978;
 	box-shadow: 0 2px 0 0 #49ed85;
 }
 .option-card-red a i {
