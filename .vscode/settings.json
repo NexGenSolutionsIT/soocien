@@ -6,5 +6,6 @@
 		"Enviar",
 		"Recebido",
 		"Saldo"
-	]
+	],
+	"liveServer.settings.port": 5501
 }
