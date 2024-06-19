@@ -107,7 +107,7 @@
 						</div>
 						<div class="appbar-item appbar-options">
 							<div class="appbar-option-item appbar-option-notification">
-								<a href="notifications.html"><i class="flaticon-bell"></i></a>
+								<a href="notificacao.html"><i class="flaticon-bell"></i></a>
 								<span class="option-badge">5</span>
 							</div>
 							<div class="appbar-option-item appbar-option-profile">
@@ -138,9 +138,76 @@
 					<div class="section-header nex-pas">
 						<h2>Minhas API's</h2>
 						<div class="view-all">
-							<a href="api.html">Adicionar API</a>
+							<a href="api.html" data-bs-toggle="modal" data-bs-target="#api"> Adicionar API</a>
 						</div>
 					</div>
+					<div
+			class="modal fade"
+			id="api"
+			tabindex="-1"
+			aria-labelledby="sendMoney"
+			aria-hidden="true"
+		>
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="container">
+						<div class="modal-header">
+							<div class="modal-header-title">
+								<i class="flaticon-right-arrow color-yellow"></i>
+								<h5 class="modal-title">Copia e cola</h5>
+							</div>
+							<button
+								type="button"
+								class="btn-close"
+								data-bs-dismiss="modal"
+								aria-label="Close"
+							></button>
+						</div>
+						<div class="modal-body">
+							<form>
+								<div class="form-group mb-15">
+									<label for="input6" class="form-label"
+										>Insira o codigo do Pix Copia e Cola
+									</label>
+									<input
+										type="email"
+										class="form-control"
+										id="input6"
+										placeholder="Coloque o código aqui"
+									/>
+								</div>
+								<!-- <div class="form-group mb-15">
+									<label for="input7" class="form-label">To</label>
+									<input
+										type="email"
+										class="form-control"
+										id="input7"
+										placeholder="Bank ID"
+									/>
+								</div> -->
+								<!-- <div class="form-group mb-15">
+									<label for="input8" class="form-label"
+										>Digite a chave para voce depositar</label
+									>
+									<input
+										type="email"
+										class="form-control"
+										id="input8"
+										placeholder="Nome, CPF/CNPJ ou chave PIX"
+									/>
+								</div> -->
+								<button
+									type="submit"
+									class="btn main-btn main-btn-lg full-width"
+								>
+									Enviar
+								</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 					<div class="progress-card progress-card-red mb-15">
 						<div class="progress-card-info">
 							<div class="circular-progress" data-note="0.0">
@@ -521,7 +588,7 @@
 										>
 									</li>
 									<li>
-										<a href="adicionar-cartao.html"
+										<a href="#"
 											><i class="flaticon-credit-card"></i>Pagamento Cartão</a
 										>
 									</li>
