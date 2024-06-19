@@ -56,6 +56,11 @@ body {
 	background-color: #165c16;
 	padding-bottom: 67px;
 }
+.cor-body {
+	font-family: "Roboto", sans-serif;
+	background-color: #f2f6ff;
+	padding-bottom: 67px;
+}
 
 @media (prefers-reduced-motion: no-preference) {
 	:root {
@@ -1001,7 +1006,7 @@ height: 100%;
 }
 
 .back-cor {
-	background-color: #f6f6fe;
+	background-color: #f2f6ff;
 }
 
 .option-card-yellow {
@@ -2209,7 +2214,7 @@ footer.footer-bg p a {
 .user-setting-thumb {
 	width: 70px;
 	height: 70px;
-	background-color: #3646cd;
+	background-color: #fff;
 	border: 3px solid #fff;
 	margin-left: auto;
 	margin-right: auto;
