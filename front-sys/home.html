@@ -1104,11 +1104,11 @@
 							</div>
 							<div class="col pb-15">
 								<div class="option-card option-card-blue">
-									<a href="transactions.html">
+									<a href="#" data-bs-toggle="modal" data-bs-target="#copia-e-cola">
 										<div class="option-card-icon">
 											<i class="flaticon-credit-card"></i>
 										</div>
-										<p>Pix Copia e Cola</p>
+										<p>Copia Cola</p>
 									</a>
 								</div>
 							</div>
@@ -1182,6 +1182,73 @@
 										placeholder="Nome, CPF/CNPJ ou chave PIX"
 									/>
 								</div>
+								<button
+									type="submit"
+									class="btn main-btn main-btn-lg full-width"
+								>
+									Enviar
+								</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div
+			class="modal fade"
+			id="copia-e-cola"
+			tabindex="-1"
+			aria-labelledby="sendMoney"
+			aria-hidden="true"
+		>
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="container">
+						<div class="modal-header">
+							<div class="modal-header-title">
+								<i class="flaticon-right-arrow color-yellow"></i>
+								<h5 class="modal-title">Copia e cola</h5>
+							</div>
+							<button
+								type="button"
+								class="btn-close"
+								data-bs-dismiss="modal"
+								aria-label="Close"
+							></button>
+						</div>
+						<div class="modal-body">
+							<form>
+								<div class="form-group mb-15">
+									<label for="input6" class="form-label"
+										>Insira o codigo do Pix Copia e Cola
+									</label>
+									<input
+										type="email"
+										class="form-control"
+										id="input6"
+										placeholder="Coloque o código aqui"
+									/>
+								</div>
+								<!-- <div class="form-group mb-15">
+									<label for="input7" class="form-label">To</label>
+									<input
+										type="email"
+										class="form-control"
+										id="input7"
+										placeholder="Bank ID"
+									/>
+								</div> -->
+								<!-- <div class="form-group mb-15">
+									<label for="input8" class="form-label"
+										>Digite a chave para voce depositar</label
+									>
+									<input
+										type="email"
+										class="form-control"
+										id="input8"
+										placeholder="Nome, CPF/CNPJ ou chave PIX"
+									/>
+								</div> -->
 								<button
 									type="submit"
 									class="btn main-btn main-btn-lg full-width"
