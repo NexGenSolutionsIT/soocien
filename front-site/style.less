@@ -52,13 +52,13 @@
 
 --------------------------------------------------------*/
 @charset "utf-8";
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
-@body-font: 'Space Grotesk', sans-serif;
-@title-font: 'Space Grotesk', sans-serif;
-@transition: all .3s ease;
-@primary-color: #0C6460;
-@secondary-color: #FF6D00;
-@third-color: #0C6460;
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+@body-font: "Space Grotesk", sans-serif;
+@title-font: "Space Grotesk", sans-serif;
+@transition: all 0.3s ease;
+@primary-color: #0c6460;
+@secondary-color: #20bb5c;
+@third-color: #0c6460;
 @title-color: #101010;
 @title-color2: #0a0a0a;
 @white-color: #ffffff;
@@ -66,7 +66,6 @@
 @body-color2: #333333;
 @gray-color: #effdfc;
 @gray-color2: #effdfc;
-
 
 /* -----------------------------------
 	01. General CSS
@@ -81,7 +80,6 @@ body {
 	font-weight: 400;
 	overflow-x: hidden;
 }
-
 
 img {
 	max-width: 100%;
@@ -390,7 +388,7 @@ ul {
 	height: 100vh;
 	top: 0;
 	bottom: 0;
-	opacity: .8;
+	opacity: 0.8;
 	z-index: 999;
 }
 
@@ -437,7 +435,7 @@ ul.services-list {
 		a {
 			display: block;
 			padding: 16px 30px;
-			transition: all .5s ease;
+			transition: all 0.5s ease;
 			border-radius: 30px 0 30px 0;
 			position: relative;
 			font-size: 16px;
@@ -466,7 +464,7 @@ ul.services-list {
 			}
 
 			&.active {
-				background: #0C6460;
+				background: #0c6460;
 				color: #ffffff;
 
 				&:before {
@@ -493,7 +491,7 @@ ul.check-lists {
 			left: 0;
 			content: "\f160";
 			font-family: uicons-regular-rounded;
-			color: #0C6460;
+			color: #0c6460;
 			font-weight: 700;
 			font-size: 9px;
 			border: 1px solid;
@@ -534,7 +532,7 @@ button:focus {
 			line-height: 12px;
 			font-size: 18px;
 			text-decoration: none;
-			transition: all .4s ease-in-out 0s;
+			transition: all 0.4s ease-in-out 0s;
 			text-align: center;
 			background: 0 0;
 			color: #eee;
@@ -554,7 +552,7 @@ button:focus {
 	border: 1px solid #f9f9f9;
 	padding: 11px 0;
 	border-radius: 3px;
-	box-shadow: 0 0 30px rgba(0, 0, 0, .05);
+	box-shadow: 0 0 30px rgba(0, 0, 0, 0.05);
 	background: #fff;
 
 	li {
@@ -562,7 +560,7 @@ button:focus {
 		line-height: 23px;
 		font-size: 18px;
 		text-decoration: none;
-		transition: all .4s ease-in-out 0s;
+		transition: all 0.4s ease-in-out 0s;
 		text-align: center;
 		background: 0 0;
 		color: #000;
@@ -581,7 +579,7 @@ button:focus {
 
 	.next-page {
 		position: relative;
-		transition: all .4s ease-in-out 0s;
+		transition: all 0.4s ease-in-out 0s;
 		padding-right: 12px;
 
 		&:before,
@@ -615,7 +613,7 @@ button:focus {
 		background: 0 0 !important;
 		color: #0a0a0a;
 		display: inline-block;
-		transition: .4s;
+		transition: 0.4s;
 		outline: 0;
 		position: relative;
 		padding: 6px 20px 6px 20px;
@@ -631,7 +629,7 @@ button:focus {
 		}
 	}
 
-	button+button {
+	button + button {
 		margin-left: 20px;
 	}
 }
@@ -640,7 +638,6 @@ button:focus {
 .odometer.odometer-theme-default {
 	font-family: @body-font;
 }
-
 
 blockquote {
 	margin: 35px 0px !important;
@@ -656,7 +653,7 @@ blockquote {
 	&:before {
 		content: "\f129" !important;
 		font-size: 35px;
-		color: #ff6d00;
+		color: #20bb5c;
 		padding-bottom: 0;
 		display: inline-block;
 		font-family: flaticon;
@@ -682,7 +679,7 @@ blockquote {
 				color: #ff5421;
 				padding-bottom: 0px;
 				display: inline-block;
-				background: #ff6d00;
+				background: #20bb5c;
 				height: 2px;
 				width: 40px;
 				font-weight: 400;
@@ -716,7 +713,7 @@ blockquote {
 				text-align: center;
 				color: @white-color;
 				transition: all 0.5s;
-				transition-delay: 0.70s;
+				transition-delay: 0.7s;
 				opacity: 0;
 				visibility: hidden;
 
@@ -742,7 +739,6 @@ blockquote {
 
 		&:hover {
 			.owl-nav {
-
 				.owl-next,
 				.owl-prev {
 					left: -50px;
@@ -792,8 +788,8 @@ blockquote {
 	margin-left: 0;
 }
 
-.row.no-gutters>[class^="col-"],
-.row.no-gutters>[class*=" col-"] {
+.row.no-gutters > [class^="col-"],
+.row.no-gutters > [class*=" col-"] {
 	padding-right: 0;
 	padding-left: 0;
 }
@@ -860,7 +856,7 @@ blockquote {
 		padding: 15px 34px;
 
 		&:hover {
-			background-color: #FF6D00;
+			background-color: #20bb5c;
 			color: @white-color;
 			border-radius: 0px 20px 0px 20px;
 		}
@@ -870,7 +866,7 @@ blockquote {
 		padding: 16px 28px 14px 28px;
 
 		&:hover {
-			background-color: #FF6D00;
+			background-color: #20bb5c;
 			color: @white-color;
 			border-radius: 0px 20px 0px 20px;
 		}
@@ -891,7 +887,7 @@ blockquote {
 			border: none;
 
 			&:hover {
-				background-color: #FF6D00;
+				background-color: #20bb5c;
 			}
 		}
 
@@ -931,7 +927,7 @@ blockquote {
 			border: none;
 
 			&:hover {
-				opacity: .9;
+				opacity: 0.9;
 			}
 		}
 	}
@@ -997,11 +993,11 @@ blockquote {
 		span {
 			position: relative;
 			z-index: 11;
-			color: #0C6460;
+			color: #0c6460;
 		}
 
 		&:after {
-			content: '';
+			content: "";
 			position: absolute;
 			background: #fff;
 			left: 5px;
@@ -1136,7 +1132,7 @@ blockquote {
 
 			&:hover {
 				&:before {
-					width: 50.50%;
+					width: 50.5%;
 				}
 
 				span {
@@ -1144,7 +1140,7 @@ blockquote {
 				}
 
 				&:after {
-					width: 50.50%;
+					width: 50.5%;
 				}
 			}
 
@@ -1177,7 +1173,7 @@ blockquote {
 	border-radius: 3px;
 	font-size: 16px;
 	font-weight: 500;
-	background: #0C6460;
+	background: #0c6460;
 	color: #ffffff;
 	border: none;
 
@@ -1198,7 +1194,7 @@ blockquote {
 			line-height: 40px;
 			border-radius: 40px;
 			text-align: center;
-			color: #0C6460;
+			color: #0c6460;
 			background-color: #effdfc;
 
 			&:before {
@@ -1209,7 +1205,7 @@ blockquote {
 		&:hover {
 			i {
 				color: #fff;
-				background-color: #0C6460;
+				background-color: #0c6460;
 			}
 		}
 	}
@@ -1217,13 +1213,13 @@ blockquote {
 	&.ser-style2 {
 		.btn-text {
 			i {
-				background: #ff6d00;
+				background: #20bb5c;
 				color: @white-color;
 			}
 
 			&:hover {
 				i {
-					background: #ff6d00;
+					background: #20bb5c;
 					color: @white-color;
 				}
 			}
@@ -1238,8 +1234,8 @@ blockquote {
 		display: inline-block;
 		font-size: 16px;
 		font-weight: 500;
-		color: #0A0A0A;
-		transition: all ease .4s;
+		color: #0a0a0a;
+		transition: all ease 0.4s;
 
 		&:after {
 			content: "\f113";
@@ -1250,7 +1246,7 @@ blockquote {
 			top: 0;
 			display: inline-block;
 			margin-left: 8px;
-			transition: all ease .4s;
+			transition: all ease 0.4s;
 			color: @title-color;
 		}
 
@@ -1289,7 +1285,6 @@ blockquote {
 	}
 }
 
-
 /*-- Submit Button CSS --*/
 .submit-btn {
 	margin: 0;
@@ -1309,7 +1304,7 @@ blockquote {
 		z-index: 9;
 
 		[type="submit"] {
-			background-color: #AF0505E0;
+			background-color: #af0505e0;
 			padding: 16px 34px 16px 34px;
 			font-size: 16px;
 			font-weight: 600;
@@ -1364,7 +1359,7 @@ blockquote {
 		line-height: 70px;
 		border-radius: 100%;
 		text-align: center;
-		background: #E76404;
+		background: #e76404;
 
 		i {
 			text-align: center;
@@ -1392,7 +1387,7 @@ blockquote {
 			height: 70px;
 			border-radius: 50%;
 			animation: pulse-border 1500ms ease-out infinite;
-			background: #E76404;
+			background: #e76404;
 		}
 	}
 }
@@ -1416,7 +1411,7 @@ blockquote {
 				font-size: 20px;
 				line-height: 80px;
 				display: block;
-				color: #01539F;
+				color: #01539f;
 			}
 
 			&:before {
@@ -1432,8 +1427,8 @@ blockquote {
 				height: 180px;
 				border-radius: 50%;
 				animation: zoomBig 3.25s linear infinite;
-				-webkit-animation-delay: .75s;
-				animation-delay: .75s;
+				-webkit-animation-delay: 0.75s;
+				animation-delay: 0.75s;
 			}
 
 			&:after {
@@ -1476,7 +1471,7 @@ blockquote {
 	}
 
 	40% {
-		opacity: .5;
+		opacity: 0.5;
 		border-width: 2px;
 	}
 
@@ -1491,7 +1486,6 @@ blockquote {
 	}
 }
 
-
 @keyframes zoomBig {
 	0% {
 		transform: translate(-50%, -50%) scale(0.5);
@@ -1500,7 +1494,7 @@ blockquote {
 	}
 
 	40% {
-		opacity: .5;
+		opacity: 0.5;
 		border-width: 2px;
 	}
 
@@ -1613,7 +1607,7 @@ blockquote {
 			color: @title-color2;
 
 			span {
-				color: #FF6D00;
+				color: #20bb5c;
 				font-weight: 700;
 				text-decoration: underline;
 			}
@@ -1654,18 +1648,18 @@ blockquote {
 		font-size: 17px;
 
 		.btn-text {
-			color: #0A0A0A;
+			color: #0a0a0a;
 			font-size: 17px;
 			font-weight: 400;
 			text-decoration: underline !important;
 			padding: 2px 0px 2px 0px;
 			border-style: solid;
 			border-width: 0px 0px 0px 0px;
-			border-color: #FF6D00;
+			border-color: #20bb5c;
 			border-radius: 0px 0px 0px 0px;
 
 			&:hover {
-				color: #FF6D00;
+				color: #20bb5c;
 			}
 		}
 	}
@@ -1676,7 +1670,7 @@ blockquote {
 	padding-top: 28px;
 
 	&:before {
-		content: '';
+		content: "";
 		position: absolute;
 		left: 0;
 		top: 0;
@@ -1773,7 +1767,7 @@ blockquote {
 		margin: 0;
 
 		.btn-text {
-			color: #0A0A0A;
+			color: #0a0a0a;
 			font-size: 17px;
 			text-decoration: underline;
 
@@ -1796,7 +1790,7 @@ blockquote {
 		.toolbar-area {
 			&.topbar-style1 {
 				padding: 0 20px;
-				background: #0C6460;
+				background: #0c6460;
 
 				.toolbar-contact {
 					.rs-contact-info {
@@ -1829,7 +1823,7 @@ blockquote {
 								color: @white-color;
 
 								&:hover {
-									color: #CCCCCC;
+									color: #cccccc;
 								}
 							}
 						}
@@ -1884,7 +1878,7 @@ blockquote {
 									color: @white-color;
 
 									&:hover {
-										color: #CCCCCC;
+										color: #cccccc;
 									}
 								}
 							}
@@ -1996,7 +1990,7 @@ blockquote {
 								}
 
 								&.menu-item-has-children {
-									>a {
+									> a {
 										padding-right: 17px;
 
 										&:before {
@@ -2013,14 +2007,14 @@ blockquote {
 											transform: translateY(-50%);
 											font-weight: 400;
 										}
-										&:hover{
-											&::before{
-												content: '-';
+										&:hover {
+											&::before {
+												content: "-";
 											}
 										}
 									}
 									&:hover {
-										>a {
+										> a {
 											&:before {
 												content: "-";
 											}
@@ -2028,21 +2022,21 @@ blockquote {
 									}
 
 									&.current-menu-item {
-										>a {
+										> a {
 											color: @primary-color !important;
 
 											&::before {
-												content: '-';
+												content: "-";
 											}
 										}
 
 										ul {
 											li {
-												&.current-menu-item{
+												&.current-menu-item {
 													a {
 														i {
 															&::before {
-																content: '-';
+																content: "-";
 																font-family: unset !important;
 																font-size: 30px;
 																font-weight: 100 !important;
@@ -2052,10 +2046,10 @@ blockquote {
 												}
 											}
 										}
-										&:hover{
-											> a{
-												&::before{
-													content: '-';
+										&:hover {
+											> a {
+												&::before {
+													content: "-";
 												}
 											}
 										}
@@ -2063,10 +2057,9 @@ blockquote {
 								}
 
 								&:hover {
-									&>a {
+									& > a {
 										color: @primary-color;
 									}
-
 								}
 							}
 						}
@@ -2132,7 +2125,7 @@ blockquote {
 						&.onepage-menu {
 							li {
 								&.current-menu-item {
-									>a {
+									> a {
 										color: @primary-color;
 									}
 								}
@@ -2142,8 +2135,8 @@ blockquote {
 
 					ul li a:hover,
 					ul li.active a,
-					ul li.current-menu-item>a,
-					ul li.current-menu-item>a:before {
+					ul li.current-menu-item > a,
+					ul li.current-menu-item > a:before {
 						color: @primary-color !important;
 					}
 				}
@@ -2168,8 +2161,8 @@ blockquote {
 					.rs-menu {
 						ul {
 							&.nav-menu {
-								>li {
-									>a {
+								> li {
+									> a {
 										color: #101010;
 
 										&:hover {
@@ -2178,7 +2171,7 @@ blockquote {
 									}
 
 									&.current-menu-item {
-										>a {
+										> a {
 											color: @primary-color;
 										}
 									}
@@ -2208,7 +2201,7 @@ blockquote {
 
 					.quote-button {
 						font-size: 16px;
-						background: #0C6460;
+						background: #0c6460;
 						padding: 10px 23px;
 						color: #fff;
 						font-weight: 600;
@@ -2286,12 +2279,12 @@ blockquote {
 									}
 
 									&:hover {
-										&>a {
+										& > a {
 											color: @primary-color !important;
 
 											i {
 												&::before {
-													content: '-';
+													content: "-";
 													font-family: unset !important;
 													font-size: 30px;
 													font-weight: 100;
@@ -2345,10 +2338,10 @@ blockquote {
 
 			.menu-area .main-menu .rs-menu ul.nav-menu li a:hover,
 			.menu-area .main-menu .rs-menu ul li.active a,
-			.menu-area .main-menu .rs-menu ul li.current-menu-item>a:before,
-			.menu-area .main-menu .rs-menu ul li.current-menu-item>a,
-			.menu-area .main-menu .rs-menu ul.nav-menu li.current-menu-item>a {
-				color: @secondary-color !important
+			.menu-area .main-menu .rs-menu ul li.current-menu-item > a:before,
+			.menu-area .main-menu .rs-menu ul li.current-menu-item > a,
+			.menu-area .main-menu .rs-menu ul.nav-menu li.current-menu-item > a {
+				color: @secondary-color !important;
 			}
 
 			.menu-area .rs-menu-area {
@@ -2370,7 +2363,7 @@ blockquote {
 			}
 
 			.expand-btn-inner ul .btn-quote .quote-button:hover {
-				color: #ff6d00;
+				color: #20bb5c;
 				border-radius: 0 20px 0 20px;
 			}
 
@@ -2454,7 +2447,6 @@ blockquote {
 								&.nav-menu {
 									li {
 										a {
-
 											&.mPS2id-highlight,
 											&.mPS2id-highlight-first {
 												color: @secondary-color !important;
@@ -2542,7 +2534,7 @@ blockquote {
 			z-index: 99;
 			right: 57px;
 			cursor: pointer;
-			transition: all .3s ease;
+			transition: all 0.3s ease;
 
 			.nav-close {
 				.line {
@@ -2660,7 +2652,7 @@ blockquote {
 							border-radius: 3px;
 
 							&:hover {
-								opacity: .9;
+								opacity: 0.9;
 							}
 						}
 					}
@@ -2687,7 +2679,7 @@ blockquote {
 			position: relative;
 
 			a {
-				border-bottom: 1px solid rgba(0, 0, 0, .06);
+				border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 				display: block;
 				color: #333;
 				padding: 10px 0;
@@ -2728,7 +2720,7 @@ blockquote {
 				display: block;
 				background: #333;
 				z-index: 2;
-				content: '';
+				content: "";
 				right: 12px;
 				width: 12px;
 			}
@@ -2763,17 +2755,25 @@ blockquote {
 		}
 
 		ul ul li,
-		li:hover>ul>li {
+		li:hover > ul > li {
 			height: auto;
 		}
 	}
 }
 
-.full-width-header .mobile-navbar-menu ul.nav-menu>li:first-child>span.submenu-button:after {
+.full-width-header
+	.mobile-navbar-menu
+	ul.nav-menu
+	> li:first-child
+	> span.submenu-button:after {
 	top: 19px;
 }
 
-.full-width-header .mobile-navbar-menu ul.nav-menu>li:first-child>span.submenu-button:before {
+.full-width-header
+	.mobile-navbar-menu
+	ul.nav-menu
+	> li:first-child
+	> span.submenu-button:before {
 	top: 13px;
 }
 
@@ -2798,7 +2798,7 @@ body {
 
 	.search-modal {
 		padding: 0 !important;
-		background: #FF6D00;
+		background: #20bb5c;
 
 		.modal-content {
 			position: initial;
@@ -2814,7 +2814,7 @@ body {
 					background: 0 0;
 					border: none;
 					color: #fff;
-					border-bottom: 1px solid rgba(255, 255, 255, .2);
+					border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 					outline: none;
 					padding: 14px 17px;
 					border-radius: unset;
@@ -2828,7 +2828,7 @@ body {
 					border-radius: 0 5px 5px 0;
 					font-size: 16px;
 					position: absolute;
-					content: '';
+					content: "";
 					right: 0;
 					top: 11px;
 
@@ -2837,7 +2837,7 @@ body {
 							color: #fff;
 							font-size: 18px;
 							font-weight: 600;
-							opacity: .7;
+							opacity: 0.7;
 						}
 					}
 				}
@@ -2880,7 +2880,7 @@ body {
 			text-align: center;
 			cursor: pointer;
 			border-radius: 50%;
-			transition: all .5s ease;
+			transition: all 0.5s ease;
 			opacity: unset;
 			box-shadow: unset;
 			border: none;
@@ -2984,7 +2984,7 @@ body {
 				margin: 24px 85px 26px 0px;
 				border-style: solid;
 				border-width: 0px 0px 1px 0px;
-				border-color: #EDECEC;
+				border-color: #edecec;
 			}
 		}
 
@@ -3038,7 +3038,7 @@ body {
 			padding: 45px 0px 0px 0px;
 			border-style: solid;
 			border-width: 1px 0px 0px 0px;
-			border-color: #EBEBEB;
+			border-color: #ebebeb;
 
 			.services-wrap {
 				display: flex;
@@ -3088,7 +3088,7 @@ body {
 			.content-widget {
 				position: relative;
 				padding: 33px 52px 33px 74px;
-				background-color: #FFFFFF;
+				background-color: #ffffff;
 				border-radius: 40px 40px 40px 40px;
 
 				.icon-part {
@@ -3224,9 +3224,9 @@ body {
 				position: absolute;
 				top: 0px;
 				left: 0;
-				transition: all .3s ease;
+				transition: all 0.3s ease;
 				z-index: -1;
-				background: #E76404;
+				background: #e76404;
 				width: 65px;
 				margin: 0 auto;
 			}
@@ -3324,7 +3324,7 @@ body {
 
 			.banner-box {
 				padding: 60px 20px 60px 20px;
-				background-color: #0C64604F;
+				background-color: #0c64604f;
 				border-radius: 0px 0px 0px 0px;
 				z-index: -11;
 				width: 160px;
@@ -3338,7 +3338,7 @@ body {
 				font-size: 15px;
 				line-height: 28px;
 				font-weight: 600;
-				color: #F66B06;
+				color: #f66b06;
 				letter-spacing: 2px;
 				text-transform: uppercase;
 				display: block;
@@ -3411,7 +3411,7 @@ body {
 			.banner-box {
 				position: absolute;
 				left: -10%;
-				background-color: #0C6460;
+				background-color: #0c6460;
 				color: rgb(255, 255, 255);
 				width: 680px;
 				height: 552px;
@@ -3551,7 +3551,7 @@ body {
 
 		.background-video-wrap {
 			.background-overlay {
-				background-color: #08172D;
+				background-color: #08172d;
 				opacity: 0.5;
 				mix-blend-mode: multiply;
 				transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
@@ -3722,7 +3722,7 @@ body {
 		}
 
 		.nivo-directionNav {
-			>a {
+			> a {
 				background: rgba(0, 0, 0, 0.2);
 
 				&:before {
@@ -3752,7 +3752,7 @@ body {
 			}
 
 			.nivo-directionNav {
-				>a {
+				> a {
 					width: 40px;
 					height: 40px;
 					line-height: 40px;
@@ -3838,7 +3838,7 @@ body {
 	}
 
 	.nivo-directionNav {
-		>a {
+		> a {
 			font-size: 0;
 			width: 60px;
 			height: 60px;
@@ -3848,7 +3848,7 @@ body {
 			border: none;
 			background: #333;
 			background: rgba(0, 0, 0, 0.25);
-			transition: all .4s ease-out;
+			transition: all 0.4s ease-out;
 			opacity: 1;
 
 			&.nivo-prevNav,
@@ -3904,8 +3904,8 @@ body {
 			font-size: 0px;
 			display: inline-block;
 			margin-right: 7px;
-			-webkit-transition: .4s ease all;
-			transition: .4s ease all;
+			-webkit-transition: 0.4s ease all;
+			transition: 0.4s ease all;
 
 			&.active {
 				background: @primary-color;
@@ -3916,7 +3916,6 @@ body {
 
 	&.case-slider-style3 {
 		.owl-nav {
-
 			.owl-next,
 			.owl-prev {
 				position: absolute;
@@ -3962,7 +3961,7 @@ body {
 			.counter-box {
 				position: absolute;
 				padding: 50px 0px 50px 0px;
-				background-color: #F66B0624;
+				background-color: #f66b0624;
 				border-radius: 0px 0px 0px 0px;
 				left: 59px;
 				width: 140px;
@@ -3971,11 +3970,11 @@ body {
 				z-index: -1;
 
 				&.con-blue {
-					background-color: #0C64602B;
+					background-color: #0c64602b;
 				}
 
 				&.con-yellow {
-					background-color: #FFB7002B;
+					background-color: #ffb7002b;
 				}
 			}
 
@@ -4020,11 +4019,11 @@ body {
 				position: relative;
 
 				&:after {
-					content: '';
+					content: "";
 					position: absolute;
 					width: 1px;
 					height: 70px;
-					background: #E2DDDF;
+					background: #e2dddf;
 					top: -4px;
 					right: -5px;
 				}
@@ -4091,7 +4090,7 @@ body {
 						font-size: 42px;
 						line-height: 60px;
 						font-weight: 700;
-						color: #0A0A0A;
+						color: #0a0a0a;
 						padding: 15px 0px 0px 0px;
 					}
 
@@ -4099,7 +4098,7 @@ body {
 						font-size: 42px;
 						font-weight: 700;
 						padding: 15px 0px 0px 0px;
-						color: #0A0A0A;
+						color: #0a0a0a;
 					}
 				}
 
@@ -4183,7 +4182,7 @@ body {
 		}
 
 		.contact-section {
-			background-color: #0C6460;
+			background-color: #0c6460;
 			box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.06);
 			border-radius: 0px 120px 0px 0px;
 			padding: 60px 50px 60px 50px;
@@ -4202,7 +4201,7 @@ body {
 				border-style: solid;
 				border-width: 0px 0px 0px 0px;
 				border-color: #272931;
-				background-color: #FFFFFF0D;
+				background-color: #ffffff0d;
 				width: 100%;
 				max-width: 100%;
 				opacity: 1;
@@ -4276,7 +4275,7 @@ body {
 			}
 
 			.contact-section {
-				background-color: #0C6460;
+				background-color: #0c6460;
 				border-radius: 0px 0px 120px 0px;
 
 				.from-control {
@@ -4314,7 +4313,7 @@ body {
 					padding: 20px 0px 10px 0px;
 					border-style: solid;
 					border-width: 0px 0px 2px 0px;
-					border-color: #F8F3F3;
+					border-color: #f8f3f3;
 					background-color: transparent;
 					border-radius: unset;
 					color: @body-color;
@@ -4410,7 +4409,7 @@ body {
 				border-width: 0px 0px 2px 0px;
 				border-color: #effdfc;
 				background: transparent;
-				color: #7A7A7A;
+				color: #7a7a7a;
 				max-width: 100%;
 				opacity: 1;
 			}
@@ -4418,10 +4417,10 @@ body {
 
 		&.home2 {
 			.contact-section {
-				background: #1A3841;
+				background: #1a3841;
 
 				.from-control {
-					background-color: #FFFFFF05;
+					background-color: #ffffff05;
 				}
 
 				.contact-wrap {
@@ -4476,7 +4475,7 @@ body {
 
 	&.contact-style2 {
 		.contact-section {
-			background-color: #0C6460;
+			background-color: #0c6460;
 			border-radius: 0px 0px 150px 0px;
 			padding: 57px 60px 65px 60px;
 
@@ -4551,7 +4550,7 @@ body {
 		}
 
 		.contact-section {
-			background-color: #0C6460;
+			background-color: #0c6460;
 			padding: 108px 40px 90px 40px;
 			border-radius: 0px 0px 200px 0px;
 
@@ -4627,7 +4626,7 @@ body {
 					margin: 0 0 10px;
 
 					a {
-						color: #14171C;
+						color: #14171c;
 
 						&:hover {
 							color: @primary-color;
@@ -4674,7 +4673,7 @@ body {
 			height: 60px;
 
 			input[type="email"] {
-				color: #0A0A0A;
+				color: #0a0a0a;
 				width: 100%;
 				height: 100%;
 				background: #fff;
@@ -4690,7 +4689,7 @@ body {
 			}
 
 			input[type="submit"] {
-				background-color: #FF6D00;
+				background-color: #20bb5c;
 				position: absolute;
 				font-size: 16px;
 				font-weight: 500;
@@ -4712,25 +4711,25 @@ body {
 
 			::-webkit-input-placeholder {
 				/* Chrome/Opera/Safari */
-				color: #0A0A0A;
+				color: #0a0a0a;
 				opacity: 0.79;
 			}
 
 			::-moz-placeholder {
 				/* Firefox 19+ */
-				color: #0A0A0A;
+				color: #0a0a0a;
 				opacity: 0.79;
 			}
 
 			:-ms-input-placeholder {
 				/* IE 10+ */
-				color: #0A0A0A;
+				color: #0a0a0a;
 				opacity: 0.79;
 			}
 
 			:-moz-placeholder {
 				/* Firefox 18- */
-				color: #0A0A0A;
+				color: #0a0a0a;
 				opacity: 0.79;
 			}
 		}
@@ -4961,7 +4960,7 @@ Video CSS
 					bottom: 40px;
 					right: 40px;
 					left: 40px;
-					transition: all .5s ease;
+					transition: all 0.5s ease;
 
 					.category {
 						color: #fff;
@@ -4972,7 +4971,7 @@ Video CSS
 							color: @secondary-color;
 
 							&:hover {
-								color: #E76404;
+								color: #e76404;
 							}
 						}
 					}
@@ -4994,15 +4993,19 @@ Video CSS
 				}
 
 				&:before {
-					content: '';
+					content: "";
 					position: absolute;
 					top: 0;
 					left: 0;
 					opacity: 1;
 					width: 100%;
 					height: 100%;
-					background: linear-gradient(0deg, rgba(16, 23, 30, 0.8) 0%, rgba(255, 255, 255, 0) 100%) !important;
-					transition: all .3s ease 0s;
+					background: linear-gradient(
+						0deg,
+						rgba(16, 23, 30, 0.8) 0%,
+						rgba(255, 255, 255, 0) 100%
+					) !important;
+					transition: all 0.3s ease 0s;
 					border-radius: 70px 0px 70px 0px;
 				}
 			}
@@ -5065,7 +5068,7 @@ Video CSS
 					display: block;
 
 					a {
-						color: #FF6D00;
+						color: #20bb5c;
 					}
 				}
 
@@ -5232,7 +5235,7 @@ Video CSS
 
 				&.slick-active {
 					button {
-						background: #FF6D00;
+						background: #20bb5c;
 						width: 40px;
 						opacity: 1;
 					}
@@ -5303,7 +5306,7 @@ Video CSS
 				left: 0;
 				width: 100%;
 				height: 100%;
-				background-color: #0C6460;
+				background-color: #0c6460;
 				opacity: 0;
 				visibility: hidden;
 				transition: all 0.4s ease 0s;
@@ -5509,7 +5512,7 @@ Video CSS
 				}
 
 				&:before {
-					content: '';
+					content: "";
 					position: absolute;
 					top: 0;
 					left: 0;
@@ -5517,7 +5520,7 @@ Video CSS
 					visibility: hidden;
 					width: 100%;
 					height: 100%;
-					background-color: #0C6460C2;
+					background-color: #0c6460c2;
 					transform: scale(1.2);
 					transition: 0.6s;
 				}
@@ -5605,7 +5608,7 @@ Video CSS
 						display: block;
 
 						a {
-							color: #EAEAEA;
+							color: #eaeaea;
 
 							&:hover {
 								color: @secondary-color;
@@ -5615,7 +5618,7 @@ Video CSS
 				}
 
 				&:before {
-					content: '';
+					content: "";
 					position: absolute;
 					bottom: -150px;
 					left: 0;
@@ -5624,7 +5627,7 @@ Video CSS
 					width: 100%;
 					height: 100%;
 					background: rgba(0, 0, 0, 0.5);
-					background-color: #0C6460C2;
+					background-color: #0c6460c2;
 					transition: 0.6s;
 					border-radius: 70px 0px 70px 0px;
 				}
@@ -5703,11 +5706,11 @@ Video CSS
 			position: relative;
 
 			&:after {
-				content: '';
+				content: "";
 				position: absolute;
 				width: 1px;
 				height: 80px;
-				background: #E2DDDF;
+				background: #e2dddf;
 				top: -8px;
 				right: -20px;
 			}
@@ -5783,7 +5786,7 @@ Video CSS
 			}
 
 			.skillbar {
-				background-color: #0E34AD1C;
+				background-color: #0e34ad1c;
 				height: 11px;
 				line-height: 11px;
 				margin: 10px 0 24px;
@@ -5795,8 +5798,16 @@ Video CSS
 					height: 11px;
 					line-height: 11px;
 					background-color: @primary-color;
-					background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%,
-							transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+					background-image: linear-gradient(
+						45deg,
+						rgba(255, 255, 255, 0.15) 25%,
+						transparent 25%,
+						transparent 50%,
+						rgba(255, 255, 255, 0.15) 50%,
+						rgba(255, 255, 255, 0.15) 75%,
+						transparent 75%,
+						transparent
+					);
 					background-size: 1rem 1rem;
 					margin-bottom: 0;
 					overflow: visible !important;
@@ -5820,7 +5831,7 @@ Video CSS
 
 				&.orange-bg {
 					.skillbar-bar {
-						background-color: #FF6D00;
+						background-color: #20bb5c;
 					}
 				}
 
@@ -5832,7 +5843,7 @@ Video CSS
 
 				&.purple-bg {
 					.skillbar-bar {
-						background-color: #B100FF;
+						background-color: #b100ff;
 					}
 				}
 			}
@@ -5840,7 +5851,7 @@ Video CSS
 
 		&.skillbar-modify1 {
 			.cl-skill-bar .skillbar {
-				background-color: #FF6D0033;
+				background-color: #20bb5c33;
 			}
 
 			.cl-skill-bar .skillbar .skill-bar-percent,
@@ -5857,7 +5868,7 @@ Video CSS
 .rs-services {
 	&.services-main-home {
 		.services-item {
-			background-color: #0C6460;
+			background-color: #0c6460;
 			background-image: url(assets/images/services/main-home/main-img/1.jpg);
 			background-repeat: no-repeat;
 			background-size: cover;
@@ -5869,12 +5880,12 @@ Video CSS
 
 			&::before {
 				position: absolute;
-				content: '';
+				content: "";
 				left: 0;
 				top: 0;
 				height: 100%;
 				width: 100%;
-				background: #0C6460;
+				background: #0c6460;
 				z-index: -1;
 				opacity: 0;
 				visibility: hidden;
@@ -6068,7 +6079,6 @@ Video CSS
 		}
 
 		.owl-nav {
-
 			.owl-next,
 			.owl-prev {
 				position: absolute;
@@ -6076,7 +6086,7 @@ Video CSS
 				height: 40px;
 				line-height: 40px;
 				border-radius: 50%;
-				background: #0C6460;
+				background: #0c6460;
 				color: #fff;
 				transform: translateY(-50%);
 				transition: 0.6s ease all;
@@ -6102,7 +6112,7 @@ Video CSS
 			}
 
 			.owl-next {
-				right: 1.60%;
+				right: 1.6%;
 				bottom: -40%;
 
 				i {
@@ -6153,7 +6163,7 @@ Video CSS
 
 				.services-icon {
 					position: relative;
-					transition: all .3s ease;
+					transition: all 0.3s ease;
 
 					.main-img {
 						height: 65px;
@@ -6170,7 +6180,7 @@ Video CSS
 						top: 0;
 						visibility: hidden;
 						opacity: 0;
-						transition: all .3s ease;
+						transition: all 0.3s ease;
 					}
 				}
 
@@ -6193,7 +6203,7 @@ Video CSS
 
 			&:hover,
 			&.active-bg {
-				background-color: #0C6460;
+				background-color: #0c6460;
 
 				.services-wrap .services-icon .main-img {
 					opacity: 0;
@@ -6347,7 +6357,7 @@ Video CSS
 						position: absolute;
 						left: 242px;
 						top: 34px;
-						color: #0C646014;
+						color: #0c646014;
 						font-size: 50px;
 						font-weight: 700;
 					}
@@ -6370,7 +6380,7 @@ Video CSS
 				}
 
 				.readon.read-more:hover {
-					background-color: #ff6d00;
+					background-color: #20bb5c;
 					color: #ffffff;
 				}
 
@@ -6383,7 +6393,7 @@ Video CSS
 						}
 
 						.readon.read-more {
-							background-color: #ff6d00;
+							background-color: #20bb5c;
 							color: #ffffff;
 						}
 					}
@@ -6399,7 +6409,7 @@ Video CSS
 
 .rs-services-single {
 	.services-add {
-		background-color: #0C6460;
+		background-color: #0c6460;
 		position: relative;
 		padding: 55px 35px 38px;
 		border-radius: 80px 0px 80px 0px;
@@ -6435,7 +6445,7 @@ Video CSS
 						display: block;
 						width: 120px;
 						border-bottom: 2px dashed #e76404;
-						content: '';
+						content: "";
 						margin: 0 auto;
 					}
 				}
@@ -6467,7 +6477,7 @@ Video CSS
 	}
 
 	.brochures {
-		background-image: linear-gradient(280deg, #269D98 0%, #0C6460 100%);
+		background-image: linear-gradient(280deg, #269d98 0%, #0c6460 100%);
 		border-radius: 80px 0px 80px 0px;
 		padding: 65px 24px 78px 34px;
 
@@ -6485,14 +6495,14 @@ Video CSS
 				}
 
 				&:before {
-					content: '';
+					content: "";
 					position: absolute;
 					left: 0;
 					top: 0;
 					width: 65px;
 					height: 5px;
 					opacity: 1;
-					background: #ff6d00;
+					background: #20bb5c;
 				}
 			}
 
@@ -6513,7 +6523,7 @@ Video CSS
 				font-weight: 600;
 				padding: 18px 35px 18px 35px;
 				border-radius: 30px 0px 0px 0px;
-				background-color: #0C6460;
+				background-color: #0c6460;
 				color: @white-color;
 				margin: 0 -4px;
 			}
@@ -6526,7 +6536,7 @@ Video CSS
 				height: 30px;
 				border-radius: 100%;
 				background-color: #fff;
-				box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.30);
+				box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.3);
 				color: #27374c;
 				text-transform: uppercase;
 				font-size: 12px;
@@ -6540,7 +6550,7 @@ Video CSS
 				font-weight: 600;
 				padding: 18px 35px 18px 35px;
 				border-radius: 0px 0px 30px 0px;
-				background-color: #E76404;
+				background-color: #e76404;
 				color: @white-color;
 			}
 		}
@@ -6566,13 +6576,13 @@ Video CSS
 
 		&:before {
 			position: absolute;
-			content: '';
+			content: "";
 			left: 0;
 			top: 0;
 			width: 65px;
 			height: 5px;
 			opacity: 1;
-			background: #E76404;
+			background: #e76404;
 			z-index: 2;
 		}
 	}
@@ -6641,7 +6651,7 @@ Video CSS
 							}
 
 							&.collapsed {
-								background-color: #FFFFFF;
+								background-color: #ffffff;
 								padding: 17px 25px 17px 40px;
 								box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.18);
 
@@ -6703,7 +6713,7 @@ Video CSS
 			.team-inner-wrap {
 				overflow: hidden;
 				border-radius: 70px 0px 70px 0px;
-				box-shadow: 0 5px 20px rgba(34, 34, 34, 0.10);
+				box-shadow: 0 5px 20px rgba(34, 34, 34, 0.1);
 
 				.image-wrap {
 					position: relative;
@@ -6723,7 +6733,7 @@ Video CSS
 						right: -50px;
 						bottom: 0;
 						width: 50px;
-						background: #0C6460;
+						background: #0c6460;
 						padding: 12px 0;
 						opacity: 0;
 						visibility: hidden;
@@ -6754,7 +6764,7 @@ Video CSS
 					margin: 0;
 					padding: 20px 20px 25px;
 					box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0);
-					background-color: #E5161600;
+					background-color: #e5161600;
 
 					.team-name {
 						font-size: 22px;
@@ -6795,7 +6805,8 @@ Video CSS
 							visibility: visible;
 
 							a {
-								i {}
+								i {
+								}
 							}
 						}
 					}
@@ -6836,8 +6847,8 @@ Video CSS
 					left: 50%;
 					transform: translateX(-50%);
 					width: 230px;
-					box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.0);
-					background-color: #0C6460C7;
+					box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0);
+					background-color: #0c6460c7;
 
 					.team-name {
 						font-size: 22px;
@@ -6915,7 +6926,7 @@ Video CSS
 				.image-wrap {
 					a {
 						img {
-							transition: all .7s;
+							transition: all 0.7s;
 						}
 					}
 				}
@@ -6932,9 +6943,9 @@ Video CSS
 					text-align: center;
 					overflow: hidden;
 					background: #fff;
-					transition: .3s all ease;
-					box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.0);
-					background-color: #0C6460;
+					transition: 0.3s all ease;
+					box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0);
+					background-color: #0c6460;
 
 					.team-name {
 						font-size: 22px;
@@ -6968,7 +6979,7 @@ Video CSS
 						left: 50%;
 						opacity: 0;
 						transform: translateX(-50%) scale(0.5);
-						transition: .4s all ease;
+						transition: 0.4s all ease;
 
 						li {
 							display: inline-block;
@@ -7056,7 +7067,7 @@ Video CSS
 					position: unset;
 					opacity: 1;
 					padding: 20px 20px 30px 30px;
-					box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.0);
+					box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0);
 
 					.team-name {
 						font-size: 22px;
@@ -7138,7 +7149,8 @@ Video CSS
 		.images-part {
 			padding: 0 30px 0 0;
 
-			img {}
+			img {
+			}
 		}
 
 		.con-info {
@@ -7279,7 +7291,7 @@ Video CSS
 			padding: 45px 50px 45px 50px;
 			border-radius: 50px 0px 50px 0px;
 			margin: 0 2px 0 3px;
-			background-color: #FFFFFF;
+			background-color: #ffffff;
 			transition: all linear 0.3s;
 
 			&:hover {
@@ -7306,21 +7318,21 @@ Video CSS
 				overflow: hidden;
 				display: inline-block;
 				position: relative;
-				transition: all .3s ease-in-out;
+				transition: all 0.3s ease-in-out;
 
 				.hovers-logos {
 					display: block;
 					position: absolute;
-					transition: all .3s ease-in-out;
+					transition: all 0.3s ease-in-out;
 					z-index: 1;
 					top: 0;
 					left: 0;
 					visibility: hidden;
-					-webkit-transform: translateY(-100%)
+					-webkit-transform: translateY(-100%);
 				}
 
 				.mains-logos {
-					transition: all .3s ease-in-out;
+					transition: all 0.3s ease-in-out;
 					display: block;
 					filter: grayscale(1);
 				}
@@ -7374,7 +7386,7 @@ Video CSS
 			margin: 0px 3px 0px 3px;
 			background-color: #effdfc;
 			border-radius: 50px 50px 50px 50px;
-			box-shadow: 29px -43px 10px 0px rgba(0, 0, 0, 0.0);
+			box-shadow: 29px -43px 10px 0px rgba(0, 0, 0, 0);
 			text-align: center;
 
 			.pricing-table-header {
@@ -7437,7 +7449,7 @@ Video CSS
 						font-size: 16px;
 						position: relative;
 						top: 3px;
-						color: #0C6460;
+						color: #0c6460;
 					}
 
 					.feature-text {
@@ -7449,12 +7461,12 @@ Video CSS
 
 			&.pricing-actives-bg {
 				margin: 0px 0px 0px 0px;
-				background-color: #0C6460;
+				background-color: #0c6460;
 				background-image: url(assets/images/pricing/style1/price.jpg);
 				background-repeat: no-repeat;
 				background-size: cover;
 				border-radius: 50px 50px 50px 50px;
-				box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.0);
+				box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
 
 				.pricing-table-price-tag .pricing-table-period:before {
 					background: @white-color;
@@ -7524,7 +7536,7 @@ Video CSS
 						font-size: 15px;
 
 						i {
-							color: #FF7B18;
+							color: #ff7b18;
 							margin-right: 5px;
 
 							&:before {
@@ -7538,7 +7550,7 @@ Video CSS
 						font-size: 15px;
 
 						i {
-							color: #FF7B18;
+							color: #ff7b18;
 							margin-right: 6px;
 
 							&:before {
@@ -7604,7 +7616,7 @@ Video CSS
 			.blog-item .image-wrap.shape-show:after,
 			.blog-item .image-wrap.shape-show:before {
 				position: absolute;
-				content: '';
+				content: "";
 				background: #ffffff;
 				width: 100px;
 				height: 100px;
@@ -7616,13 +7628,13 @@ Video CSS
 			.blog-item .image-wrap.shape-show:before {
 				right: -55px;
 				bottom: -55px;
-				background: #FFFFFFF0;
+				background: #fffffff0;
 			}
 
 			.blog-item .image-wrap.shape-show:after {
 				left: -55px;
 				top: -55px;
-				background: #FFFFFFF0;
+				background: #fffffff0;
 			}
 
 			.blog-item .blog-content .blog-button a:after {
@@ -7691,7 +7703,7 @@ Video CSS
 						font-size: 15px;
 
 						i {
-							color: #FF6D00;
+							color: #20bb5c;
 							margin-right: 5px;
 
 							&:before {
@@ -7705,7 +7717,7 @@ Video CSS
 						font-size: 15px;
 
 						i {
-							color: #FF6D00;
+							color: #20bb5c;
 							margin-right: 6px;
 
 							&:before {
@@ -7787,7 +7799,7 @@ Video CSS
 								font-size: 15px;
 
 								i {
-									color: #FF6D00;
+									color: #20bb5c;
 									margin-right: 5px;
 
 									&:before {
@@ -7801,7 +7813,7 @@ Video CSS
 								font-size: 15px;
 
 								i {
-									color: #FF6D00;
+									color: #20bb5c;
 									margin-right: 6px;
 
 									&:before {
@@ -7869,7 +7881,7 @@ Video CSS
 					display: inline-block;
 
 					a {
-						background: #0C6460;
+						background: #0c6460;
 						color: #ffffff;
 						transition: 0.4s;
 						font-size: 14px;
@@ -8014,7 +8026,7 @@ Video CSS
 			.search-wrap {
 				position: relative;
 
-				[type=search] {
+				[type="search"] {
 					color: #444444;
 					padding: 12px 17px;
 					width: 100%;
@@ -8022,7 +8034,7 @@ Video CSS
 					border-radius: 5px;
 					position: relative;
 					background: #fff;
-					border: 1px solid #E2DDDF4F;
+					border: 1px solid #e2dddf4f;
 				}
 
 				button {
@@ -8060,7 +8072,7 @@ Video CSS
 		.recent-posts {
 			background: #fff;
 			padding: 40px 30px;
-			box-shadow: 0 6px 25px rgba(0, 0, 0, .07);
+			box-shadow: 0 6px 25px rgba(0, 0, 0, 0.07);
 
 			.recent-post-widget {
 				margin-top: 15px;
@@ -8157,7 +8169,7 @@ Video CSS
 					padding: 6px 12px;
 					font-size: 15px;
 					text-transform: capitalize;
-					transition: all .3s ease;
+					transition: all 0.3s ease;
 					background: #ffffff;
 					color: #444444;
 					border: 1px solid #f0f0f0;
@@ -8197,7 +8209,6 @@ Video CSS
 							}
 						}
 					}
-
 				}
 
 				.Post-cate {
@@ -8235,7 +8246,7 @@ Video CSS
 
 					i {
 						&:before {
-							color: #FD6509;
+							color: #fd6509;
 						}
 					}
 				}
@@ -8272,7 +8283,7 @@ Video CSS
 
 					&:hover {
 						background: @secondary-color;
-						border-color: #FF6D00;
+						border-color: #20bb5c;
 						color: @white-color;
 					}
 				}
@@ -8339,7 +8350,7 @@ Video CSS
 		}
 
 		.widget-content {
-			background-color: #0C6460;
+			background-color: #0c6460;
 			padding: 80px 250px 114px 150px;
 			border-radius: 0px 0px 0px 200px;
 
@@ -8387,7 +8398,7 @@ Video CSS
 						.designation {
 							font-size: 15px;
 							font-weight: 400;
-							color: #F2F2F2;
+							color: #f2f2f2;
 							display: block;
 							padding-bottom: 10px;
 						}
@@ -8415,7 +8426,7 @@ Video CSS
 					color: #fff;
 					font-size: 16px;
 					font-style: italic;
-					background-color: #1A3841;
+					background-color: #1a3841;
 					border-radius: 0px 70px 0px 70px;
 					padding: 50px 50px 50px 50px;
 				}
@@ -8430,7 +8441,7 @@ Video CSS
 					position: absolute;
 					pointer-events: none;
 					border-color: rgba(136, 183, 213, 0);
-					border-top-color: #1A3841;
+					border-top-color: #1a3841;
 					border-width: 12px;
 					margin-left: -30px;
 					z-index: 1;
@@ -8461,7 +8472,7 @@ Video CSS
 					}
 
 					.testi-title {
-						color: #D3CBCB;
+						color: #d3cbcb;
 						font-size: 15px;
 					}
 				}
@@ -8477,7 +8488,7 @@ Video CSS
 
 	&.testimonial-style3 {
 		.widget-content {
-			background-color: #0C6460;
+			background-color: #0c6460;
 			border-radius: 0px 150px 0px 0px;
 			padding: 120px 300px 70px 75px;
 			position: relative;
@@ -8598,13 +8609,13 @@ Video CSS
 					font-style: italic;
 					color: @body-color;
 					padding: 130px 60px 97px 60px;
-					background-color: #FFFFFF;
+					background-color: #ffffff;
 					border-radius: 5px 5px 5px 5px;
-					box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.0);
+					box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0);
 					margin-bottom: -40px;
 
 					&:before {
-						content: '';
+						content: "";
 						height: 100%;
 						width: 100%;
 						position: absolute;
@@ -8613,7 +8624,7 @@ Video CSS
 						z-index: -1;
 						transform: rotate(10deg);
 						border-radius: 10px;
-						background-color: #0C6460;
+						background-color: #0c6460;
 					}
 				}
 			}
@@ -8663,7 +8674,7 @@ Video CSS
 				padding: 52px 50px 52px 50px;
 				background-color: #effdfc;
 				border-radius: 80px 0px 80px 0px;
-				box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.0);
+				box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0);
 
 				.item-content-basic {
 					span {
@@ -8674,7 +8685,7 @@ Video CSS
 					}
 
 					p {
-						color: #0A0A0A;
+						color: #0a0a0a;
 						font-size: 19px;
 						font-weight: 500;
 						font-style: italic;
@@ -8783,7 +8794,6 @@ Video CSS
 				top: 13px;
 				right: 13px;
 			}
-
 		}
 
 		.content-desc {
@@ -8832,7 +8842,6 @@ Video CSS
 	.single-product-image {
 		.images-single {
 			z-index: 1 !important;
-
 		}
 
 		img {
@@ -8865,7 +8874,7 @@ Video CSS
 				line-height: 40px;
 				text-align: center;
 				padding-left: 10px;
-				border: 1px solid rgba(54, 54, 54, .1);
+				border: 1px solid rgba(54, 54, 54, 0.1);
 				outline: none;
 			}
 		}
@@ -8973,7 +8982,7 @@ Video CSS
 							}
 
 							input {
-								border: 1px solid rgba(54, 54, 54, .1);
+								border: 1px solid rgba(54, 54, 54, 0.1);
 								padding: 10px 15px;
 								margin-bottom: 10px;
 								width: 100%;
@@ -8983,7 +8992,7 @@ Video CSS
 								width: 100%;
 								padding: 10px 15px;
 								height: 75px;
-								border: 1px solid rgba(54, 54, 54, .1);
+								border: 1px solid rgba(54, 54, 54, 0.1);
 								margin-bottom: 20px;
 							}
 						}
@@ -9017,7 +9026,7 @@ Video CSS
 .rs-cart {
 	.cart-wrap {
 		table.cart-table {
-			border: 1px solid rgba(0, 0, 0, .1);
+			border: 1px solid rgba(0, 0, 0, 0.1);
 			width: 100%;
 			border-collapse: collapse;
 
@@ -9147,7 +9156,7 @@ Video CSS
 				border-radius: 5px;
 
 				tr {
-					border-top: 1px solid rgba(0, 0, 0, .1);
+					border-top: 1px solid rgba(0, 0, 0, 0.1);
 
 					th {
 						font-size: 18px;
@@ -9226,7 +9235,7 @@ Video CSS
 			padding: 20px 0px 10px 0px;
 			border-style: solid;
 			border-width: 0px 0px 2px 0px;
-			border-color: #F8F3F3;
+			border-color: #f8f3f3;
 			max-width: 100%;
 			opacity: 1;
 		}
@@ -9255,7 +9264,7 @@ Video CSS
 	}
 
 	.services-add {
-		background-color: #0C6460;
+		background-color: #0c6460;
 		position: relative;
 		padding: 55px 35px 38px;
 		border-radius: 80px 0px 80px 0px;
@@ -9291,7 +9300,7 @@ Video CSS
 						display: block;
 						width: 120px;
 						border-bottom: 2px dashed #e76404;
-						content: '';
+						content: "";
 						margin: 0 auto;
 					}
 				}
@@ -9322,7 +9331,6 @@ Video CSS
 		}
 	}
 }
-
 
 /*----------------------------------------
 	29. Checkout Section CSS
@@ -9414,7 +9422,7 @@ Video CSS
 
 				select {
 					color: #666666;
-					opacity: .5;
+					opacity: 0.5;
 					padding-left: 8px;
 					padding-right: 20px;
 					overflow: hidden;
@@ -9495,20 +9503,20 @@ Video CSS
 					width: 100%;
 					padding: 1em;
 					margin: 1em 0 2em;
-					font-size: .92em;
+					font-size: 0.92em;
 					border-radius: 2px;
 					line-height: 1.5;
 					background-color: #f9f9f9;
 
 					&:before {
-						content: '';
+						content: "";
 						display: block;
 						border: 1em solid #f9f9f9;
 						border-right-color: transparent;
 						border-left-color: transparent;
 						border-top-color: transparent;
 						position: absolute;
-						top: -.75em;
+						top: -0.75em;
 						left: 0;
 						margin: -1em 0 0 2em;
 					}
@@ -9531,7 +9539,7 @@ Video CSS
 	}
 
 	.rs-login {
-		border: 1px solid rgba(54, 54, 54, .1);
+		border: 1px solid rgba(54, 54, 54, 0.1);
 		padding: 20px;
 		text-align: left;
 		border-radius: 5px;
@@ -9554,7 +9562,7 @@ Video CSS
 				width: 100%;
 				outline: 0;
 				line-height: normal;
-				border: 1px solid rgba(54, 54, 54, .1);
+				border: 1px solid rgba(54, 54, 54, 0.1);
 				height: 45px;
 				padding-left: 20px;
 			}
@@ -9592,7 +9600,7 @@ Video CSS
 .rs-footer {
 	&.footer-main-home {
 		background-image: url(assets/images/bg/footer-map.png);
-		background-color: #1A3841;
+		background-color: #1a3841;
 		background-size: cover;
 
 		.footer-top {
@@ -9609,11 +9617,11 @@ Video CSS
 				&:before {
 					content: "";
 					position: absolute;
-					background: #ff6d00;
+					background: #20bb5c;
 					height: 3px;
 					width: 15px;
 					left: 0;
-					transition: all .4s ease;
+					transition: all 0.4s ease;
 					z-index: 1;
 					bottom: -20px;
 				}
@@ -9621,9 +9629,9 @@ Video CSS
 				&:after {
 					position: absolute;
 					content: "";
-					background: #ff6d00;
+					background: #20bb5c;
 					height: 3px;
-					transition: all .4s ease;
+					transition: all 0.4s ease;
 					width: 50px;
 					right: 0;
 					left: 25px;
@@ -9659,7 +9667,7 @@ Video CSS
 						i {
 							font-size: 14px;
 							margin-right: 3px;
-							transition: all .8s ease;
+							transition: all 0.8s ease;
 							background: #1c202469;
 							color: #fff;
 							width: 35px;
@@ -9760,7 +9768,7 @@ Video CSS
 							position: relative;
 							top: 1px;
 							margin-right: 3px;
-							color: #ff6d00;
+							color: #20bb5c;
 						}
 					}
 				}
@@ -9838,7 +9846,7 @@ Video CSS
 		height: 7px;
 		border-radius: 2.5px;
 		box-shadow: none;
-		background: #0C6460;
+		background: #0c6460;
 		opacity: 1;
 	}
 
@@ -9926,7 +9934,7 @@ Video CSS
 	transform: translate(-50%, -50%);
 	width: 100px;
 	height: 100px;
-	border-top: 3px solid #ff6d00;
+	border-top: 3px solid #20bb5c;
 	border-radius: 50%;
 	animation: loaderspin 1.8s infinite ease-in-out;
 	-webkit-animation: loaderspin 1.8s infinite ease-in-out;
