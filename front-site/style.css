@@ -232,7 +232,7 @@ ul {
 	color: #ffffff;
 }
 .bg1 {
-	background: url(assets/images/bg/cta-bg1.jpg);
+	background: url(assets/images/soocien-site/carreiras.png);
 	background-position: center right;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -324,7 +324,7 @@ ul {
 	background-size: cover;
 }
 .bg16 {
-	background: url(assets/images/bg/cta-bg1.jpg);
+	background: url(assets/images/soocien-site/carreira2.png);
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -3150,10 +3150,13 @@ body .search-modal .close:hover {
 	transform: translateX(-50%);
 }
 .rs-breadcrumbs.img1 {
-	background: url(assets/images/breadcrumbs/inr-1.jpg);
+	background: url(assets/images/soocien-site/sobre-nos.png);
+}
+.rs-breadcrumbs.img7 {
+	background: url(assets/images/soocien-site/seu-lugar-é-aqui.png);
 }
 .rs-breadcrumbs.img2 {
-	background: url(assets/images/breadcrumbs/inr-2.jpg);
+	background: url(assets/images/soocien-site/beneficios-da.png);
 }
 .rs-breadcrumbs.img3 {
 	background: url(assets/images/breadcrumbs/inr-3.jpg);
@@ -3162,7 +3165,7 @@ body .search-modal .close:hover {
 	background: url(assets/images/breadcrumbs/inr-4.jpg);
 }
 .rs-breadcrumbs.img5 {
-	background: url(assets/images/breadcrumbs/inr-5.jpg);
+	background: url(assets/images/soocien-site/blog.png);
 }
 .rs-breadcrumbs.img6 {
 	background: url(assets/images/breadcrumbs/inr-6.jpg);
@@ -3230,7 +3233,7 @@ body .search-modal .close:hover {
 	margin: 0px 0px 0px 0px;
 }
 .rs-banner.banner-style1 {
-	background: url(assets/images/banner/banner-bg3.png);
+	background: url(assets/images/soocien-site/seu-melhor.png);
 	vertical-align: top;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -4212,7 +4215,7 @@ body .search-modal .close:hover {
 	margin-top: 15px;
 }
 .rs-contact.contact-style3 .office-buliding {
-	background: url(assets/images/contact/style1/office-building.jpg);
+	background: url(assets/images/soocien-site/contato.png);
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -5355,7 +5358,7 @@ Video CSS
 ---------------------------------------*/
 .rs-services.services-main-home .services-item {
 	background-color: #0c6460;
-	background-image: url(assets/images/services/main-home/main-img/1.jpg);
+	background-image: url(assets/images/soocien-site/metodos-pagamentos.png);
 	background-repeat: no-repeat;
 	background-size: cover;
 	transition: background 0s;
@@ -5433,19 +5436,19 @@ Video CSS
 	visibility: visible;
 }
 .rs-services.services-main-home .services-item.ser-bg2 {
-	background-image: url(assets/images/services/main-home/main-img/2.jpg);
+	background-image: url(assets/images/soocien-site/notificacoes.png);
 }
 .rs-services.services-main-home .services-item.ser-bg3 {
-	background-image: url(assets/images/services/main-home/main-img/3.jpg);
+	background-image: url(assets/images/soocien-site/criptografia.png);
 }
 .rs-services.services-main-home .services-item.ser-bg4 {
-	background-image: url(assets/images/services/main-home/main-img/4.jpg);
+	background-image: url(assets/images/soocien-site/integracao.png);
 }
 .rs-services.services-main-home .services-item.ser-bg5 {
-	background-image: url(assets/images/services/main-home/main-img/5.jpg);
+	background-image: url(assets/images/soocien-site/reducao.png);
 }
 .rs-services.services-main-home .services-item.ser-bg6 {
-	background-image: url(assets/images/services/main-home/main-img/6.jpg);
+	background-image: url(assets/images/soocien-site/experiencia.png);
 }
 .rs-services.services-style1 .services-item {
 	background-color: #effdfc;
@@ -7952,7 +7955,7 @@ Video CSS
 	color: #fff;
 }
 .rs-testimonial.testimonial-style3 .testi-image {
-	background-image: url(assets/images/testimonial/style1/testimonial-2.jpg);
+	background-image: url(assets/images/soocien-site/testemunho.png);
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-size: cover;
