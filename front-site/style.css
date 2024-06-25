@@ -3116,7 +3116,7 @@ body .search-modal .close:hover {
 	left: 0;
 	transition: all 0.3s ease;
 	z-index: -1;
-	background: #e76404;
+	background: #1fbb5c;
 	width: 65px;
 	margin: 0 auto;
 }
