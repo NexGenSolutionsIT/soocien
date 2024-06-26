@@ -3126,7 +3126,7 @@ body .search-modal .close:hover {
 	text-transform: uppercase;
 	font-weight: 900;
 	font-family: "Space Grotesk", sans-serif;
-	opacity: 0.05;
+	opacity: 0.13;
 	width: 100%;
 	left: 0;
 	color: inherit;
@@ -3278,7 +3278,7 @@ body .search-modal .close:hover {
 .rs-banner.banner-style1 .content-wrap .banner-box {
 	position: absolute;
 	left: -10%;
-	background-color: #0c6460;
+	background-color: #0c646082;
 	color: #ffffff;
 	width: 680px;
 	height: 552px;
