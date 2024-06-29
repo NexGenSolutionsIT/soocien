@@ -26,11 +26,18 @@
                     </div>
                     <div class="appbar-item appbar-options">
                         <div class="appbar-option-item appbar-option-notification">
-                            <a href="notificacao.html"><i class="flaticon-bell"></i></a>
-                            <span class="option-badge">5</span>
+                            <a href="{{ route('notification.get') }}"><i class="flaticon-bell"></i></a>
+                            @include('livewire.components.notification')
                         </div>
-                        <div class="appbar-option-item appbar-option-profile zindex-1">
-                            <a href="dados.html"><img src="assets/images/sys-soocien/pessoa.svg" alt="profile" /></a>
+                        @php
+                            if (empty(Auth::guard('client')->user()->avatar)) {
+                                $avatar = 'assets/images/horiizom/newperfil.svg';
+                            } else {
+                                $avatar = Auth::guard('client')->user()->avatar;
+                            }
+                        @endphp
+                        <div class="appbar-option-item appbar-option-profile">
+                            <a href="{{ route('profile.get') }}"><img src="{{ $avatar }}" alt="profile"></a>
                         </div>
                     </div>
                 </div>
@@ -48,7 +55,7 @@
                 <div class="add-card-inner">
                     <div class="add-card-item add-card-info">
                         <p>Saldo Total</p>
-                        <h3>R$1,450.50</h3>
+                        <h3>R$ {{ number_format(Auth::guard('client')->user()->balance, 2, ',', '.') }}</h3>
                     </div>
                     <div class="add-card-item add-balance" data-bs-toggle="modal" data-bs-target="#addBalance">
                         <a href="#"><i class="flaticon-plus"></i></a>
@@ -150,7 +157,7 @@
                             </div>
                             <div class="feature-card-details">
                                 <p>Valor BRL</p>
-                                <h3>R$1.485,50</h3>
+                                <h3>R$ {{ number_format(Auth::guard('client')->user()->balance, 2, ',', '.') }}</h3>
                             </div>
                         </div>
                     </div>
@@ -183,7 +190,7 @@
                             </div>
                             <div class="feature-card-details">
                                 <p>Valor USDT</p>
-                                <h3>R$1.395,50</h3>
+                                <h3>$ {{ number_format(Auth::guard('client')->user()->balance_usdt, 2, ',', '.') }}</h3>
                             </div>
                         </div>
                     </div>
@@ -208,7 +215,11 @@
                             </div>
                             <div class="feature-card-details">
                                 <p>Valor Enviado</p>
-                                <h3>R$2.475,00</h3>
+                                @if ($last_amount_sent == [null])
+                                    <h3>R$ 0,00</h3>
+                                @else
+                                    <h3>R$ {{ number_format($last_amount_sent['amount'], 2, ',', '.') }}</h3>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -233,7 +244,11 @@
                             </div>
                             <div class="feature-card-details">
                                 <p>Valor Recebido</p>
-                                <h3>R$5.285,00</h3>
+                                @if ($last_value_received == [null])
+                                    <h3>R$ 0,00</h3>
+                                @else
+                                    <h3>R$ {{ number_format($last_value_received['amount'], 2, ',', '.') }}</h3>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -245,65 +260,77 @@
                 <div class="section-header">
                     <h2>Historico</h2>
                     <div class="view-all">
-                        <a href="finenceiro.html">Ver tudo</a>
+                        <a href="{{ route('finance.get') }}">Ver tudo</a>
                     </div>
+
                 </div>
-                <div class="transaction-card mb-15">
-                    <a href="finenceiro.html">
-                        <div class="transaction-card-info">
-                            <div class="transaction-info-thumb">
-                                <img src="assets/images/sys-soocien/pessoa.svg" alt="user" />
-                            </div>
-                            <div class="transaction-info-text">
-                                <h3>Thiago</h3>
-                                <p>Transferencia Cancelada</p>
-                            </div>
-                        </div>
-                        <div class="transaction-card-det negative-number">-R$185.00</div>
-                    </a>
-                </div>
-                <div class="transaction-card mb-15">
-                    <a href="finenceiro.html">
-                        <div class="transaction-card-info">
-                            <div class="transaction-info-thumb">
-                                <img src="assets/images/sys-soocien/pessoa.svg" alt="user" />
-                            </div>
-                            <div class="transaction-info-text">
-                                <h3>Vinicios</h3>
-                                <p>Tranferancia Enviada</p>
-                            </div>
-                        </div>
-                        <div class="transaction-card-det">-R$159.99</div>
-                    </a>
-                </div>
-                <div class="transaction-card mb-15">
-                    <a href="finenceiro.html">
-                        <div class="transaction-card-info">
-                            <div class="transaction-info-thumb">
-                                <img src="assets/images/sys-soocien/pessoa.svg" alt="user" />
-                            </div>
-                            <div class="transaction-info-text">
-                                <h3>Naty</h3>
-                                <p>Transferencia Recebida</p>
-                            </div>
-                        </div>
-                        <div class="transaction-card-det">+R$170.00</div>
-                    </a>
-                </div>
-                <div class="transaction-card mb-15">
-                    <a href="transaction-details.html">
-                        <div class="transaction-card-info">
-                            <div class="transaction-info-thumb">
-                                <img src="assets/images/sys-soocien/pessoa.svg" alt="user" />
-                            </div>
-                            <div class="transaction-info-text">
-                                <h3>Maristela</h3>
-                                <p>Transferencia Recebida</p>
-                            </div>
-                        </div>
-                        <div class="transaction-card-det">+R$2573.00</div>
-                    </a>
-                </div>
+                @if (empty($transactions))
+                    <p>Nenhuma transação realizada</p>
+                @endif
+
+                @foreach ($transactions as $item)
+                    <div class="transaction-card mb-15">
+                        @if ($item['type_movement'] == 'CONVERSION')
+                            <a href="{{ route('movement.get', ["$see_transaction_key" => $item['uuid']]) }}">
+                                <div class="transaction-card-info">
+                                    <div class="transaction-info-thumb">
+                                        <img src="assets/images/sys-soocien/pessoa.svg" alt="user" />
+                                    </div>
+                                    <div class="transaction-info-text">
+                                        <h3>CONVERSÃO</h3>
+                                        <p>{!! $item['description'] !!}</p>
+                                    </div>
+                                </div>
+                                @if ($item['type'] == 'ENTRY')
+                                    <div class="transaction-card-det receive-money">
+                                        + R$ {{ number_format($item['amount'], '2', ',', '.') }}
+                                    </div>
+                                @else
+                                    <div class="transaction-card-det text-danger">
+                                        - R$ {{ number_format($item['amount'], '2', ',', '.') }}
+                                    </div>
+                                @endif
+                            </a>
+                        @else
+                            <a href="{{ route('transaction.get', ["$see_transaction_key" => $item['uuid']]) }}">
+                                <div class="transaction-card-info">
+                                    <div class="transaction-info-thumb">
+                                        <img src="assets/images/horiizom/userbase.svg" alt="user">
+                                    </div>
+                                    <div class="transaction-info-text">
+                                        @switch($item['type_movement'])
+                                            @case('TRANSFER')
+                                                <h3>TRANSFERÊNCIA</h3>
+                                            @break
+
+                                            @case('DEPOSIT')
+                                                <h3>DEPÓSITO</h3>
+                                            @break
+
+                                            @case('WITHDRAWAL')
+                                                <h3>SAQUE</h3>
+                                            @break
+
+                                            @case('CONVERSION')
+                                                <h3>CONVERSÃO</h3>
+                                            @break
+                                        @endswitch
+                                        <p>{!! $item['description'] !!}</p>
+                                    </div>
+                                </div>
+                                @if ($item['type'] == 'ENTRY')
+                                    <div class="transaction-card-det receive-money">
+                                        + R$ {{ number_format($item['amount'], '2', ',', '.') }}
+                                    </div>
+                                @else
+                                    <div class="transaction-card-det text-danger">
+                                        - R$ {{ number_format($item['amount'], '2', ',', '.') }}
+                                    </div>
+                                @endif
+                            </a>
+                        @endif
+                    </div>
+                @endforeach
             </div>
             <!-- Transaction-section -->
             <!-- Send-money-section -->
@@ -357,143 +384,42 @@
                     </div>
                 </div>
             </div>
-            <!-- Send-money-section -->
-            <!-- Monthly-bill-section -->
-            <!-- <div class="monthly-bill-section pb-15">
-         <div class="section-header">
-          <h2>Debito Automático</h2>
-          <div class="view-all">
-           <a href="monthly-bills.html">Ver Todos</a>
-          </div>
-         </div>
-         <div class="row gx-3">
-          <div class="col-6 pb-15">
-           <div class="monthly-bill-card monthly-bill-card-green">
-            <div class="monthly-bill-thumb">
-             <img src="assets/images/cm-logo-1.png" alt="logo" />
-            </div>
-            <div class="monthly-bill-body">
-             <h3><a href="#">Envato.com</a></h3>
-             <p>Debit Services Subscribtion</p>
-            </div>
-            <div class="monthly-bill-footer monthly-bill-action">
-             <a href="#" class="btn main-btn">Pay Now</a>
-             <p class="monthly-bill-price">$99.99</p>
-            </div>
-           </div>
-          </div>
-          <div class="col-6 pb-15">
-           <div class="monthly-bill-card monthly-bill-card-green">
-            <div class="monthly-bill-thumb">
-             <img src="assets/images/cm-logo-2.png" alt="logo" />
-            </div>
-            <div class="monthly-bill-body">
-             <h3><a href="#">Oban.com</a></h3>
-             <p>Credit Services Subscribtion</p>
-            </div>
-            <div class="monthly-bill-footer monthly-bill-action">
-             <a href="#" class="btn main-btn">Pay Now</a>
-             <p class="monthly-bill-price">$75.00</p>
-            </div>
-           </div>
-          </div>
-          <div class="col-6 pb-15">
-           <div class="monthly-bill-card monthly-bill-card-green">
-            <div class="monthly-bill-thumb">
-             <img src="assets/images/cm-logo-3.png" alt="logo" />
-            </div>
-            <div class="monthly-bill-body">
-             <h3><a href="#">Nezox.com</a></h3>
-             <p>Internet Monthly Subscribtion</p>
-            </div>
-            <div class="monthly-bill-footer monthly-bill-action">
-             <a href="#" class="btn main-btn">Pay Now</a>
-             <p class="monthly-bill-price">$50.50</p>
-            </div>
-           </div>
-          </div>
-          <div class="col-6 pb-15">
-           <div class="monthly-bill-card monthly-bill-card-green">
-            <div class="monthly-bill-thumb">
-             <img src="assets/images/cm-logo-4.png" alt="logo" />
-            </div>
-            <div class="monthly-bill-body">
-             <h3><a href="#">Depan.com</a></h3>
-             <p>Depan Monthly Subscribtion</p>
-            </div>
-            <div class="monthly-bill-footer monthly-bill-action">
-             <a href="#" class="btn main-btn">Pay Now</a>
-             <p class="monthly-bill-price">$100.99</p>
-            </div>
-           </div>
-          </div>
-         </div>
-        </div> -->
-            <!-- Monthly-bill-section -->
-            <!-- Send-money-section -->
-            <!-- Send-money-section -->
-            <!-- Saving-goals-section -->
+
             <div class="saving-goals-section pb-15 mt-4">
                 <div class="section-header">
                     <h2>Minhas API's</h2>
                     <div class="view-all">
-                        <a href="api.html">Ver Todos</a>
+                        <a href="{{ route('keysapi.get') }}">Ver Todos</a>
                     </div>
                 </div>
-                <div class="basic-carousel owl-carousel owl-theme mb-30">
-                    <div class="item">
-                        <div class="monthly-bill-card">
-                            <div class="monthly-bill-thumb">
-                                <img src="assets/images/sys-soocien/area-api.svg" alt="logo" />
-                            </div>
-                            <div class="monthly-bill-body">
-                                <h3><a href="#">Borgata</a></h3>
-                                <p>API ID: 3382918298364k3s9</p>
-                                <p>API CWB: 182738748d874758fw8gb</p>
-                            </div>
-                            <div class="monthly-bill-footer monthly-bill-action">
-                                <a href="#" class="btn main-btn">ATIVO</a>
-                                <p class="monthly-bill-price">24/02/2004</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="monthly-bill-card">
-                            <div class="monthly-bill-thumb">
-                                <img src="assets/images/sys-soocien/area-api.svg" alt="logo" />
-                            </div>
-                            <div class="monthly-bill-body">
-                                <h3><a href="#">finest</a></h3>
-                                <p>API ID: 3382918298364k3s9</p>
-                                <p>API CWB: 182738748d874758fw8gb</p>
-                            </div>
-                            <div class="monthly-bill-footer monthly-bill-action">
-                                <a href="#" class="btn main-btn">ATIVO</a>
-                                <p class="monthly-bill-price">$75.00</p>
+                @if (empty($keysApi))
+                    <p>Nenhuma chave de API cadastrada</p>
+                @endif
+                @foreach ($keysApi as $item)
+                    <div class="basic-carousel owl-carousel owl-theme mb-30">
+                        <div class="item">
+                            <div class="monthly-bill-card">
+                                <div class="monthly-bill-thumb">
+                                    <img src="assets/images/sys-soocien/area-api.svg" alt="logo" />
+                                </div>
+                                <div class="monthly-bill-body">
+                                    <h3><a href="#">{{ $item['title'] }}</a></h3>
+                                    <p>API ID: {{ $item['appId'] }}</p>
+                                    <p>API KEY: {{ $item['appKey'] }}</p>
+                                </div>
+                                <div class="monthly-bill-footer monthly-bill-action">
+                                    <a href="#" class="btn main-btn">ATIVO</a>
+                                    <p class="monthly-bill-price">
+                                        {{ \Carbon\Carbon::parse($item['created_at'])->format('d/m/Y H:i') }}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="item">
-                        <div class="monthly-bill-card">
-                            <div class="monthly-bill-thumb">
-                                <img src="assets/images/sys-soocien/area-api.svg" alt="logo" />
-                            </div>
-                            <div class="monthly-bill-body">
-                                <h3><a href="#">Should</a></h3>
-                                <p>API ID: 3382918298364k3s9</p>
-                                <p>API CWB: 182738748d874758fw8gb</p>
-                            </div>
-                            <div class="monthly-bill-footer monthly-bill-action">
-                                <a href="#" class="btn main-btn">ATIVO</a>
-                                <p class="monthly-bill-price">$50.50</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+
             </div>
-            <!-- Saving-goals-section -->
-            <!-- Latest-news-section -->
-            <div class="latest-news-section pb-15">
+
+            <div class="latest-news-section pb-15 mb-5">
                 <div class="section-header">
                     <h2>Ultimas Noticias</h2>
                     <div class="view-all">
@@ -627,14 +553,14 @@
                                     placeholder="Digite o valor a ser depositado" />
                             </div>
                             <!-- <div class="form-group mb-15">
-             <label for="input7" class="form-label">To</label>
-             <input
-              type="email"
-              class="form-control"
-              id="input7"
-              placeholder="Bank ID"
-             />
-            </div> -->
+                                                                                                                         <label for="input7" class="form-label">To</label>
+                                                                                                                         <input
+                                                                                                                          type="email"
+                                                                                                                          class="form-control"
+                                                                                                                          id="input7"
+                                                                                                                          placeholder="Bank ID"
+                                                                                                                         />
+                                                                                                                        </div> -->
                             <div class="form-group mb-15">
                                 <label for="input8" class="form-label">Digite a chave para voce depositar</label>
                                 <input type="email" class="form-control" id="input8"
@@ -670,25 +596,25 @@
                                     placeholder="Coloque o código aqui" />
                             </div>
                             <!-- <div class="form-group mb-15">
-             <label for="input7" class="form-label">To</label>
-             <input
-              type="email"
-              class="form-control"
-              id="input7"
-              placeholder="Bank ID"
-             />
-            </div> -->
+                                                                                                                         <label for="input7" class="form-label">To</label>
+                                                                                                                         <input
+                                                                                                                          type="email"
+                                                                                                                          class="form-control"
+                                                                                                                          id="input7"
+                                                                                                                          placeholder="Bank ID"
+                                                                                                                         />
+                                                                                                                        </div> -->
                             <!-- <div class="form-group mb-15">
-             <label for="input8" class="form-label"
-              >Digite a chave para voce depositar</label
-             >
-             <input
-              type="email"
-              class="form-control"
-              id="input8"
-              placeholder="Nome, CPF/CNPJ ou chave PIX"
-             />
-            </div> -->
+                                                                                                                         <label for="input8" class="form-label"
+                                                                                                                          >Digite a chave para voce depositar</label
+                                                                                                                         >
+                                                                                                                         <input
+                                                                                                                          type="email"
+                                                                                                                          class="form-control"
+                                                                                                                          id="input8"
+                                                                                                                          placeholder="Nome, CPF/CNPJ ou chave PIX"
+                                                                                                                         />
+                                                                                                                        </div> -->
                             <button type="submit" class="btn main-btn main-btn-lg full-width">
                                 Enviar
                             </button>
@@ -703,5 +629,5 @@
     @include('livewire.components.modals.addBalance')
     @include('livewire.components.modals.withdraws')
     @include('livewire.components.modals.sendMoney')
-    @include('livewire.components.modals.exchange')
+    <livewire:components.modals.exchange />
 @endsection

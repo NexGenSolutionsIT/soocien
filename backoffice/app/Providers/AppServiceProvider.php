@@ -9,16 +9,18 @@ use App\Models\{
     KeysApiModel,
     MovementModel,
     NotificationModel,
+    SupportModel,
     TransactionModel,
-    TransferUserToUserModel,
+    TransferUserToUserModel
 };
 use App\Repositories\{
     ClientRepository,
     KeysApiRepository,
     MovementRepository,
+    SupportRepository,
     TransactionRepository,
     NotificationRepository,
-    TransferUserToUserRepository,
+    TransferUserToUserRepository
 };
 
 
@@ -51,6 +53,10 @@ class AppServiceProvider extends ServiceProvider
 
         $this->app->bind('App\Repositories\TransferUserToUserRepository', function () {
             return new TransferUserToUserRepository(new TransferUserToUserModel());
+        });
+
+        $this->app->bind('App\Repositories\SupportRepository', function () {
+            return new SupportRepository(new SupportModel());
         });
 
         // $this->app->bind('App\Repositories\', function () {

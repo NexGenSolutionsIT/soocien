@@ -2,14 +2,16 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="description" content="Soocien" />
-    <meta name="keywords" content="HTML,CSS,JavaScript" />
-    <meta name="author" content="HiBootstrap" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta charset="utf-8">
+    <meta name="description" content="Oban">
+    <meta name="keywords" content="HTML,CSS,JavaScript">
+    <meta name="author" content="HiBootstrap">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <title>Soocien</title>
-    <link rel="icon" href="assets/images/sys-soocien/soocien-favicon.svg" type="image/png" sizes="16x16" />
+    <title>Horiizon - Serviços de pagamento online.</title>
+    <link rel="icon" href="assets/images/horiizom/favicon.svg" type="image/png" sizes="16x16">
+
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- bootstrap css -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" type="text/css" media="all" />
@@ -19,23 +21,31 @@
     <link rel="stylesheet" href="assets/css/owl.carousel.min.css" type="text/css" media="all" />
     <link rel="stylesheet" href="assets/css/owl.theme.default.min.css" type="text/css" media="all" />
     <!-- boxicons css -->
-    <link rel="stylesheet" href="assets/css/icofont.min.css" type="text/css" media="all" />
+    <link rel='stylesheet' href='assets/css/icofont.min.css' type="text/css" media="all" />
     <!-- flaticon css -->
-    <link rel="stylesheet" href="assets/css/flaticon.css" type="text/css" media="all" />
+    <link rel='stylesheet' href='assets/css/flaticon.css' type="text/css" media="all" />
     <!-- style css -->
     <link rel="stylesheet" href="assets/css/style.css" type="text/css" media="all" />
     <!-- responsive css -->
     <link rel="stylesheet" href="assets/css/responsive.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/custom.css">
+    @livewireStyles
 </head>
 
 <body>
-    @include('livewire.components.pre-loader')
+    {{-- @if (!Request::is('keys-api') || !Request::is('finance'))
+        @include('livewire.components.pre-loader')
+    @endif --}}
 
     @if (Request::is('finance') ||
             Request::is('profile') ||
             Request::is('keys-api') ||
             Request::is('notification') ||
-            Request::is('transaction-detail'))
+            Request::is('transaction-detail') ||
+            Request::is('support') ||
+            Request::is('movement-detail') ||
+            Request::is('make-deposit'))
         @include('livewire.components.header')
     @endif
 
