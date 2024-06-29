@@ -196,7 +196,7 @@
                 <footer class="mt-3">
                     <div class="container">
                         <p>Todos os seus direitos reservados <a class="text-success" href="#"
-                                target="_blank">Soocien</a></p>
+                                target="_blank">Soccien</a></p>
                     </div>
                 </footer>
             </div>

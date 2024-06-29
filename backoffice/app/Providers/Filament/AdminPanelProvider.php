@@ -31,11 +31,10 @@ class AdminPanelProvider extends PanelProvider
     {
         return $panel
             ->default()
-            // ->id('admin-' . str_replace('base64:', '', env('APP_KEY')))
-            // ->path('admin-' . str_replace('base64:', '', env('APP_KEY')))
-
-            ->id('admin')
-            ->path('admin')
+            ->id('admin-' . str_replace('base64:', '', env('APP_KEY')))
+            ->path('admin-' . str_replace('base64:', '', env('APP_KEY')))
+            // ->id('admin')
+            // ->path('admin')
             ->login(Login::class)
             ->colors([
                 'primary' => Color::Green,
