@@ -69,7 +69,7 @@
                 <div class="row gx-3">
                     <div class="col pb-15">
                         <div class="option-card option-card-violet">
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#P2P">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#p2p">
                                 <div class="option-card-icon">
                                     <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25"
                                         width="29" height="29">
@@ -499,7 +499,7 @@
                         </div>
                         <div class="col pb-15">
                             <div class="option-card option-card-yellow">
-                                <a href="#" data-bs-toggle="modal" data-bs-target="#arepix">
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#addBalance">
                                     <div class="option-card-icon">
                                         <i class="flaticon-right-arrow"></i>
                                     </div>
@@ -519,7 +519,7 @@
                         </div>
                         <div class="col pb-15">
                             <div class="option-card option-card-red">
-                                <a href="#" data-bs-toggle="modal" data-bs-target="#exchange">
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#makeLink">
                                     <div class="option-card-icon">
                                         <i class="flaticon-exchange-arrows"></i>
                                     </div>
@@ -553,14 +553,14 @@
                                     placeholder="Digite o valor a ser depositado" />
                             </div>
                             <!-- <div class="form-group mb-15">
-                                                                                                                                         <label for="input7" class="form-label">To</label>
-                                                                                                                                         <input
-                                                                                                                                          type="email"
-                                                                                                                                          class="form-control"
-                                                                                                                                          id="input7"
-                                                                                                                                          placeholder="Bank ID"
-                                                                                                                                         />
-                                                                                                                                        </div> -->
+                                                                                                                                                                     <label for="input7" class="form-label">To</label>
+                                                                                                                                                                     <input
+                                                                                                                                                                      type="email"
+                                                                                                                                                                      class="form-control"
+                                                                                                                                                                      id="input7"
+                                                                                                                                                                      placeholder="Bank ID"
+                                                                                                                                                                     />
+                                                                                                                                                                    </div> -->
                             <div class="form-group mb-15">
                                 <label for="input8" class="form-label">Digite a chave para voce depositar</label>
                                 <input type="email" class="form-control" id="input8"
@@ -576,7 +576,7 @@
         </div>
     </div>
 
-    <div class="modal fade" id="copia-e-cola" tabindex="-1" aria-labelledby="sendMoney" aria-hidden="true">
+    {{-- <div class="modal fade" id="copia-e-cola" tabindex="-1" aria-labelledby="sendMoney" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="container">
@@ -596,25 +596,25 @@
                                     placeholder="Coloque o código aqui" />
                             </div>
                             <!-- <div class="form-group mb-15">
-                                                                                                                                         <label for="input7" class="form-label">To</label>
-                                                                                                                                         <input
-                                                                                                                                          type="email"
-                                                                                                                                          class="form-control"
-                                                                                                                                          id="input7"
-                                                                                                                                          placeholder="Bank ID"
-                                                                                                                                         />
-                                                                                                                                        </div> -->
+                                                                                                                                                             <label for="input7" class="form-label">To</label>
+                                                                                                                                                             <input
+                                                                                                                                                              type="email"
+                                                                                                                                                              class="form-control"
+                                                                                                                                                              id="input7"
+                                                                                                                                                              placeholder="Bank ID"
+                                                                                                                                                             />
+                                                                                                                                                            </div> -->
                             <!-- <div class="form-group mb-15">
-                                                                                                                                         <label for="input8" class="form-label"
-                                                                                                                                          >Digite a chave para voce depositar</label
-                                                                                                                                         >
-                                                                                                                                         <input
-                                                                                                                                          type="email"
-                                                                                                                                          class="form-control"
-                                                                                                                                          id="input8"
-                                                                                                                                          placeholder="Nome, CPF/CNPJ ou chave PIX"
-                                                                                                                                         />
-                                                                                                                                        </div> -->
+                                                                                                                                                             <label for="input8" class="form-label"
+                                                                                                                                                              >Digite a chave para voce depositar</label
+                                                                                                                                                             >
+                                                                                                                                                             <input
+                                                                                                                                                              type="email"
+                                                                                                                                                              class="form-control"
+                                                                                                                                                              id="input8"
+                                                                                                                                                              placeholder="Nome, CPF/CNPJ ou chave PIX"
+                                                                                                                                                             />
+                                                                                                                                                            </div> -->
                             <button type="submit" class="btn main-btn main-btn-lg full-width">
                                 Enviar
                             </button>
@@ -623,12 +623,13 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
 
     @include('livewire.components.modals.addBalance')
     @include('livewire.components.modals.withdraws')
     @include('livewire.components.modals.sendMoney')
+    @include('livewire.components.modals.p2p')
     <livewire:components.modals.link-payment />
     <livewire:components.modals.exchange />
 @endsection

@@ -48,6 +48,7 @@
             Request::is('make-deposit'))
         @include('livewire.components.header')
     @endif
+
     @if (!Request::is('make-payment'))
         @include('livewire.components.sidebar')
     @endif

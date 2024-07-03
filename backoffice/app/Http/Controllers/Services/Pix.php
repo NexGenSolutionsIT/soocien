@@ -259,9 +259,6 @@ class Pix extends Controller
         }
     }
 
-
-
-
     /**
      * Register a financial movement.
      *

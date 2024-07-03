@@ -29,7 +29,7 @@
                             @php
 
                                 if (empty(Auth::guard('client')->user()->avatar)) {
-                                    $avatar = 'assets/images/horiizom/newperfil.svg';
+                                    $avatar = '/assets/images/sys-soocien/pessoa.svg';
                                 } else {
                                     $avatar = Auth::guard('client')->user()->avatar;
                                 }
