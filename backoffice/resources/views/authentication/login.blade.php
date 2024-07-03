@@ -45,7 +45,7 @@
                         </div>
                     </div>
                     <div class="appbar-item appbar-page-title mx-auto">
-                        <h3 style="color: black">Acessar Conta</h3>
+                        <h3 style="color: white">Acessar Conta</h3>
                     </div>
                 </div>
             </div>

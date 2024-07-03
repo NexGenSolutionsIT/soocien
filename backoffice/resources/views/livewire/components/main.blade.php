@@ -34,9 +34,9 @@
 </head>
 
 <body>
-    {{-- @if (!Request::is('keys-api') || !Request::is('finance'))
+    @if (!Request::is('keys-api'))
         @include('livewire.components.pre-loader')
-    @endif --}}
+    @endif
 
     @if (Request::is('finance') ||
             Request::is('profile') ||
@@ -48,12 +48,15 @@
             Request::is('make-deposit'))
         @include('livewire.components.header')
     @endif
-
-    @include('livewire.components.sidebar')
+    @if (!Request::is('make-payment'))
+        @include('livewire.components.sidebar')
+    @endif
 
     @yield('content')
 
-    @include('livewire.components.footer')
+    @if (!Request::is('make-payment'))
+        @include('livewire.components.footer')
+    @endif
 
     @livewireScripts
     <script src="assets/js/jquery.min.js"></script>

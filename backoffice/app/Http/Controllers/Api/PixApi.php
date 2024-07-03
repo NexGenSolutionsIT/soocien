@@ -52,7 +52,7 @@ class Spacefy extends Controller
     /**
      * @var string
      */
-//    private string $webHookVega;
+    //    private string $webHookVega;
 
     public function __construct()
     {
@@ -61,7 +61,7 @@ class Spacefy extends Controller
         $this->version = "v1";
         $this->url = "{$this->path}/{$this->version}";
         $this->apiSecret = env('API_SECRET_KEY');
-//        $this->webHookVega = "https://pay.vegacheckout.com.br/api/postback/horiizom";
+        //        $this->webHookVega = "https://pay.vegacheckout.com.br/api/postback/soccien";
     }
 
     /**
@@ -683,7 +683,7 @@ class Spacefy extends Controller
                 $data['data']['OrderId'] = $orderId;
 
                 try {
-//                    Http::post($this->webHookVega, $data['data']);
+                    //                    Http::post($this->webHookVega, $data['data']);
                     Log::channel('webhook')->info('Webhook sent successfully');
                 } catch (\Exception $e) {
                     Log::channel('webhook')->error('Failed to send webhook: ' . $e->getMessage());
@@ -750,7 +750,7 @@ class Spacefy extends Controller
                 $data['data']['OrderId'] = $orderId;
 
                 try {
-//                    Http::post($this->webHookVega, $data['data']);
+                    //                    Http::post($this->webHookVega, $data['data']);
                     Log::channel('webhook')->info('Webhook sent successfully');
                 } catch (\Exception $e) {
                     Log::channel('webhook')->error('Failed to send webhook: ' . $e->getMessage());

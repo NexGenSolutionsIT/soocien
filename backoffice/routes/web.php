@@ -16,13 +16,14 @@ use App\Http\Controllers\{
     Dashboard\TransactionDetail,
     Dashboard\SupportController,
     Dashboard\MovementDetail,
+    Dashboard\ExternalPaymentController,
 };
 
 #SITE
 Route::get('/', [LoginController::class, 'index'])->name('login.get');
 Route::get('/register', [RegisterController::class, 'index'])->name('register.get');
 Route::get('/recovery-password', [FogotPasswordControlller::class, 'index'])->name('forgot-password.get');
-
+Route::get('/make-payment', [ExternalPaymentController::class, 'index']);
 
 Route::post('/login', [LoginController::class, 'login'])->name('login.post');
 Route::post('/register', [RegisterController::class, 'register'])->name('register.post');
@@ -45,6 +46,7 @@ Route::middleware(['auth.client'])->group(function () {
     Route::post('/support-post', [SupportController::class, 'store'])->name('support.post');
     Route::post('/make-deposit', [Pix::class, 'createTransactionPix'])->name('pix.post');
     Route::post('make-transfer-pix', [Pix::class, 'createIntentionPix'])->name('make.pix.post');
+    Route::post('/make-link-payment', [Pix::class, 'makeLinkPaymentPix'])->name('makeLinkPayment.post');
     #PUT
     Route::put('/alter-data', [ProfileController::class, 'update'])->name('alterdata.put');
     Route::put('/read-notification', [NotificationController::class, 'readNotification'])->name('notification.put');
