@@ -29,7 +29,7 @@
     <!-- responsive css -->
     <link rel="stylesheet" href="assets/css/responsive.css" type="text/css" media="all" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="./assets/css/custom.css">
+    {{-- <link rel="stylesheet" href="./assets/css/custom.css"> --}}
     @livewireStyles
 </head>
 

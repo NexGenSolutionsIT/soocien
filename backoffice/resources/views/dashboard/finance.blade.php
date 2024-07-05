@@ -75,7 +75,7 @@
                                 <a href="{{ route('movement.get', ["$see_transaction_key" => $item['uuid']]) }}">
                                     <div class="transaction-card-info">
                                         <div class="transaction-info-thumb">
-                                            <img src="assets/images/horiizom/userbase.svg" alt="user">
+                                            <img src="/assets/images/sys-soocien/pessoa.svg" alt="user">
                                         </div>
                                         <div class="transaction-info-text">
                                             @switch($item['type_movement'])
@@ -106,7 +106,7 @@
                             <a href="{{ route('transaction.get', ["$see_transaction_key" => $item['uuid']]) }}">
                                 <div class="transaction-card-info">
                                     <div class="transaction-info-thumb">
-                                        <img src="assets/images/horiizom/userbase.svg" alt="user">
+                                        <img src="/assets/images/sys-soocien/pessoa.svg" alt="user">
                                     </div>
                                     <div class="transaction-info-text">
                                         @switch($item['type_movement'])
@@ -157,7 +157,7 @@
                             <a href="{{ route('movement.get', ["$see_transaction_key" => $item['uuid']]) }}">
                                 <div class="transaction-card-info">
                                     <div class="transaction-info-thumb">
-                                        <img src="assets/images/horiizom/userbase.svg" alt="user">
+                                        <img src="/assets/images/sys-soocien/pessoa.svg" alt="user">
                                     </div>
                                     <div class="transaction-info-text">
                                         @switch($item['type_movement'])
@@ -189,7 +189,7 @@
                             <a href="{{ route('transaction.get', ["$see_transaction_key" => $item['uuid']]) }}">
                                 <div class="transaction-card-info">
                                     <div class="transaction-info-thumb">
-                                        <img src="assets/images/horiizom/userbase.svg" alt="user">
+                                        <img src="/assets/images/sys-soocien/pessoa.svg" alt="user">
                                     </div>
                                     <div class="transaction-info-text">
                                         @switch($item['type_movement'])

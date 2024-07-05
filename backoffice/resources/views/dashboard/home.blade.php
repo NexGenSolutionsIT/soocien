@@ -31,7 +31,7 @@
                         </div>
                         @php
                             if (empty(Auth::guard('client')->user()->avatar)) {
-                                $avatar = 'assets/images/horiizom/newperfil.svg';
+                                $avatar = '/assets/images/sys-soocien/pessoa.svg';
                             } else {
                                 $avatar = Auth::guard('client')->user()->avatar;
                             }
@@ -295,7 +295,7 @@
                             <a href="{{ route('transaction.get', ["$see_transaction_key" => $item['uuid']]) }}">
                                 <div class="transaction-card-info">
                                     <div class="transaction-info-thumb">
-                                        <img src="assets/images/horiizom/userbase.svg" alt="user">
+                                        <img src="/assets/images/sys-soocien/pessoa.svg" alt="user">
                                     </div>
                                     <div class="transaction-info-text">
                                         @switch($item['type_movement'])
@@ -553,14 +553,14 @@
                                     placeholder="Digite o valor a ser depositado" />
                             </div>
                             <!-- <div class="form-group mb-15">
-                                                                                                                                                                             <label for="input7" class="form-label">To</label>
-                                                                                                                                                                             <input
-                                                                                                                                                                              type="email"
-                                                                                                                                                                              class="form-control"
-                                                                                                                                                                              id="input7"
-                                                                                                                                                                              placeholder="Bank ID"
-                                                                                                                                                                             />
-                                                                                                                                                                            </div> -->
+                                                                                                                                                                                     <label for="input7" class="form-label">To</label>
+                                                                                                                                                                                     <input
+                                                                                                                                                                                      type="email"
+                                                                                                                                                                                      class="form-control"
+                                                                                                                                                                                      id="input7"
+                                                                                                                                                                                      placeholder="Bank ID"
+                                                                                                                                                                                     />
+                                                                                                                                                                                    </div> -->
                             <div class="form-group mb-15">
                                 <label for="input8" class="form-label">Digite a chave para voce depositar</label>
                                 <input type="email" class="form-control" id="input8"

@@ -7,7 +7,7 @@
                     <div class="sidebar-profile-thumb">
                         @php
                             if (empty(Auth::guard('client')->user()->avatar)) {
-                                $avatar = 'assets/images/newperfil.svg';
+                                $avatar = '/assets/images/sys-soocien/pessoa.svg';
                             } else {
                                 $avatar = Auth::guard('client')->user()->avatar;
                             }
@@ -46,8 +46,7 @@
                                 <form action="{{ route('logout') }}" method="post">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit"
-                                        style="margin-left: 10px; background: transparent; color: #228b22; "><i
+                                    <button type="submit" style="margin-left: 10px; background: transparent; "><i
                                             class="fas fa-sign-out-alt"></i> Sair</button>
                                 </form>
                             </li>

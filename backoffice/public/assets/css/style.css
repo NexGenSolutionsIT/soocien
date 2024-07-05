@@ -701,7 +701,8 @@ select.form-control:valid {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center bottom;
-    background-image: url(../images/sys-soocien/front-soocien.jpg);
+    /* background-image: url(../images/sys-soocien/front-soocien.jpg); */
+    background-color: #198754;
 }
 
 .preloader:before {
@@ -1027,7 +1028,7 @@ select.form-control:valid {
 }
 
 .body-content {
-    margin-top: 80px;
+    margin-top: 60px;
     padding-top: 15px;
     background-color: #f2f6ff;
     position: relative;
