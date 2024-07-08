@@ -59,7 +59,7 @@ class AdminPanelProvider extends PanelProvider
                 FilamentBackgroundsPlugin::make()
                     ->imageProvider(
                         MyImages::make()
-                            ->directory('assets/images/background')
+                            ->directory('assets/background')
                     ),
                 FilamentEditProfilePlugin::make()
                     ->slug('my-profile')
