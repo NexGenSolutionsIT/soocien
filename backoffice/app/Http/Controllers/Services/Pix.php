@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Services;
 
 use App\Http\Controllers\Controller;
 use Firebase\JWT\JWT;
+use Flasher\Toastr\Laravel\Facade\Toastr;
 
 use Illuminate\{
     Http\Request,
@@ -14,16 +15,28 @@ use Illuminate\{
 
 use App\Models\{
     ExternalPaymentPixModel,
+    TokenModel,
+    OrderCreditModel,
     AdminModel,
     ClientModel,
     MovementModel,
+    TransferUserToUserModel,
+    KeysApiModel,
     PixApiModel,
     WebhookNotificationModel,
     NotificationModel,
+    TransactionModel
 };
 
+use Endroid\QrCode\{
+    QrCode,
+    Encoding\Encoding,
+    ErrorCorrectionLevel,
+    Writer\PngWriter,
+};
 use App\Jobs\PixCreateJob;
-
+use Illuminate\Support\Facades\Log;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class Pix extends Controller
 {
@@ -47,7 +60,6 @@ class Pix extends Controller
      */
     private string $url;
 
-
     /**
      * @var string
      */
@@ -59,10 +71,8 @@ class Pix extends Controller
         $this->integrationApiUrl = "https://api-br.x-pay.app";
         $this->version = 'v2';
         $this->url = "{$this->integrationApiUrl}/{$this->version}/";
-        $this->urlPostBack = env('APP_URL') . '/api/webhook-pix';
+        $this->urlPostBack = 'http://54.234.206.50/api/webhook-pix';
     }
-
-
 
     /**
      * Create a transaction pix.
@@ -73,16 +83,17 @@ class Pix extends Controller
      */
     public function createTransactionPix(Request $request): mixed
     {
-        if ($request->input('value') < 1) {
-            toastr('O valor minimo de deposito e R$1,00', 'error');
-            return redirect()->back();
-        }
+        // if ($request->input('value') < 1) {
+        //     toastr('O valor minimo de deposito e R$1,00', 'error');
+        //     return redirect()->back();
+        // }
 
         $rules = [
             'value' => 'required|numeric',
         ];
 
         $validator = Validator::make($request->all(), $rules);
+
 
         if ($validator->fails()) {
             toastr($validator->errors()->messages()['value'][0], 'error');
@@ -98,12 +109,10 @@ class Pix extends Controller
             "BankAccount" => "883770778",
             "BankAccountDigit" => "8",
             "BankBranch" => "0001",
-//            "PrincipalValue" => (float)$validatedData['value'],
             "PrincipalValue" => 0.01,
             "webhook_url" => $this->urlPostBack
 
         ];
-//        dd($transactionData);
 
         $response = Http::withHeaders([
             'authorizationToken' => $this->key_api,
@@ -147,6 +156,7 @@ class Pix extends Controller
             return redirect()->back();
         }
 
+
         $rules = [
             'value' => 'required|numeric',
             'description' => 'required|string'
@@ -168,7 +178,7 @@ class Pix extends Controller
             "BankAccount" => "883770778",
             "BankAccountDigit" => "8",
             "BankBranch" => "0001",
-            "PrincipalValue" => (float)$validatedData['value'],
+            "PrincipalValue" => $validator['value'],
             "webhook_url" => $this->urlPostBack
 
         ];
@@ -204,6 +214,7 @@ class Pix extends Controller
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
+
     public function webHook(Request $request)
     {
         $data = $request->all();
