@@ -62,6 +62,8 @@ class Pix extends Controller
         $this->urlPostBack = env('APP_URL') . '/api/webhook-pix';
     }
 
+
+
     /**
      * Create a transaction pix.
      *
@@ -96,10 +98,12 @@ class Pix extends Controller
             "BankAccount" => "883770778",
             "BankAccountDigit" => "8",
             "BankBranch" => "0001",
-            "PrincipalValue" => (float)$validatedData['value'],
+//            "PrincipalValue" => (float)$validatedData['value'],
+            "PrincipalValue" => 0.01,
             "webhook_url" => $this->urlPostBack
 
         ];
+//        dd($transactionData);
 
         $response = Http::withHeaders([
             'authorizationToken' => $this->key_api,
