@@ -9,7 +9,7 @@
 
                 <div>
                     <a href="#" data-bs-toggle="modal" data-bs-target="#withdraw">
-                        <p>Adicionar API</p>
+                        <button style="background-color: #258c22" class="btn text-white">Adicionar API</button>
                     </a>
                 </div>
             </div>
