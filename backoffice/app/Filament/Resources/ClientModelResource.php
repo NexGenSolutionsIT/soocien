@@ -5,14 +5,18 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\ClientModelResource\Pages;
 use App\Filament\Resources\ClientModelResource\RelationManagers;
 use App\Models\ClientModel;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Actions\Action;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
-
+use App\Enums\DocumentType;
+use App\Enums\UserStatus;
 use STS\FilamentImpersonate\Tables\Actions\Impersonate;
+use Filament\Forms\Components\ToggleButtons;
 
 class ClientModelResource extends Resource
 {
@@ -26,7 +30,14 @@ class ClientModelResource extends Resource
     {
         return $form
             ->schema([
-                //
+                TextInput::make('uuid')->label('UUID'),
+                TextInput::make('name')->label('Nome'),
+                TextInput::make('email')->label('E-mail'),
+                ToggleButtons::make('document_type')->options(DocumentType::class),
+                TextInput::make('document_number')->label('Numero do documento'),
+                // ToggleButtons::make('status')->options(UserStatus::class),
+                TextInput::make('created_at')->label('Criado')->mask('9999/99/99 99:99:99')->readOnly()->disabled(),
+                TextInput::make('updated_at')->label('Alterado')->mask('9999/99/99 99:99:99')->disabled(),
             ]);
     }
 
@@ -71,8 +82,8 @@ class ClientModelResource extends Resource
     {
         return [
             'index' => Pages\ListClientModels::route('/'),
-//            'create' => Pages\CreateClientModel::route('/create'),
-//            'edit' => Pages\EditClientModel::route('/{record}/edit'),
+            //            'create' => Pages\CreateClientModel::route('/create'),
+            //            'edit' => Pages\EditClientModel::route('/{record}/edit'),
         ];
     }
 }
