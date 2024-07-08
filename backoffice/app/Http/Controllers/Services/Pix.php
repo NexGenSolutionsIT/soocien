@@ -59,7 +59,7 @@ class Pix extends Controller
         $this->integrationApiUrl = "https://api-br.x-pay.app";
         $this->version = 'v2';
         $this->url = "{$this->integrationApiUrl}/{$this->version}/";
-        $this->urlPostBack = env('APP_ENV') . '/api/webhook-pix';
+        $this->urlPostBack = env('APP_URL') . '/api/webhook-pix';
     }
 
     /**
