@@ -22,7 +22,7 @@ use Endroid\QrCode\Writer\PngWriter;
 use App\Jobs\PixCreateJob;
 use Illuminate\Support\Facades\Log;
 
-class Spacefy extends Controller
+class PixApi extends Controller
 {
     /**
      * @var string
