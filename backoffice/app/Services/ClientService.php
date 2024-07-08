@@ -19,7 +19,6 @@ class ClientService
         $this->repository = $clientRepository;
     }
 
-
     public function create(array $data): bool
     {
         $client = $this->repository->create(new ClientModel([

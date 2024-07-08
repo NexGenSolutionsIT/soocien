@@ -130,7 +130,6 @@ class Pix extends Controller
         }
     }
 
-
     public function makeLinkPaymentPix(Request $request): mixed
     {
 
@@ -190,7 +189,6 @@ class Pix extends Controller
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
-
     public function webHook(Request $request)
     {
         $data = $request->all();
