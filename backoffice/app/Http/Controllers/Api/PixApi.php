@@ -241,7 +241,7 @@ class PixApi extends Controller
 
                 $description = 'Pagamento externo realizado com sucesso por: ' . $data['data']['FromName'] . ' No valor de: R$' . number_format($data['data']['value'], 2, ',', '.');
                 $this->makeNotification($client->id, $userBalance, 'Pagamento Externo', $description);
-
+                dd('aquii');
                 Http::post($externalPayment->url_webhook, $data);
 
                 return response()->json(['message' => 'Webhook received'], 200);
