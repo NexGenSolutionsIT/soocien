@@ -77,7 +77,7 @@ class Pix extends Controller
         $this->pix_key = '69655432-eafe-44b0-934c-3ebd6d6be06c';
     }
 
-    private function dataToPix(float $value):array
+    private function dataToPix(float $value): array
     {
         return [
             "PixKey" => $this->pix_key,
@@ -90,7 +90,6 @@ class Pix extends Controller
             "webhook_url" => $this->urlPostBack
 
         ];
-
     }
 
     /**
@@ -222,13 +221,13 @@ class Pix extends Controller
                 $transaction->status = 'waiting_approval';
                 $transaction->save();
 
-                MovementModel::create([
-                    'client_id' => $transaction->client_id,
-                    'type' => 'EXIT',
-                    'type_movement' => 'TRANSFER',
-                    'amount' => (float)$request->amount,
-                    'description' => 'Transação PIX realizada com sucesso! Aguardando aprovação! Iremos verificar os detalhes e processar a transação. Pode levar algum tempo para o dinheiro estar disponível em sua conta de destino.',
-                ]);
+                // MovementModel::create([
+                //     'client_id' => $transaction->client_id,
+                //     'type' => 'EXIT',
+                //     'type_movement' => 'WITHDRAWAL',
+                //     'amount' => (float)$request->amount,
+                //     'description' => 'Transação PIX realizada com sucesso! Aguardando aprovação! Iremos verificar os detalhes e processar a transação. Pode levar algum tempo para o dinheiro estar disponível em sua conta de destino.',
+                // ]);
 
                 Toastr('Transação PIX realizada com sucesso! Aguardando aprovação! Iremos verificar os detalhes e processar a transação. Pode levar algum tempo para o dinheiro estar disponível em sua conta de destino.');
                 return redirect()->back();

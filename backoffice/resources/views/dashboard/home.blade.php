@@ -553,14 +553,14 @@
                                     placeholder="Digite o valor a ser depositado" />
                             </div>
                             <!-- <div class="form-group mb-15">
-                                                                                                                                                                                     <label for="input7" class="form-label">To</label>
-                                                                                                                                                                                     <input
-                                                                                                                                                                                      type="email"
-                                                                                                                                                                                      class="form-control"
-                                                                                                                                                                                      id="input7"
-                                                                                                                                                                                      placeholder="Bank ID"
-                                                                                                                                                                                     />
-                                                                                                                                                                                    </div> -->
+                                                                                                                                                                                             <label for="input7" class="form-label">To</label>
+                                                                                                                                                                                             <input
+                                                                                                                                                                                              type="email"
+                                                                                                                                                                                              class="form-control"
+                                                                                                                                                                                              id="input7"
+                                                                                                                                                                                              placeholder="Bank ID"
+                                                                                                                                                                                             />
+                                                                                                                                                                                            </div> -->
                             <div class="form-group mb-15">
                                 <label for="input8" class="form-label">Digite a chave para voce depositar</label>
                                 <input type="email" class="form-control" id="input8"
