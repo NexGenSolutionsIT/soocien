@@ -141,9 +141,9 @@ class PixApi extends Controller
         }
 
 
-        // if ($request->input('value') < 1) {
-        //     return response()->json(['error' => 'O valor mínimo é de R$1,00.'], 422);
-        // }
+        if ($request->input('value') < 1) {
+            return response()->json(['error' => 'O valor mínimo é de R$1,00.'], 422);
+        }
 
 
         $rules = [
