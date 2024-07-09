@@ -220,13 +220,12 @@ class PixApi extends Controller
 
         if ($data['data']['Method'] == 'PixIn' && $data['data']['Status'] == 'Paid') {
 
-            $externalPayment = ExternalPaymentPixModel::where('external_reference', $data['data']['QRCodeInfos']['Identifier'])->first();
-            dd($externalPayment);
-            if ($externalPayment) {
-                $externalPayment->status = 'paid';
-                $externalPayment->save();
+            $order = PixApiModel::where('order_id', $data['data']['QRCodeInfos']['Identifier'])->first();
 
-                $client_uuid = $externalPayment->client_uuid;
+            if ($order) {
+                $order->status = 'approved';
+                $order->save();
+                $client_uuid = $order->client_uuid;
 
                 $admin = AdminModel::find(1);
                 $adminBalance = ($data['data']['Value'] * 20) / 100;
@@ -238,12 +237,12 @@ class PixApi extends Controller
                 $client->balance += $userBalance;
                 $client->save();
 
-                $this->makeMovement($client->id, 'ENTRY', 'DEPOSIT', $userBalance, 'Pagamento externo realizado por: ' . $data['data']['FromName']);
+                $this->makeMovement($client->id, 'ENTRY', 'DEPOSIT', $userBalance, 'Deposito PIX');
 
-                $description = 'Pagamento externo realizado com sucesso por: ' . $data['data']['FromName'] . ' No valor de: R$' . number_format($data['data']['value'], 2, ',', '.');
-                $this->makeNotification($client->id, $userBalance, 'Pagamento Externo', $description);
+                $description = 'Voce realizou um deposito total via PIX no valor de: R$' . number_format($data['data']['Value'], 2, ',', '.') . ' (Valor total retirando as taxas)';
+                $this->makeNotification($client->id, $userBalance, 'Deposito PIX', $description);
 
-                Http::post($externalPayment->url_webhook, $data);
+                Http::post($order->url_webhook, $data);
 
                 return response()->json(['message' => 'Webhook received'], 200);
             }
