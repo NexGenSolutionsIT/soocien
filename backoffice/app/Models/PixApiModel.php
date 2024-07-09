@@ -21,6 +21,7 @@ class PixApiModel extends Model
         'amount',
         'external_reference',
         'status',
+        'url_webhook',
         'qrcode'
     ];
 
