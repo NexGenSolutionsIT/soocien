@@ -19,6 +19,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::prefix('v1')->group(function () {
     Route::post('/authenticate', [AuthenticateApi::class, 'authenticateUser']);
     Route::post('/pix', [PixApi::class, 'createTransactionPix']);
-    Route::post('/webhook-pix', [Pix::class, 'webHook']);
+    Route::post('/webhook-pix', [PixApi::class, 'webHook']);
     Route::post('/pay-pix-in-admin', [Pix::class, 'createTransferPix']);
 });
+
+Route::post('/webhook-pix', [Pix::class, 'webHook']);
