@@ -1,9 +1,11 @@
+@include('livewire.components.modals.withdraws')
+
 <!-- Navbar -->
 <div class="app-navbar">
     <div class="container">
         <div class="navbar-content ">
             <div class="navbar-content-item">
-                <a href="{{ route('dashboard.get') }}">
+                <a href="{{ route('dashboard.get') }}" class="active">
                     <i class="flaticon-house"></i>
                     Home
                 </a>
@@ -15,7 +17,7 @@
                 </a>
             </div>
             <div class="navbar-content-item">
-                <a href="#" href="#" data-bs-toggle="modal" data-bs-target="#withdraw">
+                <a href="#" data-bs-toggle="modal" data-bs-target="#withdraw">
                     <i class="fas fa-paper-plane"></i>
                     Enviar PIX
                 </a>

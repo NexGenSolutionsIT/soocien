@@ -24,11 +24,6 @@
                             <input type="text" name="value" class="form-control" id="input5"
                                 placeholder="Digite o valor a ser enviado.">
                         </div>
-                        <div class="form-group mb-15">
-                            <label for="input4" class="form-label">Codigo 2FA</label>
-                            <input type="email" class="form-control" id="input4"
-                                placeholder="Digite o codigo enviado ao seu email.">
-                        </div>
                         <button id="btn-text" type="submit"
                             class="btn-send btn main-btn main-btn-lg full-width">Transferir</button>
                     </form>

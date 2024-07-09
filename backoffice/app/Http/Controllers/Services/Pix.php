@@ -63,6 +63,8 @@ class Pix extends Controller
     /**
      * @var string
      */
+
+    private string $pix_key;
     public string $urlPostBack;
 
     public function __construct()
@@ -71,7 +73,24 @@ class Pix extends Controller
         $this->integrationApiUrl = "https://api-br.x-pay.app";
         $this->version = 'v2';
         $this->url = "{$this->integrationApiUrl}/{$this->version}/";
-        $this->urlPostBack = 'http://54.234.206.50/api/webhook-pix';
+        $this->urlPostBack = 'https://pay.horiizom.com/api/webhook-pix';
+        $this->pix_key = '69655432-eafe-44b0-934c-3ebd6d6be06c';
+    }
+
+    private function dataToPix(float $value):array
+    {
+        return [
+            "PixKey" => $this->pix_key,
+            "TaxNumber" => "33482384000185",
+            "Bank" => "450",
+            "BankAccount" => "4992752153",
+            "BankAccountDigit" => "0",
+            "BankBranch" => "0001",
+            "PrincipalValue" => $value,
+            "webhook_url" => $this->urlPostBack
+
+        ];
+
     }
 
     /**
@@ -102,23 +121,14 @@ class Pix extends Controller
 
         $validatedData = $validator->validated();
 
-        $transactionData = [
-            "PixKey" => "financeiro@2mpayments.com.br",
-            "TaxNumber" => "44456489000186",
-            "Bank" => "450",
-            "BankAccount" => "883770778",
-            "BankAccountDigit" => "8",
-            "BankBranch" => "0001",
-            "PrincipalValue" => (float)$validatedData['value'],
-            "webhook_url" => $this->urlPostBack
 
-        ];
 
         $response = Http::withHeaders([
             'authorizationToken' => $this->key_api,
             'accept' => 'application/json',
             'content-type' => 'application/json',
-        ])->post($this->url . 'pix/create', $transactionData);
+        ])->post($this->url . 'pix/create', $this->dataToPix($validatedData['value']));
+
 
         if ($response->status() == 201) {
             $data = [
@@ -148,7 +158,6 @@ class Pix extends Controller
         }
     }
 
-
     public function makeLinkPaymentPix(Request $request): mixed
     {
         if ($request->input('value') < 1) {
@@ -171,23 +180,11 @@ class Pix extends Controller
 
         $validatedData = $validator->validated();
 
-        $transactionData = [
-            "PixKey" => "financeiro@2mpayments.com.br",
-            "TaxNumber" => "44456489000186",
-            "Bank" => "450",
-            "BankAccount" => "883770778",
-            "BankAccountDigit" => "8",
-            "BankBranch" => "0001",
-            "PrincipalValue" => (float)$validatedData['value'],
-            "webhook_url" => $this->urlPostBack
-
-        ];
-
         $response = Http::withHeaders([
             'authorizationToken' => $this->key_api,
             'accept' => 'application/json',
             'content-type' => 'application/json',
-        ])->post($this->url . 'pix/create', $transactionData);
+        ])->post($this->url . 'pix/create', $this->dataToPix($validatedData['value']));
 
         if ($response->status() == 201) {
             $data = [
@@ -206,6 +203,40 @@ class Pix extends Controller
             return view('dashboard.external_payment', ['data' => $encode_data]);
         }
         return false;
+    }
+
+    public function createIntentionPix(Request $request): mixed
+    {
+
+        if ((float)$request->amount > Auth::guard('client')->user()->balance) {
+            Toastr('Saldo insuficiente', 'error');
+            return redirect()->back();
+        } else {
+            try {
+                $transaction = new TransactionModel();
+                $transaction->client_id = Auth::guard('client')->user()->id;
+                $transaction->method_payment = 'PIX';
+                $transaction->type_key = $request->type_key;
+                $transaction->amount = $request->amount;
+                $transaction->address = $request->address;
+                $transaction->status = 'waiting_approval';
+                $transaction->save();
+
+                MovementModel::create([
+                    'client_id' => $transaction->client_id,
+                    'type' => 'EXIT',
+                    'type_movement' => 'TRANSFER',
+                    'amount' => (float)$request->amount,
+                    'description' => 'Transação PIX realizada com sucesso! Aguardando aprovação! Iremos verificar os detalhes e processar a transação. Pode levar algum tempo para o dinheiro estar disponível em sua conta de destino.',
+                ]);
+
+                Toastr('Transação PIX realizada com sucesso! Aguardando aprovação! Iremos verificar os detalhes e processar a transação. Pode levar algum tempo para o dinheiro estar disponível em sua conta de destino.');
+                return redirect()->back();
+            } catch (\Exception $e) {
+                Alert::error('Erro ao criar transação PIX!', $e->getMessage());
+                return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+            }
+        }
     }
 
     /**
