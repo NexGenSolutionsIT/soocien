@@ -36,7 +36,7 @@ class LinkPayment extends Component
             "BankAccountDigit" => "0",
             "BankBranch" => "0001",
             "PrincipalValue" => (float)$this->value,
-            "webhook_url" => 'http://54.234.206.50/api/webhook-pix',
+            "webhook_url" => 'https://pay.soccien.com/api/webhook-pix',
         ];
 
         $response = Http::withHeaders([
@@ -65,7 +65,9 @@ class LinkPayment extends Component
                 'client_uuid' => $externalData->client_uuid,
             ];
 
-            $this->hash = env('APP_URL') . '/make-payment?vkrCEldSVKIOELzI4LbQj3mL93NQtt1vq5p09jlBRF1=' . JWT::encode($paymentData, env('APP_JWT_KEY'), 'HS256');
+            $env = env('APP_URL');
+
+            $this->hash = "$env/make-payment?vkrCEldSVKIOELzI4LbQj3mL93NQtt1vq5p09jlBRF1=" . JWT::encode($paymentData, env('APP_JWT_KEY'), 'HS256');
         }
     }
 }

@@ -82,7 +82,7 @@ class PixApi extends Controller
         $this->integrationApiUrl = "https://api-br.x-pay.app";
         $this->version = 'v2';
         $this->url = "{$this->integrationApiUrl}/{$this->version}/";
-        $this->urlPostBack = 'http://54.234.206.50/api/v1/webhook-pix';
+        $this->urlPostBack = 'https://pay.soccien.com/api/v1/webhook-pix';
         $this->pix_key = '69655432-eafe-44b0-934c-3ebd6d6be06c';
 
         $this->apiSecret = env('API_SECRET_KEY');
