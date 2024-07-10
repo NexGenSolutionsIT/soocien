@@ -221,14 +221,6 @@ class Pix extends Controller
                 $transaction->status = 'waiting_approval';
                 $transaction->save();
 
-                // MovementModel::create([
-                //     'client_id' => $transaction->client_id,
-                //     'type' => 'EXIT',
-                //     'type_movement' => 'WITHDRAWAL',
-                //     'amount' => (float)$request->amount,
-                //     'description' => 'Transação PIX realizada com sucesso! Aguardando aprovação! Iremos verificar os detalhes e processar a transação. Pode levar algum tempo para o dinheiro estar disponível em sua conta de destino.',
-                // ]);
-
                 Toastr('Transação PIX realizada com sucesso! Aguardando aprovação! Iremos verificar os detalhes e processar a transação. Pode levar algum tempo para o dinheiro estar disponível em sua conta de destino.');
                 return redirect()->back();
             } catch (\Exception $e) {
