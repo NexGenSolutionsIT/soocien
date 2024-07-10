@@ -23,6 +23,7 @@ Route::prefix('v1')->group(function () {
     Route::prefix('pix')->group(function () {
 
         Route::post('/make', [XpayPixApi::class, 'createTransactionPix']);
+        Route::post('/status', [XpayPixApi::class, 'statusTransactionPix']);
         Route::post('/webhook', [XpayPixApi::class, 'webHook']);
     });
 
