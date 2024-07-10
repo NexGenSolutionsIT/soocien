@@ -6,7 +6,8 @@ use App\Http\Controllers\Services\Pix;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{
-    Api\PixApi,
+    Api\XpayPixApi,
+    Api\XpayCreditCardApi,
     Api\CreditCartApi,
     Api\AuthenticateApi,
 };
@@ -18,9 +19,20 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::prefix('v1')->group(function () {
     Route::post('/authenticate', [AuthenticateApi::class, 'authenticateUser']);
-    Route::post('/pix', [PixApi::class, 'createTransactionPix']);
-    Route::post('/webhook-pix', [PixApi::class, 'webHook']);
-    Route::post('/pay-pix-in-admin', [Pix::class, 'createTransferPix']);
+
+    Route::prefix('pix')->group(function () {
+
+        Route::post('/make', [XpayPixApi::class, 'createTransactionPix']);
+        Route::post('/webhook', [XpayPixApi::class, 'webHook']);
+    });
+
+    Route::prefix('credit')->group(function () {
+        Route::post('/make', [XpayCreditCardApi::class, 'chargePayment']);
+        Route::post('/cancel', [XpayCreditCardApi::class, 'cancelCharge']);
+        Route::post('/summary', [XpayCreditCardApi::class, 'getSummaryTransaction']);
+    });
+
+    // Route::post('/pay-pix-in-admin', [Pix::class, 'createTransferPix']);
 });
 
 Route::post('/webhook-pix', [Pix::class, 'webHook']);

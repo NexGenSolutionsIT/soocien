@@ -3,44 +3,31 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use Firebase\JWT\JWT;
-use Flasher\Toastr\Laravel\Facade\Toastr;
 
+use App\Jobs\PixCreateJob;
 use Illuminate\{
     Http\Request,
-    Support\Facades\Auth,
     Support\Facades\Http,
     Support\Facades\Validator
 };
 
 use App\Models\{
-    ExternalPaymentPixModel,
     TokenModel,
-    OrderCreditModel,
     AdminModel,
     ClientModel,
     MovementModel,
-    TransferUserToUserModel,
-    KeysApiModel,
     PixApiModel,
     WebhookNotificationModel,
     NotificationModel,
-    TransactionModel
 };
 
-use Endroid\QrCode\{
-    QrCode,
-    Encoding\Encoding,
-    ErrorCorrectionLevel,
-    Writer\PngWriter,
+use App\Services\{
+    ClientService,
+    KeysApiService
 };
-use App\Jobs\PixCreateJob;
-use App\Services\ClientService;
-use App\Services\KeysApiService;
-use Illuminate\Support\Facades\Log;
-use RealRashid\SweetAlert\Facades\Alert;
 
-class PixApi extends Controller
+
+class XpayPixApi extends Controller
 {
     /**
      * @var string
@@ -78,11 +65,12 @@ class PixApi extends Controller
 
     public function __construct(KeysApiService $keysApiService, ClientService $clientService)
     {
-        $this->key_api = '1e9fee004b24cad7a7fea4cb9bd36d0c4f1e972ex';
+        $this->key_api = env('AUTHORIZATION_TOKEN');
+
         $this->integrationApiUrl = "https://api-br.x-pay.app";
         $this->version = 'v2';
         $this->url = "{$this->integrationApiUrl}/{$this->version}/";
-        $this->urlPostBack = 'https://pay.soccien.com/api/v1/webhook-pix';
+        $this->urlPostBack = 'https://pay.soccien.com/api/v1/pix/webhook';
         $this->pix_key = '69655432-eafe-44b0-934c-3ebd6d6be06c';
 
         $this->apiSecret = env('API_SECRET_KEY');

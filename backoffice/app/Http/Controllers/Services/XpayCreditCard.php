@@ -127,7 +127,7 @@ class Xpay extends Controller
         $this->orderCredit = new OrderCreditModel();
         $this->token = new TokenModel();
         $this->keysApi = new KeysApiModel();
-        $this->jwtKey = env('JWT_KEY');
+        $this->jwtKey = env('APP_JWT_KEY');
     }
 
 
