@@ -249,14 +249,15 @@ class Pix extends Controller
     {
         $data = $request->all();
 
+        if (empty($data)) {
+            return response()->json('need webhook data', '500');
+        }
+
         $webhookNotification = new WebhookNotificationModel();
         $webhookNotification->event = 'update_payment';
         $webhookNotification->data = json_encode($data);
         $webhookNotification->save();
 
-        if (empty($data)) {
-            return response()->json('need webhook data', '500');
-        }
 
         $orderId = null;
         if ($data['data']['Method'] == 'PixIn' && $data['data']['Status'] == 'Paid') {
