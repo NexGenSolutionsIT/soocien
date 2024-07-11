@@ -3340,6 +3340,9 @@ body .search-modal .close:hover {
 	margin: 0 0 37px;
 	position: relative;
 }
+.fort-sist {
+	font-size: 15px;
+}
 .rs-banner.banner-style2 .content-wrap .title img {
 	position: absolute;
 	left: 17px;
