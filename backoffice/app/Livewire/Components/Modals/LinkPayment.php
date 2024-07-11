@@ -36,7 +36,7 @@ class LinkPayment extends Component
             "BankAccountDigit" => "0",
             "BankBranch" => "0001",
             "PrincipalValue" => (float)$this->value,
-            "webhook_url" => 'https://pay.soccien.com/api/v1/webhook-pix',
+            "webhook_url" => 'https://pay.soocien.com/api/v1/webhook-pix',
         ];
 
         $response = Http::withHeaders([
