@@ -19,7 +19,6 @@ class ClientService
         $this->repository = $clientRepository;
     }
 
-
     public function create(array $data): bool
     {
         $client = $this->repository->create(new ClientModel([
@@ -70,7 +69,7 @@ class ClientService
             'email' => $client["email"] ?? $clientData->email,
             'document_type' => $client["document_type"] ?? $clientData->document_type,
             'document_number' => $client["document_number"] ?? $clientData->document_number,
-            'password' => isset($client["password"]) ? bcrypt($client["password"]) : $clientData->password,
+            'password' => isset($client["new_password"]) ? bcrypt($client["new_password"]) : $clientData->password,
             'status' => $client["status"] ?? $clientData->status,
         ];
 

@@ -20,6 +20,11 @@ class MovementRepository implements MovementsInterface
         return $this->model->create($movement->toArray());
     }
 
+    public function findByUuid(string $uuid): array
+    {
+        return $this->model->where('uuid', $uuid)->first()->toArray();
+    }
+
 
     public function getAmountSent(int $userId): ?array
     {
@@ -63,8 +68,8 @@ class MovementRepository implements MovementsInterface
             ->where('client_id', $userId)
             ->whereBetween('created_at', [$startDate, $endDate])
             ->latest('created_at')
-            ->get();
-
+            ->get()
+            ->take(4);
         return $results ? $results->toArray() : [null];
     }
 }

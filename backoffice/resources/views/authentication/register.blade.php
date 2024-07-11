@@ -8,7 +8,7 @@
     <meta name="author" content="HiBootstrap">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <title>Horiizon - Serviços de pagamento online.</title>
+    <title>Soccien - Serviços de pagamento online.</title>
     <link rel="icon" href="assets/images/horiizom/favicon.svg" type="image/png" sizes="16x16">
 
     <!-- bootstrap css -->
@@ -61,7 +61,7 @@
             <!-- Page-header -->
             <div class="page-header">
                 <div class="page-header-title page-header-item">
-                    <h3>Bem vindo a Horiizom</h3>
+                    <h3>Bem vindo a Soccien</h3>
                 </div>
             </div>
             <!-- Page-header -->
@@ -87,14 +87,12 @@
                                 <select name="document_type" class="form-select form-control"
                                     aria-label="Default select example">
                                     <option selected value="CPF">CPF</option>
-                                    <option value="RG">RG</option>
-                                    <option value="CNH">CNH</option>
                                 </select>
                             </div>
                         </div>
                         <div class="col-9">
                             <div class="form-group pb-15">
-                                <label for="">Número</label>
+                                <label for="">Número do Documento</label>
                                 <div class="input-group">
                                     <input type="text" name="document_number" class="form-control" required
                                         placeholder="000.000.000-00">
@@ -196,7 +194,7 @@
                 <footer class="mt-3">
                     <div class="container">
                         <p>Todos os seus direitos reservados <a class="text-success" href="#"
-                                target="_blank">Soocien</a></p>
+                                target="_blank">Soccien</a></p>
                     </div>
                 </footer>
             </div>

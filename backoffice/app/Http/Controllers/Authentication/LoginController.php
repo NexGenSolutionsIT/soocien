@@ -37,7 +37,7 @@ class LoginController extends Controller
         }
 
         if ($client->status !== 'active') {
-            toastr('Usuário inativado, entre em contato com a horiizom.', 'error', 'Erro');
+            toastr('Usuário inativado, entre em contato com a soccien.', 'error', 'Erro');
             return redirect()->back();
         }
 

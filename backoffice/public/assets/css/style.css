@@ -54,7 +54,7 @@
 /*************** Default CSS ***************/
 body {
     font-family: "Roboto", sans-serif;
-    background-color: #165c16;
+    background-color: #f2f6ff;
 }
 
 .cor-body {
@@ -237,7 +237,7 @@ button:active {
 }
 
 .main-btn.main-btn-black:hover {
-    background-color: #3646cd;
+    background-color: #228b22;
     color: #111111;
 }
 
@@ -272,7 +272,7 @@ button:active {
 }
 
 .main-btn.main-btn-primary {
-    background-color: #3646cd;
+    background-color: #228b22;
     color: #fff;
 }
 
@@ -346,7 +346,7 @@ button:active {
 .main-btn-link {
     font-size: 10px;
     font-weight: 400;
-    color: #3646cd;
+    color: #228b22;
     text-decoration: underline;
 }
 
@@ -374,7 +374,7 @@ button:active {
 }
 
 .bg-main {
-    background: #3646cd;
+    background: #228b22;
 }
 
 .bg-off-white {
@@ -469,12 +469,12 @@ button:active {
 }
 
 .breadcrumb .breadcrumb-item a {
-    color: #3646cd;
+    color: #228b22;
     transition: all 0.3s linear;
 }
 
 .breadcrumb .breadcrumb-item a:hover {
-    color: #3646cd;
+    color: #228b22;
 }
 
 .breadcrumb .breadcrumb-item.active {
@@ -554,7 +554,7 @@ button:active {
 
 .form-control:focus {
     background-color: #fff;
-    border: 1px solid #3646cd;
+    border: 1px solid #228b22;
 }
 
 .form-control::-moz-placeholder {
@@ -642,8 +642,8 @@ select.form-control:valid {
     color: #fff;
     content: "\f11c";
     font-family: Flaticon;
-    background-color: #3646cd;
-    border-color: #3646cd;
+    background-color: #228b22;
+    border-color: #228b22;
 }
 
 .input-radio label {
@@ -655,7 +655,7 @@ select.form-control:valid {
 }
 
 .input-radio label a {
-    color: #3646cd;
+    color: #228b22;
 }
 
 .input-radio label:before {
@@ -701,7 +701,8 @@ select.form-control:valid {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center bottom;
-    background-image: url(../images/sys-soocien/front-soocien.jpg);
+    /* background-image: url(../images/sys-soocien/front-soocien.jpg); */
+    background-color: #198754;
 }
 
 .preloader:before {
@@ -797,6 +798,7 @@ select.form-control:valid {
     width: 100%;
     top: 0;
     left: 0;
+    background-color: #268b22;
 }
 
 .header-bg:before {
@@ -878,7 +880,7 @@ select.form-control:valid {
 }
 
 .appbar-area.is-sticky .appbar-action-item a {
-    color: #3646cd;
+    color: #228b22;
 }
 
 .appbar-area.is-sticky .appbar-action-bar {
@@ -886,7 +888,7 @@ select.form-control:valid {
 }
 
 .appbar-area.is-sticky .appbar-option-item a {
-    color: #3646cd;
+    color: #228b22;
 }
 
 .appbar-area.is-sticky .appbar-page-title h3 {
@@ -936,7 +938,7 @@ select.form-control:valid {
 
 .appbar-action-bar:hover {
     background-color: #fff;
-    color: #3646cd;
+    color: #228b22;
 }
 
 .appbar-brand {
@@ -1026,7 +1028,7 @@ select.form-control:valid {
 }
 
 .body-content {
-    margin-top: 80px;
+    margin-top: 60px;
     padding-top: 15px;
     background-color: #f2f6ff;
     position: relative;
@@ -1068,7 +1070,7 @@ select.form-control:valid {
     border-radius: 3px;
     background-color: rgba(54, 70, 205, 0.1);
     font-size: 15px;
-    color: #3646cd;
+    color: #228b22;
     padding: 9px 12px;
     display: inline-block;
     margin-bottom: 10px;
@@ -1283,7 +1285,7 @@ select.form-control:valid {
     border-radius: 5px;
     background-color: #fff;
     text-align: center;
-    box-shadow: 0 2px 0 0 #3646cd;
+    box-shadow: 0 3px 0 0 #49ed85;
 }
 
 .monthly-bill-thumb {
@@ -1318,7 +1320,7 @@ select.form-control:valid {
 }
 
 .monthly-bill-body h3 a:hover {
-    color: #3646cd;
+    color: #228b22;
 }
 
 .monthly-bill-body p {
@@ -1370,7 +1372,7 @@ select.form-control:valid {
 .user-card {
     border-radius: 5px;
     background-color: #fff;
-    box-shadow: 0 2px 0 0 #3646cd;
+    box-shadow: 0 2px 0 0 #49ed85;
     text-align: center;
     padding: 20px;
 }
@@ -1427,7 +1429,7 @@ select.form-control:valid {
     stroke-dasharray: var(--initialStroke);
     stroke-dashoffset: var(--initialStroke);
     transition: stroke-dashoffset var(--transitionDuration) ease;
-    stroke: #3646cd;
+    stroke: #228b22;
 }
 
 .progress-card {
@@ -1517,7 +1519,7 @@ select.form-control:valid {
 .blog-card {
     border-radius: 5px;
     overflow: hidden;
-    box-shadow: 0 2px 0 0 #3646cd;
+    box-shadow: 0 2px 0 0 #228b22;
     background-color: #fff;
 }
 
@@ -1558,7 +1560,7 @@ select.form-control:valid {
     font-size: 10px;
     list-style: none;
     padding-right: 5px;
-    color: #3646cd;
+    color: #228b22;
     margin-top: 5px;
 }
 
@@ -1629,7 +1631,7 @@ select.form-control:valid {
 
 .blog-details blockquote {
     padding: 20px;
-    background-color: #3646cd;
+    background-color: #228b22;
     border-radius: 5px;
     margin-bottom: 13px;
 }
@@ -1701,7 +1703,7 @@ select.form-control:valid {
 
 .accordion-button:not(.collapsed) {
     background-color: #fff;
-    color: #3646cd;
+    color: #228b22;
 }
 
 .accordion-button:not(.collapsed):after {
@@ -1785,7 +1787,7 @@ select.form-control:valid {
     border-radius: 50%;
     margin-right: 10px;
     overflow: hidden;
-    background-color: #3646cd;
+    background-color: #228b22;
 }
 
 .post-review-thumb img {
@@ -1852,7 +1854,7 @@ footer p {
 }
 
 footer p a {
-    color: #3646cd;
+    color: #228b22;
     font-weight: 500;
 }
 
@@ -1913,7 +1915,7 @@ footer.footer-bg p a {
 }
 
 .navbar-content-item a.active i {
-    color: #3646cd;
+    color: #228b22;
 }
 
 @keyframes fullScale {
@@ -2042,7 +2044,7 @@ footer.footer-bg p a {
 
 .modal-header-title i {
     font-size: 14px;
-    color: #3646cd;
+    color: #228b22;
 }
 
 .modal-header-title h5 {
@@ -2141,11 +2143,11 @@ footer.footer-bg p a {
 }
 
 .sidebar-profile-text p a:hover {
-    color: #3646cd;
+    color: #228b22;
 }
 
 .sidebar-profile-wallet {
-    background-color: #3646cd;
+    background-color: #228b22;
     padding: 15px;
 }
 
@@ -2190,16 +2192,16 @@ footer.footer-bg p a {
 }
 
 .sidebar-nav-list li a:hover {
-    color: #3646cd;
+    color: #228b22;
 }
 
 .sidebar-nav-list li a.active {
-    color: #3646cd;
+    color: #228b22;
 }
 
 .sidebar-nav-list li i {
     font-size: 17px;
-    color: #3646cd;
+    color: #228b22;
     margin-right: 10px;
 }
 
@@ -2254,7 +2256,7 @@ footer.footer-bg p a {
 .form-card-upload {
     height: 220px;
     width: 100%;
-    background-color: #3646cd;
+    background-color: #228b22;
     border-radius: 10px;
     position: relative;
 }
@@ -2267,7 +2269,7 @@ footer.footer-bg p a {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #3646cd !important;
+    color: #228b22 !important;
     font-size: 24px !important;
     font-weight: normal;
     margin-bottom: 0 !important;
@@ -2305,7 +2307,7 @@ footer.footer-bg p a {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #3646cd !important;
+    color: #228b22 !important;
     font-size: 18px !important;
     font-weight: normal;
     margin-bottom: 0 !important;
@@ -2348,7 +2350,7 @@ footer.footer-bg p a {
     height: 50px;
     border-radius: 3px;
     overflow: hidden;
-    background-color: #3646cd;
+    background-color: #228b22;
     margin-right: 10px;
 }
 
@@ -2420,13 +2422,13 @@ footer.footer-bg p a {
 .inbox-compose-action ul li {
     display: inline-block;
     font-size: 16px;
-    color: #3646cd;
+    color: #228b22;
     margin-left: 10px;
     cursor: pointer;
 }
 
 .inbox-compose-action ul li a {
-    color: #3646cd;
+    color: #228b22;
 }
 
 .inbox-compose-item .form-group {
@@ -2446,7 +2448,7 @@ footer.footer-bg p a {
 }
 
 .inbox-compose-item .form-group button {
-    background-color: #3646cd;
+    background-color: #228b22;
     color: #fff;
     font-size: 16px;
     padding: 5px 15px;
@@ -2480,7 +2482,7 @@ footer.footer-bg p a {
 .user-setting-thumb label {
     width: 20px;
     height: 20px;
-    background-color: #3646cd;
+    background-color: #268b22;
     color: #fff;
     font-size: 11px;
     display: flex;
@@ -2532,7 +2534,7 @@ footer.footer-bg p a {
 }
 
 .setting-list ul li a:hover {
-    color: #3646cd;
+    color: #228b22;
 }
 
 .setting-list ul li:last-child a {
@@ -2543,7 +2545,7 @@ footer.footer-bg p a {
     padding: 5px 7px;
     border-radius: 3px;
     background-color: #dfe4fa;
-    color: #3646cd;
+    color: #228b22;
     font-size: 16px;
     margin-right: 15px;
 }
@@ -2561,7 +2563,7 @@ footer.footer-bg p a {
 .setting-list ul li.setting-toggle-btn button {
     width: 32px;
     height: 18px;
-    background-color: #3646cd;
+    background-color: #228b22;
     border-radius: 15px;
     position: relative;
 }
@@ -2609,7 +2611,7 @@ footer.footer-bg p a {
 
 .page-header-title h3 i {
     font-size: 18px;
-    color: #3646cd;
+    color: #228b22;
     margin-right: 10px;
 }
 
@@ -2627,7 +2629,7 @@ footer.footer-bg p a {
     border-radius: 3px;
     background-color: rgba(54, 70, 205, 0.1);
     font-size: 10px;
-    color: #3646cd;
+    color: #228b22;
     padding: 3px 5px;
     margin-right: 10px;
 }
@@ -2662,7 +2664,7 @@ footer.footer-bg p a {
     align-items: center;
     justify-content: center;
     font-size: 12px;
-    color: #3646cd;
+    color: #228b22;
     background-color: #fff;
 }
 
@@ -2736,7 +2738,7 @@ footer.footer-bg p a {
 }
 
 .page-nav-link-item ul li a:hover {
-    color: #3646cd;
+    color: #228b22;
 }
 
 .page-nav-link-item ul li:last-child a {
@@ -2747,7 +2749,7 @@ footer.footer-bg p a {
     padding: 5px 7px;
     border-radius: 3px;
     background-color: #dfe4fa;
-    color: #3646cd;
+    color: #228b22;
     font-size: 16px;
     margin-right: 15px;
 }
@@ -2781,18 +2783,18 @@ footer.footer-bg p a {
     color: #111111;
     font-size: 14px;
     border-radius: 25px;
-    box-shadow: 0 2px 0 0 #3646cd;
+    box-shadow: 0 2px 0 0 #228b22;
     transition: all 0.3s linear;
 }
 
 .tab-selector-list li button:hover {
-    background-color: #3646cd;
+    background-color: #228b22;
     box-shadow: none;
     color: #fff;
 }
 
 .tab-selector-list li.active button {
-    background-color: #3646cd;
+    background-color: #228b22;
     box-shadow: none;
     color: #fff;
 }
@@ -2819,13 +2821,13 @@ footer.footer-bg p a {
     align-items: center;
     padding: 14px 25px 14px 17px;
     border-radius: 5px;
-    box-shadow: 0 2px 0 0 #3646cd;
+    box-shadow: 0 2px 0 0 #228b22;
     background-color: #fff;
     position: relative;
 }
 
 .notification-card a:hover {
-    background-color: #3646cd;
+    background-color: #228b22;
 }
 
 .notification-card a:hover:after {
@@ -2876,7 +2878,7 @@ footer.footer-bg p a {
 
 .notification-card-thumb i {
     font-size: 16px;
-    color: #3646cd;
+    color: #228b22;
     transition: all 0.3s linear;
 }
 
@@ -3039,7 +3041,7 @@ footer.footer-bg p a {
     position: absolute;
     left: 0;
     top: 4px;
-    color: #3646cd;
+    color: #228b22;
     line-height: 1;
 }
 
@@ -3069,7 +3071,7 @@ footer.footer-bg p a {
 
 .text-details blockquote {
     padding: 20px;
-    background-color: #3646cd;
+    background-color: #228b22;
     border-radius: 5px;
     margin-bottom: 15px;
 }
@@ -3111,7 +3113,7 @@ footer.footer-bg p a {
 }
 
 .text-details table thead tr {
-    background: #3646cd;
+    background: #228b22;
 }
 
 .text-details table thead tr th {
@@ -3211,7 +3213,7 @@ footer.footer-bg p a {
 }
 
 .authentication-link a {
-    color: #3646cd;
+    color: #228b22;
     font-size: 14px;
     font-weight: 400;
 }
@@ -3263,7 +3265,7 @@ footer.footer-bg p a {
 }
 
 .owl-carousel .owl-nav button {
-    background-color: #3646cd;
+    background-color: #228b22;
     border-radius: 3px;
     padding: 5px !important;
     margin: 0 3px !important;

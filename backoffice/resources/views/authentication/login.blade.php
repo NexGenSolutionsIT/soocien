@@ -3,12 +3,12 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta name="description" content="Soocien" />
+    <meta name="description" content="Soccien" />
     <meta name="keywords" content="HTML,CSS,JavaScript" />
     <meta name="author" content="HiBootstrap" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <title>Soocien - Serviços de pagamento online.</title>
+    <title>Soccien - Serviços de pagamento online.</title>
     <link rel="icon" href="assets/images/sys-soocien/soocien-favicon.svg" type="image/png" sizes="16x16" />
 
     <!-- bootstrap css -->
@@ -45,7 +45,7 @@
                         </div>
                     </div>
                     <div class="appbar-item appbar-page-title mx-auto">
-                        <h3 style="color: black">Acessar Conta</h3>
+                        <h3 style="color: white">Acessar Conta</h3>
                     </div>
                 </div>
             </div>

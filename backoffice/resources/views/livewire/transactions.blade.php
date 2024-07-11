@@ -2,7 +2,7 @@
     <a href="transaction-details.html">
         <div class="transaction-card-info">
             <div class="transaction-info-thumb">
-                <img src="assets/images/horiizom/userbase.svg" alt="user">
+                <img src="/assets/images/sys-soocien/pessoa.svg" alt="user">
             </div>
             <div class="transaction-info-text">
                 <h3>Usuario Master</h3>

@@ -33,7 +33,7 @@
                                         <h7 class="text-success">Novo</h7>
                                     @endif
                                     <h3>{{ $item['title'] }}</h3>
-                                    <p>{{ \Carbon\Carbon::today()->format('d/m/Y') }}</p>
+                                    <p>{{ \Carbon\Carbon::parse($item['created_at'])->format('d/m/Y H:i:s') }}</p>
                                 </div>
                             </a>
                         </div>
@@ -55,7 +55,8 @@
                                                 <h5 class="modal-title">Detalhes da notificação</h5>
                                             </div>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
+                                                aria-label="Close" data-notification-id="{{ $item['id'] }}"></button>
+                                            <!-- Adicionamos um atributo data-notification-id com o ID da notificação -->
                                         </div>
                                         <div class="modal-body">
                                             <div class="notification-modal">
@@ -80,7 +81,6 @@
                                             <i class="flaticon-trash text-white"></i>
                                         </button>
                                     </form>
-
                                 </div>
                             </div>
                         </div>
@@ -92,34 +92,32 @@
                 <script>
                     $(document).ready(function() {
                         $('.btn-close').on('click', function() {
-                            location.reload();
-                        });
+                            var notificationId = $(this).data('notification-id');
+                            if (notificationId) {
+                                var actionUrl = $('#readNotificationForm' + notificationId).attr('action');
+                                var formData = new FormData($('#readNotificationForm' + notificationId)[0]);
 
-                        $('[id^=readNotification]').on('click', function(event) {
-                            event.preventDefault();
-
-                            var notificationId = $(this).attr('id').replace('readNotification', '');
-                            var actionUrl = $('#readNotificationForm' + notificationId).attr('action');
-                            var formData = new FormData($('#readNotificationForm' + notificationId)[0]);
-
-                            $.ajax({
-                                url: actionUrl,
-                                type: 'POST',
-                                data: formData,
-                                processData: false,
-                                contentType: false,
-                                success: function(response) {
-                                    console.log('Notificação marcada como lida');
-                                    $('#notificationModal' + notificationId).modal(
-                                        'hide');
-                                },
-                                error: function(xhr, status, error) {
-                                    console.error('Erro ao marcar notificação como lida');
-                                }
-                            });
+                                $.ajax({
+                                    url: actionUrl,
+                                    type: 'POST',
+                                    data: formData,
+                                    processData: false,
+                                    contentType: false,
+                                    success: function(response) {
+                                        console.log('Notificação marcada como lida');
+                                        $('#notificationModal' + notificationId).modal(
+                                            'hide'); // Fecha o modal
+                                        window.location.href = '/notification';
+                                    },
+                                    error: function(xhr, status, error) {
+                                        console.error('Erro ao marcar notificação como lida');
+                                    }
+                                });
+                            }
                         });
                     });
                 </script>
+
 
             </div>
         </div>
