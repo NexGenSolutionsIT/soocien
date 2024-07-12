@@ -8982,6 +8982,10 @@ Video CSS
 	padding: 0 0 29px 40px;
 	position: relative;
 }
+.footer-top2 li {
+	padding: 0 0 29px 0px !important;
+	position: relative !important;
+}
 .rs-footer.footer-main-home .footer-top .address-widget li i {
 	color: #20bb5c;
 	position: absolute;
