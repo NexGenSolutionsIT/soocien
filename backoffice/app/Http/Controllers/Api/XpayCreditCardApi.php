@@ -39,6 +39,7 @@ class XpayCreditCardApi extends Controller
         $this->orderCredit = new OrderCreditModel();
 
         $this->url = 'https://api-br.x-pay.app/v2/';
+
         $this->authorizationToken = env('AUTHORIZATION_TOKEN');
         $this->apiSecretKey = env('API_SECRET_KEY');
         $this->clientId = env('API_XPAY_CLIENT_ID_CARD_HML');
@@ -248,7 +249,7 @@ class XpayCreditCardApi extends Controller
      * @param \Illuminate\Http\Request $dataToCancelCharge
      * @return string
      */
-    public function cancelCharge(Request $dataToCancelCharge): string
+    public function cancelCharge(Request $dataToCancelCharge): mixed
     {
         if ($dataToCancelCharge->header('X-API-SECRET') !== $this->apiSecretKey) {
             return response()->json(['error' => 'Unauthorized'], 401);
@@ -281,11 +282,13 @@ class XpayCreditCardApi extends Controller
         $validator = Validator::make($dataToCancelCharge->all(), $rules);
 
 
+
         if ($validator->fails()) {
             return response()->json(['error' => $validator->errors()], 422);
         }
 
         $validatedData = $validator->validated();
+
 
         $data = [
             'transactionId' => $validatedData['transactionId'],
@@ -298,7 +301,7 @@ class XpayCreditCardApi extends Controller
         $response = Http::withHeaders([
             'authorizationToken' => $this->authorizationToken,
             'content-type' => 'application/json',
-        ])->post($this->url . 'creditcard-payment/cancel', $data);
+        ])->post('https://api-br.x-pay.app/v2/creditcard-payment/cancel', $data);
 
         return json_decode($response->body(), true);
     }
@@ -309,7 +312,7 @@ class XpayCreditCardApi extends Controller
      * @param \Illuminate\Http\Request $request
      * @return mixed
      */
-    public function getSummaryTransaction(Request $request)
+    public function getSummaryTransaction(Request $request): mixed
     {
         if ($request->header('X-API-SECRET') !== $this->apiSecretKey) {
             return response()->json(['error' => 'Unauthorized'], 401);
