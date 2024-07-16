@@ -9,7 +9,8 @@ use Illuminate\Http\Request;
 
 use App\Services\{
     ClientService,
-    KeysApiService
+    KeysApiService,
+    TokenService
 };
 
 use Illuminate\{
@@ -27,14 +28,16 @@ class XpayCreditCardApi extends Controller
 
     private KeysApiService $keysApiService;
     private ClientService $clientService;
+    private TokenService $tokenService;
     private TokenModel $token;
 
     private OrderCreditModel $orderCredit;
 
-    public function __construct(KeysApiService $keysApiService, ClientService $clientService)
+    public function __construct(KeysApiService $keysApiService, ClientService $clientService, TokenService $tokenService)
     {
         $this->clientService = $clientService;
         $this->keysApiService = $keysApiService;
+        $this->tokenService = $tokenService;
         $this->token = new TokenModel();
         $this->orderCredit = new OrderCreditModel();
 
@@ -122,7 +125,6 @@ class XpayCreditCardApi extends Controller
      */
     public function chargePayment(Request $request)
     {
-        // dd($request->all());
         if ($request->header('X-API-SECRET') !== $this->apiSecretKey) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
@@ -133,14 +135,14 @@ class XpayCreditCardApi extends Controller
         }
 
         $token = str_replace('Bearer ', '', $authorizationHeader);
-        $tokenExists = $this->token::where('token', $token)->exists();
+        $tokenExists = $this->tokenService->getByToken($token);
 
         if (empty($tokenExists)) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
 
-        $tokenModel = $this->token::where('token', $token)->first();
-        $keysApi = $this->keysApiService->getByAppIdAndAppKey($tokenModel->appId, $tokenModel->appKey);
+        $tokenModel = $this->tokenService->getByToken($token);
+        $keysApi = $this->keysApiService->getByAppIdAndAppKey($tokenModel['appId'], $tokenModel['appKey']);
 
         if (empty($keysApi)) {
             return response()->json(['error' => 'Unauthorized'], 401);
@@ -150,7 +152,6 @@ class XpayCreditCardApi extends Controller
         if (empty($xpayAuthorization)) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
-
 
         $rules = [
             'value' => 'required|numeric',
@@ -198,7 +199,6 @@ class XpayCreditCardApi extends Controller
 
         $tokenizeCard = $this->tokenizeCard($cardData);
         if ($tokenizeCard['number_token']) {
-
             $dataToCharge = [
                 "access_token" => $xpayAuthorization['access_token'],
                 "amount" => intval($validatedData['value']),
@@ -235,8 +235,8 @@ class XpayCreditCardApi extends Controller
                     'status' => 'paid',
                     'is_approved' => 1
                 ];
-
-                $this->saveOrderCredit($orderCredit);
+                self::addBalanceToUser($keysApi['client_id'], $validatedData['value']);
+                self::saveOrderCredit($orderCredit);
                 return $makeCharge;
             }
             return response()->json(['error' => 'Payment was not processed.'], 401);
@@ -261,14 +261,14 @@ class XpayCreditCardApi extends Controller
         }
 
         $token = str_replace('Bearer ', '', $authorizationHeader);
-        $tokenExists = $this->token::where('token', $token)->exists();
+        $tokenExists = $this->tokenService->getByToken($token);
 
         if (empty($tokenExists)) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
 
-        $tokenModel = $this->token::where('token', $token)->first();
-        $keysApi = $this->keysApiService->getByAppIdAndAppKey($tokenModel->appId, $tokenModel->appKey);
+        $tokenModel = $this->tokenService->getByToken($token);
+        $keysApi = $this->keysApiService->getByAppIdAndAppKey($tokenModel['appId'], $tokenModel['appKey']);
 
         if (empty($keysApi)) {
             return response()->json(['error' => 'Unauthorized'], 401);
@@ -303,7 +303,10 @@ class XpayCreditCardApi extends Controller
             'content-type' => 'application/json',
         ])->post('https://api-br.x-pay.app/v2/creditcard-payment/cancel', $data);
 
-        return json_decode($response->body(), true);
+        if (json_decode($response->body(), true)['message'] == 'Cancellation approved') {
+            self::removeBalanceToUser($keysApi['client_id'], $validatedData['amount']);
+        }
+        return $response->body();
     }
 
 
@@ -324,14 +327,14 @@ class XpayCreditCardApi extends Controller
         }
 
         $token = str_replace('Bearer ', '', $authorizationHeader);
-        $tokenExists = $this->token::where('token', $token)->exists();
+        $tokenExists = $this->tokenService->getByToken($token);
 
         if (empty($tokenExists)) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
 
-        $tokenModel = $this->token::where('token', $token)->first();
-        $keysApi = $this->keysApiService->getByAppIdAndAppKey($tokenModel->appId, $tokenModel->appKey);
+        $tokenModel = $this->tokenService->getByToken($token);
+        $keysApi = $this->keysApiService->getByAppIdAndAppKey($tokenModel['appId'], $tokenModel['appKey']);
 
         if (empty($keysApi)) {
             return response()->json(['error' => 'Unauthorized'], 401);
@@ -384,5 +387,33 @@ class XpayCreditCardApi extends Controller
         $orderCredit->status = $data['status'];
         $orderCredit->is_approved = $data['is_approved'];
         $orderCredit->save();
+    }
+
+
+    /**
+     * Summary of addBalanceToUser
+     * @param string $clientId
+     * @param float $balance (sell value)
+     * @return void
+     */
+    public function addBalanceToUser(string $clientId, float $balance)
+    {
+        $client = $this->clientService->find($clientId);
+        $client->balance += $balance;
+        $client->save();
+    }
+
+
+    /**
+     * Summary of removeBalanceToUser
+     * @param string $clientId
+     * @param float $balance (sell value)
+     * @return void
+     */
+    public function removeBalanceToUser(string $clientId, float $balance)
+    {
+        $client = $this->clientService->find($clientId);
+        $client->balance -= $balance;
+        $client->save();
     }
 }

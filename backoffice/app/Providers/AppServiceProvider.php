@@ -11,7 +11,8 @@ use App\Models\{
     NotificationModel,
     SupportModel,
     TransactionModel,
-    TransferUserToUserModel
+    TransferUserToUserModel,
+    TokenModel
 };
 use App\Repositories\{
     ClientRepository,
@@ -20,7 +21,8 @@ use App\Repositories\{
     SupportRepository,
     TransactionRepository,
     NotificationRepository,
-    TransferUserToUserRepository
+    TransferUserToUserRepository,
+    TokenRepository,
 };
 
 
@@ -58,6 +60,11 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind('App\Repositories\SupportRepository', function () {
             return new SupportRepository(new SupportModel());
         });
+
+        $this->app->bind('App\Repositories\TokenRepository', function () {
+            return new TokenRepository(new TokenModel());
+        });
+
 
         // $this->app->bind('App\Repositories\', function () {
         //     return new Repository(new Model());
