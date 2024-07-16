@@ -163,8 +163,6 @@ class XpayCreditCardApi extends Controller
             'payerFirstName' => 'required|string',
             'payerFirstLastName' => 'required|string',
             'payerEmail' => 'required|string',
-            'payerDocument' => 'required|string',
-            'payerDocumentType' => 'required|in:cpf',
             'payerPhone' => 'required|numeric',
             'payerAddress' => 'required|string',
             'payerCity' => 'required|string',
