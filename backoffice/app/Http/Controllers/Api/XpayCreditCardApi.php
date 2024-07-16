@@ -41,8 +41,8 @@ class XpayCreditCardApi extends Controller
         $this->url = 'https://api-br.x-pay.app/v2/';
         $this->authorizationToken = env('AUTHORIZATION_TOKEN');
         $this->apiSecretKey = env('API_SECRET_KEY');
-        $this->clientId = env('API_XPAY_CLIENT_ID_CARD_PROD');
-        $this->clientSecret = env('API_XPAY_CLIENT_SECRET_CARD_PROD');
+        $this->clientId = env('API_XPAY_CLIENT_ID_CARD_HML');
+        $this->clientSecret = env('API_XPAY_CLIENT_SECRET_CARD_HML');
     }
 
 
@@ -121,6 +121,7 @@ class XpayCreditCardApi extends Controller
      */
     public function chargePayment(Request $request)
     {
+        // dd($request->all());
         if ($request->header('X-API-SECRET') !== $this->apiSecretKey) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
@@ -149,6 +150,7 @@ class XpayCreditCardApi extends Controller
             return response()->json(['error' => 'Unauthorized'], 401);
         }
 
+
         $rules = [
             'value' => 'required|numeric',
             'orderId' => 'required|string',
@@ -161,7 +163,7 @@ class XpayCreditCardApi extends Controller
             'card.cvv' => 'required|string',
             'installments' => 'required|numeric',
             'payerFirstName' => 'required|string',
-            'payerFirstLastName' => 'required|string',
+            'payerLastName' => 'required|string',
             'payerEmail' => 'required|string',
             'payerPhone' => 'required|numeric',
             'payerAddress' => 'required|string',
@@ -186,6 +188,7 @@ class XpayCreditCardApi extends Controller
 
         $validatedData = $validator->validated();
 
+
         $cardData = [
             'access_token' => $xpayAuthorization['access_token'],
             'card_number' => $validatedData['card']['number'],
@@ -205,7 +208,7 @@ class XpayCreditCardApi extends Controller
                 'expirityDate' => $validatedData['card']['expirationMonth'] . str_replace('20', '', $validatedData['card']['expirationYear']),
                 "soft_descriptor" => $validatedData['soft_descriptor'],
                 "customerFirstName" => $validatedData['payerFirstName'],
-                "customerLastName" => $validatedData['payerLastName'],,
+                "customerLastName" => $validatedData['payerLastName'],
                 "customerEmail" => $validatedData['payerEmail'],
                 "customerPhone" => $validatedData['payerPhone'],
                 "customerAddress" => $validatedData['payerAddress'],
@@ -367,7 +370,6 @@ class XpayCreditCardApi extends Controller
      */
     public function saveOrderCredit($data): void
     {
-
         $orderCredit = $this->orderCredit;
 
         $orderCredit->client_id = $data['client_id'];
@@ -375,7 +377,7 @@ class XpayCreditCardApi extends Controller
         $orderCredit->order_id = $data['order_id'];
         $orderCredit->amount = $data['amount'];
         $orderCredit->purchase_info = json_encode($data['purchase_info']);
-        $orderCredit->response = $data['response'];
+        $orderCredit->response = json_encode($data['response']);
         $orderCredit->status = $data['status'];
         $orderCredit->is_approved = $data['is_approved'];
         $orderCredit->save();

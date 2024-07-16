@@ -36,3 +36,5 @@ Route::prefix('v1')->group(function () {
     // Route::post('/pay-pix-in-admin', [Pix::class, 'createTransferPix']);
     Route::post('/webhook-pix', [Pix::class, 'webHook']);
 });
+
+// 7282cd0b15e5b40b77bf482d198a743fb5c1cc6513db69ba427a82aeca803abc707662ab30ca11baf78b05f5c8a3308a687bceb531920c6118d5ecc44fa2cd82
