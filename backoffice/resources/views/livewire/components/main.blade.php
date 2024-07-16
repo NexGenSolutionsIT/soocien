@@ -8,7 +8,7 @@
     <meta name="author" content="HiBootstrap">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <title>Soccien - Serviços de pagamento online.</title>
+    <title>Soocien - Serviços de pagamento online.</title>
     <link rel="icon" href="assets/images/horiizom/favicon.svg" type="image/png" sizes="16x16">
 
     <meta name="csrf-token" content="{{ csrf_token() }}">

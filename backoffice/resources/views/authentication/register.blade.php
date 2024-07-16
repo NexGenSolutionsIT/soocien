@@ -8,7 +8,7 @@
     <meta name="author" content="HiBootstrap">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <title>Soccien - Serviços de pagamento online.</title>
+    <title>Soocien - Serviços de pagamento online.</title>
     <link rel="icon" href="assets/images/horiizom/favicon.svg" type="image/png" sizes="16x16">
 
     <!-- bootstrap css -->
@@ -61,7 +61,7 @@
             <!-- Page-header -->
             <div class="page-header">
                 <div class="page-header-title page-header-item">
-                    <h3>Bem vindo a Soccien</h3>
+                    <h3>Bem vindo a Soocien</h3>
                 </div>
             </div>
             <!-- Page-header -->
@@ -194,7 +194,7 @@
                 <footer class="mt-3">
                     <div class="container">
                         <p>Todos os seus direitos reservados <a class="text-success" href="#"
-                                target="_blank">Soccien</a></p>
+                                target="_blank">Soocien</a></p>
                     </div>
                 </footer>
             </div>

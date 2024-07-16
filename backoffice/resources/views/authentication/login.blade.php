@@ -3,12 +3,12 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta name="description" content="Soccien" />
+    <meta name="description" content="Soocien" />
     <meta name="keywords" content="HTML,CSS,JavaScript" />
     <meta name="author" content="HiBootstrap" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <title>Soccien - Serviços de pagamento online.</title>
+    <title>Soocien - Serviços de pagamento online.</title>
     <link rel="icon" href="assets/images/sys-soocien/soocien-favicon.svg" type="image/png" sizes="16x16" />
 
     <!-- bootstrap css -->
