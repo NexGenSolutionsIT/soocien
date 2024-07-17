@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\OrderCreditModel;
-use App\Models\TokenModel;
-use Illuminate\Http\Request;
+
+use App\Models\{
+    OrderCreditModel,
+    TokenModel
+};
 
 use App\Services\{
     ClientService,
@@ -16,6 +18,7 @@ use App\Services\{
 use Illuminate\{
     Support\Facades\Validator,
     Support\Facades\Http,
+    Http\Request
 };
 
 class XpayCreditCardApi extends Controller
@@ -42,13 +45,17 @@ class XpayCreditCardApi extends Controller
         $this->orderCredit = new OrderCreditModel();
 
         $this->url = 'https://api-br.x-pay.app/v2/';
-
         $this->authorizationToken = env('AUTHORIZATION_TOKEN');
         $this->apiSecretKey = env('API_SECRET_KEY');
-        $this->clientId = env('API_XPAY_CLIENT_ID_CARD_HML');
-        $this->clientSecret = env('API_XPAY_CLIENT_SECRET_CARD_HML');
-    }
 
+        if (env('APP_ENV') == 'local') {
+            $this->clientId = env('API_XPAY_CLIENT_ID_CARD_HML');
+            $this->clientSecret = env('API_XPAY_CLIENT_SECRET_CARD_HML');
+        } else {
+            $this->clientId = env('API_XPAY_CLIENT_ID_CARD_PROD');
+            $this->clientSecret = env('API_XPAY_CLIENT_SECRET_CARD_PROD');
+        }
+    }
 
     /**
      * Summary of authorization
@@ -87,7 +94,6 @@ class XpayCreditCardApi extends Controller
         return json_decode($response->body(), true);
     }
 
-
     /**
      * Summary of makeCharge
      * @param mixed $dataToCharge (
@@ -116,7 +122,6 @@ class XpayCreditCardApi extends Controller
 
         return json_decode($response->body(), true);
     }
-
 
     /**
      * Summary of chargePayment
@@ -190,7 +195,6 @@ class XpayCreditCardApi extends Controller
 
         $validatedData = $validator->validated();
 
-
         $cardData = [
             'access_token' => $xpayAuthorization['access_token'],
             'card_number' => $validatedData['card']['number'],
@@ -237,7 +241,8 @@ class XpayCreditCardApi extends Controller
                 ];
                 self::addBalanceToUser($keysApi['client_id'], $validatedData['value']);
                 self::saveOrderCredit($orderCredit);
-                return $makeCharge;
+
+                return response()->json($makeCharge, 200);
             }
             return response()->json(['error' => 'Payment was not processed.'], 401);
         }
@@ -308,7 +313,6 @@ class XpayCreditCardApi extends Controller
         }
         return $response->body();
     }
-
 
     /**
      * Summary of getSummaryTransaction
@@ -389,7 +393,6 @@ class XpayCreditCardApi extends Controller
         $orderCredit->save();
     }
 
-
     /**
      * Summary of addBalanceToUser
      * @param string $clientId
@@ -402,7 +405,6 @@ class XpayCreditCardApi extends Controller
         $client->balance += $balance;
         $client->save();
     }
-
 
     /**
      * Summary of removeBalanceToUser
