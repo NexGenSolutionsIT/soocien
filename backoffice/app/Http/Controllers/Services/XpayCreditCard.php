@@ -195,6 +195,7 @@ class Xpay extends Controller
             return response()->json(['errors' => $validator->errors()], 422);
         }
         $validateData = $validator->validated();
+
         $data = [
             'access_token' => $accessToken,
             'amount' => intval($validateData['value'] * 100),

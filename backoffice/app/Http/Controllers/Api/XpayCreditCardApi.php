@@ -3,18 +3,22 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\OrderCreditModel;
-use App\Models\TokenModel;
-use Illuminate\Http\Request;
+
+use App\Models\{
+    OrderCreditModel,
+    TokenModel
+};
 
 use App\Services\{
     ClientService,
-    KeysApiService
+    KeysApiService,
+    TokenService
 };
 
 use Illuminate\{
     Support\Facades\Validator,
     Support\Facades\Http,
+    Http\Request
 };
 
 class XpayCreditCardApi extends Controller
@@ -27,24 +31,31 @@ class XpayCreditCardApi extends Controller
 
     private KeysApiService $keysApiService;
     private ClientService $clientService;
+    private TokenService $tokenService;
     private TokenModel $token;
 
     private OrderCreditModel $orderCredit;
 
-    public function __construct(KeysApiService $keysApiService, ClientService $clientService)
+    public function __construct(KeysApiService $keysApiService, ClientService $clientService, TokenService $tokenService)
     {
         $this->clientService = $clientService;
         $this->keysApiService = $keysApiService;
+        $this->tokenService = $tokenService;
         $this->token = new TokenModel();
         $this->orderCredit = new OrderCreditModel();
 
         $this->url = 'https://api-br.x-pay.app/v2/';
         $this->authorizationToken = env('AUTHORIZATION_TOKEN');
         $this->apiSecretKey = env('API_SECRET_KEY');
-        $this->clientId = env('API_XPAY_CLIENT_ID_CARD_PROD');
-        $this->clientSecret = env('API_XPAY_CLIENT_SECRET_CARD_PROD');
-    }
 
+        if (env('APP_ENV') == 'local') {
+            $this->clientId = env('API_XPAY_CLIENT_ID_CARD_HML');
+            $this->clientSecret = env('API_XPAY_CLIENT_SECRET_CARD_HML');
+        } else {
+            $this->clientId = env('API_XPAY_CLIENT_ID_CARD_PROD');
+            $this->clientSecret = env('API_XPAY_CLIENT_SECRET_CARD_PROD');
+        }
+    }
 
     /**
      * Summary of authorization
@@ -56,7 +67,7 @@ class XpayCreditCardApi extends Controller
         $data = [
             'clientId' => $this->clientId,
             'clientSecret' => $this->clientSecret,
-            // 'env' => 'dev'
+            'env' => 'dev'
         ];
 
         $response = Http::withHeaders([
@@ -82,7 +93,6 @@ class XpayCreditCardApi extends Controller
 
         return json_decode($response->body(), true);
     }
-
 
     /**
      * Summary of makeCharge
@@ -113,7 +123,6 @@ class XpayCreditCardApi extends Controller
         return json_decode($response->body(), true);
     }
 
-
     /**
      * Summary of chargePayment
      * @param \Illuminate\Http\Request $request
@@ -131,14 +140,14 @@ class XpayCreditCardApi extends Controller
         }
 
         $token = str_replace('Bearer ', '', $authorizationHeader);
-        $tokenExists = $this->token::where('token', $token)->exists();
+        $tokenExists = $this->tokenService->getByToken($token);
 
         if (empty($tokenExists)) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
 
-        $tokenModel = $this->token::where('token', $token)->first();
-        $keysApi = $this->keysApiService->getByAppIdAndAppKey($tokenModel->appId, $tokenModel->appKey);
+        $tokenModel = $this->tokenService->getByToken($token);
+        $keysApi = $this->keysApiService->getByAppIdAndAppKey($tokenModel['appId'], $tokenModel['appKey']);
 
         if (empty($keysApi)) {
             return response()->json(['error' => 'Unauthorized'], 401);
@@ -161,10 +170,8 @@ class XpayCreditCardApi extends Controller
             'card.cvv' => 'required|string',
             'installments' => 'required|numeric',
             'payerFirstName' => 'required|string',
-            'payerFirstLastName' => 'required|string',
+            'payerLastName' => 'required|string',
             'payerEmail' => 'required|string',
-            'payerDocument' => 'required|string',
-            'payerDocumentType' => 'required|in:cpf',
             'payerPhone' => 'required|numeric',
             'payerAddress' => 'required|string',
             'payerCity' => 'required|string',
@@ -191,12 +198,11 @@ class XpayCreditCardApi extends Controller
         $cardData = [
             'access_token' => $xpayAuthorization['access_token'],
             'card_number' => $validatedData['card']['number'],
-            // 'env' => 'dev'
+            'env' => 'dev'
         ];
 
         $tokenizeCard = $this->tokenizeCard($cardData);
         if ($tokenizeCard['number_token']) {
-
             $dataToCharge = [
                 "access_token" => $xpayAuthorization['access_token'],
                 "amount" => intval($validatedData['value']),
@@ -207,7 +213,7 @@ class XpayCreditCardApi extends Controller
                 'expirityDate' => $validatedData['card']['expirationMonth'] . str_replace('20', '', $validatedData['card']['expirationYear']),
                 "soft_descriptor" => $validatedData['soft_descriptor'],
                 "customerFirstName" => $validatedData['payerFirstName'],
-                "customerLastName" => $validatedData['payerLastName'],,
+                "customerLastName" => $validatedData['payerLastName'],
                 "customerEmail" => $validatedData['payerEmail'],
                 "customerPhone" => $validatedData['payerPhone'],
                 "customerAddress" => $validatedData['payerAddress'],
@@ -216,7 +222,7 @@ class XpayCreditCardApi extends Controller
                 "customerZipCode" => $validatedData['payerZipCode'],
                 "codeAntiFraud" => $validatedData['codeAntiFraud'],
                 "ipAddress" => $validatedData['payerIp'],
-                // "env" => "dev"
+                "env" => "dev"
             ];
 
             $makeCharge = $this->makeCharge($dataToCharge);
@@ -233,9 +239,10 @@ class XpayCreditCardApi extends Controller
                     'status' => 'paid',
                     'is_approved' => 1
                 ];
+                self::addBalanceToUser($keysApi['client_id'], $validatedData['value']);
+                self::saveOrderCredit($orderCredit);
 
-                $this->saveOrderCredit($orderCredit);
-                return $makeCharge;
+                return response()->json($makeCharge, 200);
             }
             return response()->json(['error' => 'Payment was not processed.'], 401);
         }
@@ -247,7 +254,7 @@ class XpayCreditCardApi extends Controller
      * @param \Illuminate\Http\Request $dataToCancelCharge
      * @return string
      */
-    public function cancelCharge(Request $dataToCancelCharge): string
+    public function cancelCharge(Request $dataToCancelCharge): mixed
     {
         if ($dataToCancelCharge->header('X-API-SECRET') !== $this->apiSecretKey) {
             return response()->json(['error' => 'Unauthorized'], 401);
@@ -259,14 +266,14 @@ class XpayCreditCardApi extends Controller
         }
 
         $token = str_replace('Bearer ', '', $authorizationHeader);
-        $tokenExists = $this->token::where('token', $token)->exists();
+        $tokenExists = $this->tokenService->getByToken($token);
 
         if (empty($tokenExists)) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
 
-        $tokenModel = $this->token::where('token', $token)->first();
-        $keysApi = $this->keysApiService->getByAppIdAndAppKey($tokenModel->appId, $tokenModel->appKey);
+        $tokenModel = $this->tokenService->getByToken($token);
+        $keysApi = $this->keysApiService->getByAppIdAndAppKey($tokenModel['appId'], $tokenModel['appKey']);
 
         if (empty($keysApi)) {
             return response()->json(['error' => 'Unauthorized'], 401);
@@ -280,11 +287,13 @@ class XpayCreditCardApi extends Controller
         $validator = Validator::make($dataToCancelCharge->all(), $rules);
 
 
+
         if ($validator->fails()) {
             return response()->json(['error' => $validator->errors()], 422);
         }
 
         $validatedData = $validator->validated();
+
 
         $data = [
             'transactionId' => $validatedData['transactionId'],
@@ -297,18 +306,20 @@ class XpayCreditCardApi extends Controller
         $response = Http::withHeaders([
             'authorizationToken' => $this->authorizationToken,
             'content-type' => 'application/json',
-        ])->post($this->url . 'creditcard-payment/cancel', $data);
+        ])->post('https://api-br.x-pay.app/v2/creditcard-payment/cancel', $data);
 
-        return json_decode($response->body(), true);
+        if (json_decode($response->body(), true)['message'] == 'Cancellation approved') {
+            self::removeBalanceToUser($keysApi['client_id'], $validatedData['amount']);
+        }
+        return $response->body();
     }
-
 
     /**
      * Summary of getSummaryTransaction
      * @param \Illuminate\Http\Request $request
      * @return mixed
      */
-    public function getSummaryTransaction(Request $request)
+    public function getSummaryTransaction(Request $request): mixed
     {
         if ($request->header('X-API-SECRET') !== $this->apiSecretKey) {
             return response()->json(['error' => 'Unauthorized'], 401);
@@ -320,14 +331,14 @@ class XpayCreditCardApi extends Controller
         }
 
         $token = str_replace('Bearer ', '', $authorizationHeader);
-        $tokenExists = $this->token::where('token', $token)->exists();
+        $tokenExists = $this->tokenService->getByToken($token);
 
         if (empty($tokenExists)) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
 
-        $tokenModel = $this->token::where('token', $token)->first();
-        $keysApi = $this->keysApiService->getByAppIdAndAppKey($tokenModel->appId, $tokenModel->appKey);
+        $tokenModel = $this->tokenService->getByToken($token);
+        $keysApi = $this->keysApiService->getByAppIdAndAppKey($tokenModel['appId'], $tokenModel['appKey']);
 
         if (empty($keysApi)) {
             return response()->json(['error' => 'Unauthorized'], 401);
@@ -350,7 +361,7 @@ class XpayCreditCardApi extends Controller
             'transactionId' => $validatedData['transactionId'],
             'clientId' => $this->clientId,
             'clientSecret' => $this->clientSecret,
-            // 'env' => 'dev'
+            'env' => 'dev'
         ];
 
         $response = Http::withHeaders([
@@ -369,7 +380,6 @@ class XpayCreditCardApi extends Controller
      */
     public function saveOrderCredit($data): void
     {
-
         $orderCredit = $this->orderCredit;
 
         $orderCredit->client_id = $data['client_id'];
@@ -377,9 +387,35 @@ class XpayCreditCardApi extends Controller
         $orderCredit->order_id = $data['order_id'];
         $orderCredit->amount = $data['amount'];
         $orderCredit->purchase_info = json_encode($data['purchase_info']);
-        $orderCredit->response = $data['response'];
+        $orderCredit->response = json_encode($data['response']);
         $orderCredit->status = $data['status'];
         $orderCredit->is_approved = $data['is_approved'];
         $orderCredit->save();
+    }
+
+    /**
+     * Summary of addBalanceToUser
+     * @param string $clientId
+     * @param float $balance (sell value)
+     * @return void
+     */
+    public function addBalanceToUser(string $clientId, float $balance)
+    {
+        $client = $this->clientService->find($clientId);
+        $client->balance += $balance;
+        $client->save();
+    }
+
+    /**
+     * Summary of removeBalanceToUser
+     * @param string $clientId
+     * @param float $balance (sell value)
+     * @return void
+     */
+    public function removeBalanceToUser(string $clientId, float $balance)
+    {
+        $client = $this->clientService->find($clientId);
+        $client->balance -= $balance;
+        $client->save();
     }
 }
