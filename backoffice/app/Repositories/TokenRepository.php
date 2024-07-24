@@ -17,6 +17,7 @@ class TokenRepository implements TokenInterface
 
     public function getByToken(string $token): array
     {
-        return $this->model->where('token', $token)->first()->toArray();
+        $array = $this->model->where('token', $token)->first();
+        return $array->toArray();
     }
 }

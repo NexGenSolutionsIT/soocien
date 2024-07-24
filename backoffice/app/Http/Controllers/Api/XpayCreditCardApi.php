@@ -131,7 +131,7 @@ class XpayCreditCardApi extends Controller
     public function chargePayment(Request $request)
     {
         if ($request->header('X-API-SECRET') !== $this->apiSecretKey) {
-            return response()->json(['error' => 'Unauthorized'], 401);
+            return response()->json(['error' => 'API SECRET Unauthorized'], 401);
         }
 
         $authorizationHeader = $request->header('Authorization');
@@ -143,19 +143,19 @@ class XpayCreditCardApi extends Controller
         $tokenExists = $this->tokenService->getByToken($token);
 
         if (empty($tokenExists)) {
-            return response()->json(['error' => 'Unauthorized'], 401);
+            return response()->json(['error' => 'Bearer Unauthorized'], 401);
         }
 
         $tokenModel = $this->tokenService->getByToken($token);
         $keysApi = $this->keysApiService->getByAppIdAndAppKey($tokenModel['appId'], $tokenModel['appKey']);
 
         if (empty($keysApi)) {
-            return response()->json(['error' => 'Unauthorized'], 401);
+            return response()->json(['error' => 'Keys API Unauthorized'], 401);
         }
 
         $xpayAuthorization = $this->authorization();
         if (empty($xpayAuthorization)) {
-            return response()->json(['error' => 'Unauthorized'], 401);
+            return response()->json(['error' => 'API Xpay Unauthorized'], 401);
         }
 
         $rules = [
