@@ -119,7 +119,7 @@ class Xpay extends Controller
 
         $this->authorization = "1e9fee004b24cad7a7fea4cb9bd36d0c4f1e972ex";
 
-        $this->env = 'dev';
+        $this->env = 'prod';
         $this->apiSecreteKey = env('API_SECRET_KEY');
         $this->clientID = '3e4ed362-ef29-45c1-94cb-08814e0c319a';
         $this->clientSecret = '0B152451-0D52-4B3F-ABF9-0ADC53213E7B';
