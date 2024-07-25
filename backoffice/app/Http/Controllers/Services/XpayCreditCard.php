@@ -414,7 +414,7 @@ class Xpay extends Controller
         } else {
             return [
                 'status' => $result->status(),
-                'data' => ''
+                'data' => $result->body()
             ];
         }
     }
