@@ -234,7 +234,6 @@ class XpayCreditCardApi extends Controller
                 "customerZipCode" => $validatedData['payerZipCode'],
                 "codeAntiFraud" => $validatedData['codeAntiFraud'],
                 "ipAddress" => $validatedData['payerIp'],
-                "env" => "dev"
             ];
 
             $makeCharge = $this->makeCharge($dataToCharge);
