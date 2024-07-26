@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 
 use App\Models\{
+    LogApi,
     OrderCreditModel,
     TokenModel
 };
@@ -130,6 +131,7 @@ class XpayCreditCardApi extends Controller
      */
     public function chargePayment(Request $request)
     {
+
         if ($request->header('X-API-SECRET') !== $this->apiSecretKey) {
             return response()->json(['error' => 'API SECRET Unauthorized'], 401);
         }
@@ -195,6 +197,11 @@ class XpayCreditCardApi extends Controller
 
         $validatedData = $validator->validated();
 
+        $log = new LogApi();
+        $log->api = 'credit_card_validate_data';
+        $log->response = json_encode($validatedData);
+        $log->save();
+
         $cardData = [
             'access_token' => $xpayAuthorization['access_token'],
             'card_number' => $validatedData['card']['number'],
@@ -243,6 +250,14 @@ class XpayCreditCardApi extends Controller
 
                 return response()->json($makeCharge, 200);
             }
+            $log = new LogApi();
+            $log->api = 'credit_card_make_charge';
+            $array = [
+                'data_to_charge' => $dataToCharge,
+                'make_charge' => $makeCharge
+            ];
+            $log->response = json_encode($validatedData);
+            $log->save();
             return response()->json(['error' => 'Payment was not processed.'], 401);
         }
         return response()->json(['error' => 'Payment was not processed.'], 401);
