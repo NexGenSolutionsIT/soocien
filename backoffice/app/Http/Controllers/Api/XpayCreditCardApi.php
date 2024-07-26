@@ -216,7 +216,7 @@ class XpayCreditCardApi extends Controller
         if ($tokenizeCard['number_token']) {
             $dataToCharge = [
                 "access_token" => $xpayAuthorization['access_token'],
-                "amount" => intval($validatedData['value']),
+                "amount" => intval(str_replace('.', '', $validatedData['value'])),
                 "installments" => $validatedData['installments'],
                 "cardHolderName" => $validatedData['card']['name'],
                 "number_token" => $tokenizeCard['number_token'],
