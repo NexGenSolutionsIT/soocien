@@ -120,7 +120,6 @@ class XpayCreditCardApi extends Controller
             'authorizationToken' => $this->authorizationToken,
             'content-type' => 'application/json',
         ])->post($this->url . 'creditcard-payment/charge', $dataToCharge);
-        dd($response->body());
 
         return json_decode($response->body(), true);
     }
