@@ -7,7 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Models\{
     LogApi,
     OrderCreditModel,
-    TokenModel
+    TokenModel,
+    AdminModel
 };
 
 use App\Services\{
@@ -422,8 +423,16 @@ class XpayCreditCardApi extends Controller
      */
     public function addBalanceToUser(string $clientId, float $balance)
     {
+        $fee = 12.79;
+        $amount =  $balance - ($balance * $fee / 100) ;    
+        $diff = $amount - $balance;
+
+        $admin = AdminModel::find(1);
+        $admin->balance += $diff;
+        $admin->save();
+
         $client = $this->clientService->find($clientId);
-        $client->balance += $balance;
+        $client->balance += $amount;
         $result = $client->save();
 
         $this->log('credit_card_addBalanceToUser', json_encode($result));

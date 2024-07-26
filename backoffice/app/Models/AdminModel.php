@@ -22,6 +22,7 @@ class AdminModel extends Authenticatable
         'name',
         'email',
         'password',
+        'balance',
     ];
 
     /**

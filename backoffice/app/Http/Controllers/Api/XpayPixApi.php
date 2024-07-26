@@ -276,13 +276,23 @@ class XpayPixApi extends Controller
                 $client_uuid = $order->client_uuid;
 
                 $admin = AdminModel::find(1);
-                $adminBalance = ($data['data']['Value'] * 20) / 100;
-                $admin->balance += $adminBalance;
-                $admin->save();
-
                 $client = ClientModel::where('uuid', $client_uuid)->first();
-                $userBalance = ($data['data']['Value'] * 80) / 100;
+
+                $fee = 5.77 / 100;
+                $amount = $data['data']['Value'];                
+                $fixedFee = 2;
+
+                if($data['data']['Value'] > 29.01){
+                    $userBalance = $amount - ($amount * $fee);
+                    $adminBalance =  $amount - $userBalance;
+                } else {
+                    $adminBalance = $fixedFee;
+                    $userBalance = $amount - $fixedFee;
+                }   
+                // dd($adminBalance, $userBalance);
+                $admin->balance += $adminBalance;
                 $client->balance += $userBalance;
+                $admin->save();
                 $client->save();
 
                 $this->makeMovement($client->id, 'ENTRY', 'DEPOSIT', $userBalance, 'Deposito PIX');
