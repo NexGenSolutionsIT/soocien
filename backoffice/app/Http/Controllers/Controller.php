@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\LogApi;
 use App\Models\ProductModel;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -104,30 +105,11 @@ class Controller extends BaseController
     }
 
 
-    public function getProductsByCategory($categoryName, $perPage = 12)
+    public function log(string $title, string $response)
     {
-        return ProductModel::where('status', 'active')
-            ->whereHas('categoryName', function ($query) use ($categoryName) {
-                $query->where('name', $categoryName);
-            })
-            ->with('productPhotos')
-            ->with('categoryName')
-            ->paginate($perPage);
-    }
-    public function getProductsByCountry($countryName, $perPage = 12)
-    {
-        return ProductModel::where('status', 'active')
-            ->where('country', $countryName)
-            ->with('productPhotos')
-            ->with('categoryName')
-            ->paginate($perPage);
-    }
-    public function getProductsByGrape($grape, $perPage = 12)
-    {
-        return ProductModel::where('status', 'active')
-            ->where('grape', $grape)
-            ->with('productPhotos')
-            ->with('categoryName')
-            ->paginate($perPage);
+        $log = new LogApi();
+        $log->api = $title;
+        $log->response = $response;
+        $log->save();
     }
 }

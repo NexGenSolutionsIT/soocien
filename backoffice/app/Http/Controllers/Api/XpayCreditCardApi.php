@@ -76,6 +76,8 @@ class XpayCreditCardApi extends Controller
             'content-type' => 'application/json',
         ])->post($this->url . 'token', $data);
 
+        $this->log('xpay_credit_card_authorization', $response->body());
+
         return json_decode($response->body(), true);
     }
 
@@ -91,6 +93,8 @@ class XpayCreditCardApi extends Controller
             'authorizationToken' => $this->authorizationToken,
             'content-type' => 'application/json',
         ])->post($this->url . 'creditcard-payment/tokenize', $dataCard);
+
+        $this->log('xpay_credit_card_tokenizeCard', $response->body());
 
         return json_decode($response->body(), true);
     }
@@ -121,6 +125,8 @@ class XpayCreditCardApi extends Controller
             'content-type' => 'application/json',
         ])->post($this->url . 'creditcard-payment/charge', $dataToCharge);
 
+        $this->log('xpay_credit_card_makeCharge', $response->body());
+
         return json_decode($response->body(), true);
     }
 
@@ -131,11 +137,6 @@ class XpayCreditCardApi extends Controller
      */
     public function chargePayment(Request $request)
     {
-
-        $log = new LogApi();
-        $log->api = 'credit_card_header';
-        $log->response = json_encode($request);
-        $log->save();
 
         if ($request->header('X-API-SECRET') !== $this->apiSecretKey) {
             return response()->json(['error' => 'API SECRET Unauthorized'], 401);
@@ -201,11 +202,6 @@ class XpayCreditCardApi extends Controller
         }
 
         $validatedData = $validator->validated();
-
-        $log = new LogApi();
-        $log->api = 'credit_card_validate_data';
-        $log->response = json_encode($validatedData);
-        $log->save();
 
         $cardData = [
             'access_token' => $xpayAuthorization['access_token'],
@@ -330,6 +326,8 @@ class XpayCreditCardApi extends Controller
             'content-type' => 'application/json',
         ])->post('https://api-br.x-pay.app/v2/creditcard-payment/cancel', $data);
 
+        $this->log('xpay_credit_card_cancelCharge', $response->body());
+
         if (json_decode($response->body(), true)['message'] == 'Cancellation approved') {
             self::removeBalanceToUser($keysApi['client_id'], $validatedData['amount']);
         }
@@ -413,10 +411,7 @@ class XpayCreditCardApi extends Controller
         $orderCredit->is_approved = $data['is_approved'];
         $result = $orderCredit->save();
 
-        $log = new LogApi();
-        $log->api = 'credit_card_save_order_credit';
-        $log->response = json_encode($result);
-        $log->save();
+        $this->log('credit_card_save_order_credit', json_encode($result));
     }
 
     /**
@@ -431,10 +426,7 @@ class XpayCreditCardApi extends Controller
         $client->balance += $balance;
         $result = $client->save();
 
-        $log = new LogApi();
-        $log->api = 'credit_card_add_balance_user';
-        $log->response = json_encode($result);
-        $log->save();
+        $this->log('credit_card_addBalanceToUser', json_encode($result));
     }
 
     /**
@@ -447,6 +439,8 @@ class XpayCreditCardApi extends Controller
     {
         $client = $this->clientService->find($clientId);
         $client->balance -= $balance;
-        $client->save();
+        $result = $client->save();
+
+        $this->log('xpay_credit_card_removeBalanceToUser', $result);
     }
 }
