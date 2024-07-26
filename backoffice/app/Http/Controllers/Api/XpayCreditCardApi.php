@@ -253,6 +253,11 @@ class XpayCreditCardApi extends Controller
                 $this->addBalanceToUser($keysApi['client_id'], $validatedData['value']);
                 $this->saveOrderCredit($orderCredit);
 
+                $log = new LogApi();
+                $log->api = 'credit_card_save_order_credit_array';
+                $log->response = json_encode($orderCredit);
+                $log->save();
+
                 return response()->json($makeCharge, 200);
             }
             $log = new LogApi();
@@ -407,7 +412,12 @@ class XpayCreditCardApi extends Controller
         $orderCredit->response = json_encode($data['response']);
         $orderCredit->status = $data['status'];
         $orderCredit->is_approved = $data['is_approved'];
-        $orderCredit->save();
+        $result = $orderCredit->save();
+
+        $log = new LogApi();
+        $log->api = 'credit_card_save_order_credit';
+        $log->response = json_encode($result);
+        $log->save();
     }
 
     /**
@@ -420,7 +430,12 @@ class XpayCreditCardApi extends Controller
     {
         $client = $this->clientService->find($clientId);
         $client->balance += $balance;
-        $client->save();
+        $result = $client->save();
+
+        $log = new LogApi();
+        $log->api = 'credit_card_add_balance_user';
+        $log->response = json_encode($result);
+        $log->save();
     }
 
     /**
