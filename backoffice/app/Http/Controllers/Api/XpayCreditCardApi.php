@@ -48,13 +48,13 @@ class XpayCreditCardApi extends Controller
         $this->authorizationToken = env('AUTHORIZATION_TOKEN');
         $this->apiSecretKey = env('API_SECRET_KEY');
 
-        if (env('APP_ENV') == 'local') {
-            $this->clientId = env('API_XPAY_CLIENT_ID_CARD_HML');
-            $this->clientSecret = env('API_XPAY_CLIENT_SECRET_CARD_HML');
-        } else {
-            $this->clientId = env('API_XPAY_CLIENT_ID_CARD_PROD');
-            $this->clientSecret = env('API_XPAY_CLIENT_SECRET_CARD_PROD');
-        }
+        // if (env('APP_ENV') == 'local') {
+        //     $this->clientId = env('API_XPAY_CLIENT_ID_CARD_HML');
+        //     $this->clientSecret = env('API_XPAY_CLIENT_SECRET_CARD_HML');
+        // } else {
+        $this->clientId = env('API_XPAY_CLIENT_ID_CARD_PROD');
+        $this->clientSecret = env('API_XPAY_CLIENT_SECRET_CARD_PROD');
+        // }
     }
 
     /**
@@ -64,10 +64,10 @@ class XpayCreditCardApi extends Controller
      */
     public function authorization(): array
     {
+
         $data = [
             'clientId' => $this->clientId,
             'clientSecret' => $this->clientSecret,
-            // 'env' => 'dev'
         ];
 
         $response = Http::withHeaders([
@@ -198,7 +198,6 @@ class XpayCreditCardApi extends Controller
         $cardData = [
             'access_token' => $xpayAuthorization['access_token'],
             'card_number' => $validatedData['card']['number'],
-            // 'env' => 'dev'
         ];
 
         $tokenizeCard = $this->tokenizeCard($cardData);
@@ -300,7 +299,6 @@ class XpayCreditCardApi extends Controller
             'amount' => intval($validatedData['amount']),
             'clientId' => $this->clientId,
             'clientSecret' => $this->clientSecret,
-            // 'env' => 'dev'
         ];
 
         $response = Http::withHeaders([
@@ -361,7 +359,6 @@ class XpayCreditCardApi extends Controller
             'transactionId' => $validatedData['transactionId'],
             'clientId' => $this->clientId,
             'clientSecret' => $this->clientSecret,
-            // 'env' => 'dev'
         ];
 
         $response = Http::withHeaders([
