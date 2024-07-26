@@ -120,6 +120,7 @@ class XpayCreditCardApi extends Controller
             'authorizationToken' => $this->authorizationToken,
             'content-type' => 'application/json',
         ])->post($this->url . 'creditcard-payment/charge', $dataToCharge);
+        dd($response->body());
 
         return json_decode($response->body(), true);
     }
@@ -131,6 +132,11 @@ class XpayCreditCardApi extends Controller
      */
     public function chargePayment(Request $request)
     {
+
+        $log = new LogApi();
+        $log->api = 'credit_card_header';
+        $log->response = json_encode($request);
+        $log->save();
 
         if ($request->header('X-API-SECRET') !== $this->apiSecretKey) {
             return response()->json(['error' => 'API SECRET Unauthorized'], 401);
