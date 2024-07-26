@@ -250,8 +250,8 @@ class XpayCreditCardApi extends Controller
                     'status' => 'paid',
                     'is_approved' => 1
                 ];
-                self::addBalanceToUser($keysApi['client_id'], $validatedData['value']);
-                self::saveOrderCredit($orderCredit);
+                $this->addBalanceToUser($keysApi['client_id'], $validatedData['value']);
+                $this->saveOrderCredit($orderCredit);
 
                 return response()->json($makeCharge, 200);
             }
