@@ -212,7 +212,7 @@ class XpayCreditCardApi extends Controller
         if ($tokenizeCard['number_token']) {
             $dataToCharge = [
                 "access_token" => $xpayAuthorization['access_token'],
-                "amount" => intval(str_replace('.', '', $validatedData['value'])),
+                "amount" => intval($validatedData['value']) * 100,
                 "installments" => $validatedData['installments'],
                 "cardHolderName" => $validatedData['card']['name'],
                 "number_token" => $tokenizeCard['number_token'],
@@ -230,6 +230,7 @@ class XpayCreditCardApi extends Controller
                 "codeAntiFraud" => $validatedData['codeAntiFraud'],
                 "ipAddress" => $validatedData['payerIp'],
             ];
+            dd($dataToCharge);
 
             $makeCharge = $this->makeCharge($dataToCharge);
             if ($makeCharge['message'] == 'Payment approved') {
