@@ -230,7 +230,6 @@ class XpayCreditCardApi extends Controller
                 "codeAntiFraud" => $validatedData['codeAntiFraud'],
                 "ipAddress" => $validatedData['payerIp'],
             ];
-            dd($dataToCharge);
 
             $makeCharge = $this->makeCharge($dataToCharge);
             if ($makeCharge['message'] == 'Payment approved') {
