@@ -73,7 +73,12 @@ class Pix extends Controller
         $this->integrationApiUrl = "https://api-br.x-pay.app";
         $this->version = 'v2';
         $this->url = "{$this->integrationApiUrl}/{$this->version}/";
-        $this->urlPostBack = 'https://homolog.soocien.com/api/v1/webhook-pix';
+        if (env('APP_TEST') == true) {
+            $this->urlPostBack = 'https://homolog.soocien.com/api/v1/webhook-pix';
+        } else {
+            $this->urlPostBack = 'https://pay.soocien.com/api/v1/webhook-pix';
+        }
+
         $this->pix_key = '69655432-eafe-44b0-934c-3ebd6d6be06c';
     }
 
