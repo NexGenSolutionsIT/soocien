@@ -306,14 +306,11 @@ class XpayCreditCardApi extends Controller
 
         $validator = Validator::make($dataToCancelCharge->all(), $rules);
 
-
-
         if ($validator->fails()) {
             return response()->json(['error' => $validator->errors()], 422);
         }
 
         $validatedData = $validator->validated();
-
 
         $data = [
             'transactionId' => $validatedData['transactionId'],
@@ -424,7 +421,7 @@ class XpayCreditCardApi extends Controller
     public function addBalanceToUser(string $clientId, float $balance)
     {
         $fee = 12.79;
-        $amount =  $balance - ($balance * $fee / 100) ;    
+        $amount =  $balance - ($balance * $fee / 100);
         $diff = $amount - $balance;
 
         $admin = AdminModel::find(1);

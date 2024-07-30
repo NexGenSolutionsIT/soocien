@@ -285,17 +285,17 @@ class XpayPixApi extends Controller
                 $client = ClientModel::where('uuid', $client_uuid)->first();
 
                 $fee = 5.77 / 100;
-                $amount = $data['data']['Value'];                
+                $amount = $data['data']['Value'];
                 $fixedFee = 2;
 
-                if($data['data']['Value'] > 29.01){
+                if ($data['data']['Value'] > 29.01) {
                     $userBalance = $amount - ($amount * $fee);
                     $adminBalance =  $amount - $userBalance;
                 } else {
                     $adminBalance = $fixedFee;
                     $userBalance = $amount - $fixedFee;
-                }   
-                // dd($adminBalance, $userBalance);
+                }
+
                 $admin->balance += $adminBalance;
                 $client->balance += $userBalance;
                 $admin->save();

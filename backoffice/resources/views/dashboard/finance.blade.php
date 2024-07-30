@@ -91,7 +91,11 @@
                                             <p>{!! $item['description'] !!}</p>
                                         </div>
                                     </div>
-                                    @if ($item['type'] == 'ENTRY')
+                                    @if ($item['type'] == 'ENTRY' && $item['type_movement'] == 'CONVERSION')
+                                        <div class="transaction-card-det receive-money">
+                                            + USDT {{ number_format($item['amount'], '2', ',', '.') }}
+                                        </div>
+                                    @elseif($item['type'] == 'ENTRY' && $item['type_movement'] == 'DEPOSIT')
                                         <div class="transaction-card-det receive-money">
                                             + R$ {{ number_format($item['amount'], '2', ',', '.') }}
                                         </div>
@@ -173,7 +177,11 @@
                                         <p>{!! $item['description'] !!}</p>
                                     </div>
                                 </div>
-                                @if ($item['type'] == 'ENTRY')
+                                @if ($item['type'] == 'ENTRY' && $item['type_movement'] == 'CONVERSION')
+                                    <div class="transaction-card-det receive-money">
+                                        + USDT {{ number_format($item['amount'], '2', ',', '.') }}
+                                    </div>
+                                @elseif($item['type'] == 'ENTRY' && $item['type_movement'] == 'DEPOSIT')
                                     <div class="transaction-card-det receive-money">
                                         + R$ {{ number_format($item['amount'], '2', ',', '.') }}
                                     </div>
