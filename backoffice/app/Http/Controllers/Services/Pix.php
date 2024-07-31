@@ -259,8 +259,9 @@ class Pix extends Controller
         $orderId = null;
         if ($data['data']['Method'] == 'PixIn' && $data['data']['Status'] == 'Paid') {
             $order = PixApiModel::where('order_id', $data['data']['QRCodeInfos']['Identifier'])->first();
-            dd($order);
+
             if ($order) {
+                dd($order);
                 $order->status = 'approved';
                 $order->save();
                 $client_uuid = $order->client_uuid;
