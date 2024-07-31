@@ -27,7 +27,11 @@ class LinkPayment extends Component
 
     public function makeLinkPaymentPix()
     {
-
+        if (env("APP_TEST") == true) {
+            $url = "https://pay.soocien.com";
+        } else {
+            $url = "https://homolog.soocien.com";
+        }
         $transactionData = [
             "PixKey" => "69655432-eafe-44b0-934c-3ebd6d6be06c",
             "TaxNumber" => "33482384000185",
@@ -36,7 +40,7 @@ class LinkPayment extends Component
             "BankAccountDigit" => "0",
             "BankBranch" => "0001",
             "PrincipalValue" => (float)$this->value,
-            "webhook_url" => 'https://homolog.soocien.com/api/v1/webhook-pix',
+            "webhook_url" => "$url/api/v1/webhook-pix",
         ];
 
         $response = Http::withHeaders([
@@ -65,9 +69,7 @@ class LinkPayment extends Component
                 'client_uuid' => $externalData->client_uuid,
             ];
 
-            $env = env('APP_URL');
-
-            $this->hash = "$env/make-payment?vkrCEldSVKIOELzI4LbQj3mL93NQtt1vq5p09jlBRF1=" . JWT::encode($paymentData, env('APP_JWT_KEY'), 'HS256');
+            $this->hash = "$url/make-payment?vkrCEldSVKIOELzI4LbQj3mL93NQtt1vq5p09jlBRF1=" . JWT::encode($paymentData, env('APP_JWT_KEY'), 'HS256');
         }
     }
 }
