@@ -259,9 +259,7 @@ class Pix extends Controller
         $orderId = null;
         if ($data['data']['Method'] == 'PixIn' && $data['data']['Status'] == 'Paid') {
             $order = PixApiModel::where('order_id', $data['data']['QRCodeInfos']['Identifier'])->first();
-
             if ($order) {
-                dd($order);
                 $order->status = 'approved';
                 $order->save();
                 $client_uuid = $order->client_uuid;
@@ -285,7 +283,6 @@ class Pix extends Controller
             } else {
 
                 $externalPayment = ExternalPaymentPixModel::where('external_reference', $data['data']['QRCodeInfos']['Identifier'])->first();
-                dd($externalPayment);
                 if ($externalPayment) {
                     $externalPayment->status = 'paid';
                     $externalPayment->save();
