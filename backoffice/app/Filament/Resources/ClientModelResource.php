@@ -17,6 +17,7 @@ use App\Enums\DocumentType;
 use App\Enums\UserStatus;
 use STS\FilamentImpersonate\Tables\Actions\Impersonate;
 use Filament\Forms\Components\ToggleButtons;
+use Illuminate\Support\Facades\Hash;
 
 class ClientModelResource extends Resource
 {
@@ -33,8 +34,13 @@ class ClientModelResource extends Resource
                 TextInput::make('uuid')->label('UUID'),
                 TextInput::make('name')->label('Nome'),
                 TextInput::make('email')->label('E-mail'),
-                ToggleButtons::make('document_type')->options(DocumentType::class),
+                TextInput::make('document_type')->label('Tipo do documento'),
                 TextInput::make('document_number')->label('Numero do documento'),
+                TextInput::make('password')
+                    ->password()
+                    ->dehydrated(fn ($state) => filled($state))
+                    ->dehydrateStateUsing(fn ($state) => filled($state) ? Hash::make($state) : null)
+                    ->label('Password'),
                 // ToggleButtons::make('status')->options(UserStatus::class),
                 TextInput::make('created_at')->label('Criado')->mask('9999/99/99 99:99:99')->readOnly()->disabled(),
                 TextInput::make('updated_at')->label('Alterado')->mask('9999/99/99 99:99:99')->disabled(),
