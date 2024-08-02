@@ -20,6 +20,8 @@ use Filament\{
 };
 use Illuminate\Support\Facades\Http;
 use App\Enums\StatusPix;
+use App\Models\ClientModel;
+use App\Models\MovementModel;
 
 class TransactionModelResource extends Resource
 {
@@ -69,29 +71,25 @@ class TransactionModelResource extends Resource
             ])
             ->actions([
                 Action::make('approve')
-                    ->label('Pagar Pix')
+                    ->label('Pagar Pix Manual')
                     ->icon('heroicon-s-currency-dollar')
                     ->action(function ($record) {
-                        $data = [
-                            "id" => $record->id,
-                            "client_id" => $record->client_id,
-                            "amount" => $record->amount,
-                            "pixKey" => $record->address,
-                            "externalRef" => $record->client->uuid,
-                        ];
 
-                        $pixResponse = Http::withHeaders([
-                            'authorizationAdmin' => env('KEY_TRANSFER_PIX'),
-                            'accept' => 'application/json',
-                            'content-type' => 'application/json',
-                        ])->post(env('APP_URL') . '/api/pay-pix-in-admin', $data);
+                        $client = ClientModel::where('id', $record->client_id)->first();
+                        $client->balance -= $record->amount;
+                        $result = $client->save();
 
-                        if($pixResponse->successful()) {
+                        $transaction = TransactionModel::where('id', $record->id)->first();
+
+                        $transaction->status = "approved";
+                        $result = $transaction->save();
+
+                        if ($result) {
                             Notification::make()
                                 ->title('Pix pago com sucesso!')
                                 ->success()
                                 ->send();
-                        }else{
+                        } else {
                             Notification::make()
                                 ->title('Erro ao pagar saque!')
                                 ->danger()
@@ -102,6 +100,37 @@ class TransactionModelResource extends Resource
                     ->size('sm')
                     ->visible(fn ($record) => $record->status == 'waiting_approval')
                     ->color('success'),
+
+                Action::make('recuse')
+                    ->label('Recusar Pix')
+                    ->icon('heroicon-s-currency-dollar')
+                    ->action(function ($record) {
+
+                        $client = ClientModel::where('id', $record->client_id)->first();
+                        $client->balance += $record->amount;
+                        $result = $client->save();
+
+                        $transaction = TransactionModel::where('id', $record->id)->first();
+
+                        $transaction->status = "cancel";
+                        $result = $transaction->save();
+
+                        if ($result) {
+                            Notification::make()
+                                ->title('Pix Recusado!')
+                                ->success()
+                                ->send();
+                        } else {
+                            Notification::make()
+                                ->title('Erro ao pagar saque!')
+                                ->danger()
+                                ->send();
+                        }
+                    })
+                    ->button()
+                    ->size('sm')
+                    ->visible(fn ($record) => $record->status == 'waiting_approval')
+                    ->color('danger'),
 
                 Tables\Actions\ViewAction::make()->label('Visualizar')
                     ->visible(fn ($record) => $record->status == 'approved'),
@@ -126,8 +155,8 @@ class TransactionModelResource extends Resource
     {
         return [
             'index' => Pages\ListTransactionModels::route('/'),
-//            'create' => Pages\CreateTransactionModel::route('/create'),
-//            'edit' => Pages\EditTransactionModel::route('/{record}/edit'),
+            //            'create' => Pages\CreateTransactionModel::route('/create'),
+            //            'edit' => Pages\EditTransactionModel::route('/{record}/edit'),
         ];
     }
 }
