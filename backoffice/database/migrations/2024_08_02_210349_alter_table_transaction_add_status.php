@@ -12,7 +12,6 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('transactions', function (Blueprint $table) {
-            $table->enum('status', ['approved', 'cancel', 'waiting_approval'])->default('waiting_approval');
             $table->string('external_reference')->default("NULL");
         });
     }
