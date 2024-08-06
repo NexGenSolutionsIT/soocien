@@ -278,9 +278,19 @@
                                     </div>
                                     <div class="transaction-info-text">
                                         <h3>CONVERSÃO</h3>
+                                        {{-- @if ($item['status'] == 'completed')
+                                            <p class="badge-success">Completo</p>
+                                        @elseif($item['status'] == 'pending')
+                                            <p class="badge-warning">Pendente</p>
+                                        @elseif($item['status'] == 'canceled')
+                                            <p class="badge-danger">Cancelado</p>
+                                        @endif --}}
                                         <p>{!! $item['description'] !!}</p>
                                     </div>
                                 </div>
+                                {{-- <p class="badge-success">Completo</p>
+                                <p class="badge-warning">Pendente</p>
+                                <p class="badge-danger">Cancelado</p> --}}
                                 @if ($item['type'] == 'ENTRY')
                                     <div class="transaction-card-det receive-money">
                                         + USDT {{ number_format($item['amount'], '2', ',', '.') }}
@@ -553,14 +563,14 @@
                                     placeholder="Digite o valor a ser depositado" />
                             </div>
                             <!-- <div class="form-group mb-15">
-                                                                                                                                                                                                             <label for="input7" class="form-label">To</label>
-                                                                                                                                                                                                             <input
-                                                                                                                                                                                                              type="email"
-                                                                                                                                                                                                              class="form-control"
-                                                                                                                                                                                                              id="input7"
-                                                                                                                                                                                                              placeholder="Bank ID"
-                                                                                                                                                                                                             />
-                                                                                                                                                                                                            </div> -->
+                                                                                                                                                                                                                                     <label for="input7" class="form-label">To</label>
+                                                                                                                                                                                                                                     <input
+                                                                                                                                                                                                                                      type="email"
+                                                                                                                                                                                                                                      class="form-control"
+                                                                                                                                                                                                                                      id="input7"
+                                                                                                                                                                                                                                      placeholder="Bank ID"
+                                                                                                                                                                                                                                     />
+                                                                                                                                                                                                                                    </div> -->
                             <div class="form-group mb-15">
                                 <label for="input8" class="form-label">Digite a chave para voce depositar</label>
                                 <input type="email" class="form-control" id="input8"

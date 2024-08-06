@@ -284,17 +284,13 @@ class XpayPixApi extends Controller
                 $admin = AdminModel::find(1);
                 $client = ClientModel::where('uuid', $client_uuid)->first();
 
-                $fee = 5.77 / 100;
-                $amount = $data['data']['Value'];
-                $fixedFee = 2;
-
-                if ($data['data']['Value'] > 29.01) {
-                    $userBalance = $amount - ($amount * $fee);
-                    $adminBalance =  $amount - $userBalance;
+                if ($data['data']['Value'] < 29.00) {
+                    $adminBalance = 2.00;
                 } else {
-                    $adminBalance = $fixedFee;
-                    $userBalance = $amount - $fixedFee;
+                    $adminBalance = ($data['data']['Value'] * 5.77) / 100;
                 }
+
+                $userBalance = $data['data']['Value'] - $adminBalance;
 
                 $admin->balance += $adminBalance;
                 $client->balance += $userBalance;
@@ -303,7 +299,7 @@ class XpayPixApi extends Controller
 
                 $this->makeMovement($client->id, 'ENTRY', 'DEPOSIT', $userBalance, 'Deposito PIX');
 
-                $description = 'Voce realizou um deposito total via PIX no valor de: R$' . number_format($data['data']['Value'], 2, ',', '.') . ' (Valor total retirando as taxas)';
+                $description = 'Entrada PIX no valor de: R$' . number_format($data['data']['Value'], 2, ',', '.') . ' (Valor total retirando as taxas)';
                 $this->makeNotification($client->id, $userBalance, 'Deposito PIX', $description);
 
                 Http::post($order->url_webhook, $data);

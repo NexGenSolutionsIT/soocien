@@ -85,6 +85,11 @@ class TransactionModelResource extends Resource
                         $result = $transaction->save();
 
                         if ($result) {
+
+                            $movement = MovementModel::where('external_reference', $record->id)->first();
+                            $movement->status = 'completed';
+                            $movement->save();
+
                             Notification::make()
                                 ->title('Pix pago com sucesso!')
                                 ->success()
@@ -106,9 +111,9 @@ class TransactionModelResource extends Resource
                     ->icon('heroicon-s-currency-dollar')
                     ->action(function ($record) {
 
-                        $client = ClientModel::where('id', $record->client_id)->first();
-                        $client->balance += $record->amount;
-                        $result = $client->save();
+                        // $client = ClientModel::where('id', $record->client_id)->first();
+                        // $client->balance += $record->amount;
+                        // $result = $client->save();
 
                         $transaction = TransactionModel::where('id', $record->id)->first();
 
@@ -116,6 +121,11 @@ class TransactionModelResource extends Resource
                         $result = $transaction->save();
 
                         if ($result) {
+
+                            $movement = MovementModel::where('external_reference', $record->id)->first();
+                            $movement->status = 'rejected';
+                            $movement->save();
+
                             Notification::make()
                                 ->title('Pix Recusado!')
                                 ->success()

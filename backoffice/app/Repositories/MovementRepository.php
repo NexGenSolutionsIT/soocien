@@ -43,6 +43,7 @@ class MovementRepository implements MovementsInterface
         $result = $this->model
             ->where('client_id', $userId)
             ->where('type', '=', 'ENTRY')
+            ->where('type_movement', '!=', "CONVERSION")
             ->latest('created_at')
             ->first();
 

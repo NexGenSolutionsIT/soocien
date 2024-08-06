@@ -226,6 +226,16 @@ class Pix extends Controller
                 $transaction->status = 'waiting_approval';
                 $transaction->save();
 
+                $movement = new MovementModel();
+                $movement->client_id = Auth::guard('client')->user()->id;
+                $movement->type = 'EXIT';
+                $movement->type_movement = 'TRANSFER';
+                $movement->amount = $request->amount;
+                $movement->description = 'Transação PIX realizada com sucesso! Aguardando aprovação! Iremos verificar os detalhes e processar a transação. Pode levar algum tempo para o dinheiro estar disponível em sua conta de destino.';
+                $movement->status = 'pending';
+                $movement->external_reference = $transaction->id;
+                $movement->save();
+
                 Toastr('Transação PIX realizada com sucesso! Aguardando aprovação! Iremos verificar os detalhes e processar a transação. Pode levar algum tempo para o dinheiro estar disponível em sua conta de destino.');
                 return redirect()->back();
             } catch (\Exception $e) {
@@ -289,19 +299,19 @@ class Pix extends Controller
 
                     $client_uuid = $externalPayment->client_uuid;
 
-                    $admin = AdminModel::find(1);
-                    $adminBalance = ($data['data']['Value'] * 20) / 100;
-                    $admin->balance += $adminBalance;
-                    $admin->save();
+                    // $admin = AdminModel::find(1);
+                    // $adminBalance = ($data['data']['Value'] * 20) / 100;
+                    // $admin->balance += $adminBalance;
+                    // $admin->save();
 
                     $client = ClientModel::where('uuid', $client_uuid)->first();
-                    $userBalance = ($data['data']['Value'] * 80) / 100;
+                    $userBalance = $data['data']['Value'];
                     $client->balance += $userBalance;
                     $client->save();
 
                     $this->makeMovement($client->id, 'ENTRY', 'DEPOSIT', $userBalance, 'Pagamento externo realizado por: ' . $data['data']['FromName']);
 
-                    $description = 'Pagamento externo realizado com sucesso por: ' . $data['data']['FromName'] . ' No valor de: R$' . number_format($data['data']['value'], 2, ',', '.');
+                    $description = 'Pagamento externo realizado com sucesso por: ' . $data['data']['FromName'] . ' No valor de: R$' . number_format($data['data']['Value'], 2, ',', '.');
                     $this->makeNotification($client->id, $userBalance, 'Pagamento Externo', $description);
 
                     return response()->json(['message' => 'Webhook received'], 200);
