@@ -27,7 +27,7 @@ class LinkPayment extends Component
 
     public function makeLinkPaymentPix()
     {
-        if (env("APP_TEST") == false) {
+        if (env("APP_TEST") == true) {
             $url = "https://homolog.soocien.com";
         } else {
             $url = "https://pay.soocien.com";
