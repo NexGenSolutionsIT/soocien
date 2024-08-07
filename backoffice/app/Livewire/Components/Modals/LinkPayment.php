@@ -27,11 +27,12 @@ class LinkPayment extends Component
 
     public function makeLinkPaymentPix()
     {
-        if (env("APP_TEST") == true) {
-            $url = "https://pay.soocien.com";
-        } else {
+        if (env("APP_TEST") == false) {
             $url = "https://homolog.soocien.com";
+        } else {
+            $url = "https://pay.soocien.com";
         }
+
         $transactionData = [
             "PixKey" => "69655432-eafe-44b0-934c-3ebd6d6be06c",
             "TaxNumber" => "33482384000185",
