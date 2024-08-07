@@ -32,7 +32,8 @@ class PixCreateJob implements ShouldQueue
     public function handle(): void
     {
         try {
-            PixApiModel::create([
+            $result = PixApiModel::create([
+
                 'client_uuid' => $this->data['client_uuid'],
                 'txId' => $this->data['txId'],
                 'order_id' => $this->data['order_id'],

@@ -133,7 +133,6 @@ class Pix extends Controller
             'content-type' => 'application/json',
         ])->post($this->url . 'pix/create', $this->dataToPix($validatedData['value']));
 
-
         if ($response->status() == 201) {
             $data = [
                 "pixCopy" => $response['qrCodeData']['QRCodeCopiaeCola'],
@@ -149,7 +148,7 @@ class Pix extends Controller
                 "external_reference" => $response['qrCodeData']['Identifier'],
                 "status" => 'pending',
                 "qrcode" => $response['qrCodeData']['QRCodeBase64'],
-
+                "url_webhook" => $this->urlPostBack,
                 "expirationDate" => 1,
                 "created_at" => now(),
             ];
