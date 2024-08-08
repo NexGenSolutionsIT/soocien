@@ -139,6 +139,8 @@ class XpayCreditCardApi extends Controller
     public function chargePayment(Request $request)
     {
 
+        $this->log('xpay_credit_card_receive_data', json_encode($request->all()));
+
         if ($request->header('X-API-SECRET') !== $this->apiSecretKey) {
             return response()->json(['error' => 'API SECRET Unauthorized'], 401);
         }
@@ -249,21 +251,17 @@ class XpayCreditCardApi extends Controller
                 $this->addBalanceToUser($keysApi['client_id'], $validatedData['value']);
                 $this->saveOrderCredit($orderCredit);
 
-                $log = new LogApi();
-                $log->api = 'credit_card_save_order_credit_array';
-                $log->response = json_encode($orderCredit);
-                $log->save();
+                $this->log('credit_card_save_order_credit_array', json_encode($orderCredit));
 
                 return response()->json($makeCharge, 200);
             }
-            $log = new LogApi();
-            $log->api = 'credit_card_make_charge';
+
             $array = [
                 'data_to_charge' => $dataToCharge,
                 'make_charge' => $makeCharge
             ];
-            $log->response = json_encode($validatedData);
-            $log->save();
+
+            $this->log('xpay_credit_card_make_charge', json_encode($array));
             return response()->json(['error' => 'Payment was not processed.'], 401);
         }
         return response()->json(['error' => 'Payment was not processed.'], 401);
