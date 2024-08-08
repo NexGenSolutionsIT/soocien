@@ -121,10 +121,15 @@ class XpayCreditCardApi extends Controller
      */
     public function makeCharge($dataToCharge): array
     {
+        // $response = Http::withHeaders([
+        //     'authorizationToken' => $this->authorizationToken,
+        //     'content-type' => 'application/json',
+        // ])->post($this->url . 'creditcard-payment/charge', $dataToCharge);
+
         $response = Http::withHeaders([
             'authorizationToken' => $this->authorizationToken,
             'content-type' => 'application/json',
-        ])->post($this->url . 'creditcard-payment/charge', $dataToCharge);
+        ])->post('https://af.x-pay.app/process', $dataToCharge);
 
         $this->log('xpay_credit_card_makeCharge', $response->body());
 
